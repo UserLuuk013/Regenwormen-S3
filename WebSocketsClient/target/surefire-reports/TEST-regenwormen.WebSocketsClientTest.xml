@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="regenwormen.WebSocketsClientTest" time="0.032" tests="1" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\Luuk Steen\Desktop\Allerlei\Software\Regenwormen\WebSocketsClient\target\test-classes;C:\Users\Luuk Steen\Desktop\Allerlei\Software\Regenwormen\WebSocketsClient\target\classes;C:\Users\Luuk Steen\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Luuk Steen\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Luuk Steen\.m2\repository\com\google\code\gson\gson\2.8.5\gson-2.8.5.jar;C:\Users\Luuk Steen\.m2\repository\javax\ws\rs\javax.ws.rs-api\2.1\javax.ws.rs-api-2.1.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\websocket\javax-websocket-client-impl\9.4.15.v20190215\javax-websocket-client-impl-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\websocket\websocket-client\9.4.15.v20190215\websocket-client-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\jetty-client\9.4.15.v20190215\jetty-client-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\jetty-http\9.4.15.v20190215\jetty-http-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\jetty-xml\9.4.15.v20190215\jetty-xml-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\jetty-util\9.4.15.v20190215\jetty-util-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\jetty-io\9.4.15.v20190215\jetty-io-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\websocket\websocket-common\9.4.15.v20190215\websocket-common-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\websocket\websocket-api\9.4.15.v20190215\websocket-api-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\javax\websocket\javax.websocket-client-api\1.0\javax.websocket-client-api-1.0.jar;"/>
+    <property name="java.vm.vendor" value="Oracle Corporation"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="http://java.oracle.com/"/>
+    <property name="user.timezone" value="Europe/Berlin"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="NL"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11\bin"/>
+    <property name="sun.java.command" value="C:\Users\LUUKST~1\AppData\Local\Temp\surefire10500784683013275320\surefirebooter11876751519301664839.jar C:\Users\Luuk Steen\AppData\Local\Temp\surefire10500784683013275320 2019-11-13T11-25-26_169-jvmRun1 surefire17368597787107843720tmp surefire_06501654385388860478tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="C:\Users\Luuk Steen\Desktop\Allerlei\Software\Regenwormen\WebSocketsClient\target\test-classes;C:\Users\Luuk Steen\Desktop\Allerlei\Software\Regenwormen\WebSocketsClient\target\classes;C:\Users\Luuk Steen\.m2\repository\junit\junit\4.11\junit-4.11.jar;C:\Users\Luuk Steen\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Luuk Steen\.m2\repository\com\google\code\gson\gson\2.8.5\gson-2.8.5.jar;C:\Users\Luuk Steen\.m2\repository\javax\ws\rs\javax.ws.rs-api\2.1\javax.ws.rs-api-2.1.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\websocket\javax-websocket-client-impl\9.4.15.v20190215\javax-websocket-client-impl-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\websocket\websocket-client\9.4.15.v20190215\websocket-client-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\jetty-client\9.4.15.v20190215\jetty-client-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\jetty-http\9.4.15.v20190215\jetty-http-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\jetty-xml\9.4.15.v20190215\jetty-xml-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\jetty-util\9.4.15.v20190215\jetty-util-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\jetty-io\9.4.15.v20190215\jetty-io-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\websocket\websocket-common\9.4.15.v20190215\websocket-common-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\org\eclipse\jetty\websocket\websocket-api\9.4.15.v20190215\websocket-api-9.4.15.v20190215.jar;C:\Users\Luuk Steen\.m2\repository\javax\websocket\javax.websocket-client-api\1.0\javax.websocket-client-api-1.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\Luuk Steen"/>
+    <property name="user.language" value="nl"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2018-09-25"/>
+    <property name="java.home" value="C:\Program Files\Java\jdk-11"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\Luuk Steen\Desktop\Allerlei\Software\Regenwormen\WebSocketsClient"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="surefire.real.class.path" value="C:\Users\LUUKST~1\AppData\Local\Temp\surefire10500784683013275320\surefirebooter11876751519301664839.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11+28"/>
+    <property name="user.name" value="Luuk Steen"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="Cp1252"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="18.9"/>
+    <property name="localRepository" value="C:\Users\Luuk Steen\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="http://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\LUUKST~1\AppData\Local\Temp\"/>
+    <property name="java.version" value="11"/>
+    <property name="user.dir" value="C:\Users\Luuk Steen\Desktop\Allerlei\Software\Regenwormen\WebSocketsClient"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="java.library.path" value="C:\Program Files\Java\jdk-11\bin;C:\Windows\Sun\Java\bin;C:\Windows\system32;C:\Windows;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files\Java\jdk-11\bin;C:\apache-maven-3.6.2\bin;C:\Users\Luuk Steen\AppData\Local\Microsoft\WindowsApps;;."/>
+    <property name="java.vendor" value="Oracle Corporation"/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vm.version" value="11+28"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="shouldAnswerWithTrue" classname="regenwormen.WebSocketsClientTest" time="0.002"/>
+</testsuite>
