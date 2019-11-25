@@ -11,6 +11,7 @@
     <modules>
         <module>WebSocketsClient</module>
         <module>WebSocketsServer</module>
+        <module>RegenwormenShared</module>
     </modules>
 
 
