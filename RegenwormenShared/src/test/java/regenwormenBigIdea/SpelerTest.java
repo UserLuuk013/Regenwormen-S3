@@ -19,6 +19,16 @@ public class SpelerTest {
     }
 
     @Test
+    public void testSpelerIsNotNull(){
+        // Arrange
+
+        // Act
+
+        // Assert
+        Assert.assertNotNull(speler);
+    }
+
+    @Test
     public void testSpelerInloggen(){
         // Arrange
 
@@ -41,7 +51,6 @@ public class SpelerTest {
     @Test
     public void testSpelerDobbelen(){
         // Arrange
-        ArrayList<Dobbelsteen> dobbelstenen = new ArrayList<>();
         int expected = 8;
         // Act
         ArrayList<Dobbelsteen> actualList = speler.Dobbelen(8);
@@ -53,23 +62,43 @@ public class SpelerTest {
     @Test
     public void testSpelerAfleggen(){
         // Arrange
-        ArrayList<Dobbelsteen> dobbelstenen = new ArrayList<>();
-        int waarde = 1;
-        int expected = 0;
+        ArrayList<Dobbelsteen> afgelegdeDobbelstenen = new ArrayList<>();
+        afgelegdeDobbelstenen.add(new Dobbelsteen(1, false));
         // Act
-        ArrayList<Dobbelsteen> actualList = speler.Afleggen(dobbelstenen, waarde);
+        ArrayList<Dobbelsteen> geworpenDobbelstenen = speler.Dobbelen(7);
+        ArrayList<Dobbelsteen> actualList = speler.Afleggen(geworpenDobbelstenen, afgelegdeDobbelstenen, new Dobbelsteen(5, false));
         int actual = actualList.size();
         // Assert
-        Assert.assertEquals(expected, actual);
+        Assert.assertNotEquals(7, actual);
     }
 
     @Test
     public void testSpelerBeëindigen(){
         // Arrange
-        boolean expected = true;
         // Act
         boolean actual = speler.Beëindigen();
         // Assert
-        Assert.assertEquals(expected, actual);
+        Assert.assertTrue(actual);
+    }
+
+    @Test
+    public void testSpelerCheckIfTegelIsNeembaar(){
+        // Arrange
+        int worpresultaat = 25;
+        int aantalregenwormen = 2;
+        // Act
+        boolean actual = speler.CheckIfTegelIsNeembaar(worpresultaat, aantalregenwormen);
+        // Assert
+        Assert.assertTrue(actual);
+    }
+
+    @Test
+    public void testSpelerInleveren(){
+        // Arrange
+
+        // Act
+        boolean actual = speler.Inleveren();
+        // Assert
+        Assert.assertTrue(actual);
     }
 }
