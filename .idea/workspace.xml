@@ -32,6 +32,11 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../WhiteBoardWebsocketsExample-master" />
   </component>
+  <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="regenwormenshared" />
+    </key>
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -44,7 +49,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.WebSocketsClient">
+  <component name="RunManager" selected="JUnit.SpelerTest">
     <configuration name="WebSocketsClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="websocketsclient.WebSocketsClient" />
       <module name="WebSocketsClient" />
@@ -58,23 +63,77 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WebSocketsServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="websocketsserver.WebSocketsServer" />
-      <module name="WebSocketsServer" />
+    <configuration name="SpelerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RegenwormenShared" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="websocketsserver.*" />
+          <option name="PATTERN" value="regenwormenBigIdea.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="regenwormenBigIdea" />
+      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.SpelerTest" />
+      <option name="METHOD_NAME" value="testSpelerInloggen" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpelerTest.testSpelerDobbelen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RegenwormenShared" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="regenwormenBigIdea.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="regenwormenBigIdea" />
+      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.SpelerTest" />
+      <option name="METHOD_NAME" value="testSpelerDobbelen" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpelerTest.testSpelerInloggen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RegenwormenShared" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="regenwormenBigIdea.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="regenwormenBigIdea" />
+      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.SpelerTest" />
+      <option name="METHOD_NAME" value="testSpelerInloggen" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpelerTest.testSpelerRegistreren" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RegenwormenShared" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="regenwormenBigIdea.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="regenwormenBigIdea" />
+      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.SpelerTest" />
+      <option name="METHOD_NAME" value="testSpelerRegistreren" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.SpelerTest" />
+        <item itemvalue="JUnit.SpelerTest.testSpelerRegistreren" />
+        <item itemvalue="JUnit.SpelerTest.testSpelerDobbelen" />
+        <item itemvalue="JUnit.SpelerTest.testSpelerInloggen" />
         <item itemvalue="Application.WebSocketsClient" />
-        <item itemvalue="Application.WebSocketsServer" />
       </list>
     </recent_temporary>
   </component>
@@ -92,6 +151,7 @@
       <workItem from="1573550479302" duration="1548000" />
       <workItem from="1574669011022" duration="9745000" />
       <workItem from="1574842765813" duration="23000" />
+      <workItem from="1575273554533" duration="10956000" />
     </task>
     <servers />
   </component>
@@ -110,5 +170,16 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Worp.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
