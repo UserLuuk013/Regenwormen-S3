@@ -5,10 +5,6 @@ import java.util.Random;
 
 public class Worp {
 
-    public Worp() {
-        
-    }
-
     public ArrayList<Dobbelsteen> GenereerWorp(int aantal) {
         ArrayList<Dobbelsteen> dobbelstenen = new ArrayList<>();
         for (int i = 0; i < aantal; i++){

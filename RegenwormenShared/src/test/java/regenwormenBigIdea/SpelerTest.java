@@ -5,7 +5,7 @@ import org.junit.Before;
 import org.junit.Test;
 import regenwormenshared.Dobbelsteen;
 import regenwormenshared.Speler;
-import regenwormenshared.Worp;
+import regenwormenshared.Tegel;
 
 import java.util.ArrayList;
 
@@ -73,8 +73,32 @@ public class SpelerTest {
     }
 
     @Test
+    public void testSpelerCheckIfDobbelsteenMagAfleggenTrue(){
+        // Arrange
+        ArrayList<Dobbelsteen> afgelegdeDobbelstenen = new ArrayList<>();
+        afgelegdeDobbelstenen.add(new Dobbelsteen(1, false));
+        // Act
+        boolean actual = speler.CheckIfDobbelsteenMagAfleggen(afgelegdeDobbelstenen, new Dobbelsteen(2, false));
+        // Assert
+        Assert.assertTrue(actual);
+    }
+
+    @Test
+    public void testSpelerCheckIfDobbelsteenMagAfleggenFalse(){
+        // Arrange
+        ArrayList<Dobbelsteen> afgelegdeDobbelstenen = new ArrayList<>();
+        Dobbelsteen gekozenDobbelsteen = new Dobbelsteen(1, false);
+        afgelegdeDobbelstenen.add(gekozenDobbelsteen);
+        // Act
+        boolean actual = speler.CheckIfDobbelsteenMagAfleggen(afgelegdeDobbelstenen, gekozenDobbelsteen);
+        // Assert
+        Assert.assertFalse(actual);
+    }
+
+    @Test
     public void testSpelerBeëindigen(){
         // Arrange
+
         // Act
         boolean actual = speler.Beëindigen();
         // Assert
@@ -82,23 +106,68 @@ public class SpelerTest {
     }
 
     @Test
-    public void testSpelerCheckIfTegelIsNeembaar(){
+    public void testSpelerNemenReturnsTrue(){
         // Arrange
-        int worpresultaat = 25;
-        int aantalregenwormen = 2;
+        ArrayList<Dobbelsteen> geworpenDobbelstenen = new ArrayList<>();
+
+        geworpenDobbelstenen.add(new Dobbelsteen(4, false));
+        geworpenDobbelstenen.add(new Dobbelsteen(4, false));
+        geworpenDobbelstenen.add(new Dobbelsteen(5, true));
+        geworpenDobbelstenen.add(new Dobbelsteen(4, false));
+        geworpenDobbelstenen.add(new Dobbelsteen(5, false));
+
+        Tegel gekozenTegel = new Tegel(21, true);
         // Act
-        boolean actual = speler.CheckIfTegelIsNeembaar(worpresultaat, aantalregenwormen);
+        boolean actual = speler.Nemen(geworpenDobbelstenen, gekozenTegel);
         // Assert
         Assert.assertTrue(actual);
     }
 
     @Test
+    public void testSpelerNemenReturnsFalseOnRegenworm(){
+        // Arrange
+        ArrayList<Dobbelsteen> geworpenDobbelstenen = new ArrayList<>();
+
+        geworpenDobbelstenen.add(new Dobbelsteen(4, false));
+        geworpenDobbelstenen.add(new Dobbelsteen(5, false));
+        geworpenDobbelstenen.add(new Dobbelsteen(4, false));
+        geworpenDobbelstenen.add(new Dobbelsteen(5, false));
+        geworpenDobbelstenen.add(new Dobbelsteen(5, false));
+
+        Tegel gekozenTegel = new Tegel(21, true);
+        // Act
+        boolean actual = speler.Nemen(geworpenDobbelstenen, gekozenTegel);
+        // Assert
+        Assert.assertFalse(actual);
+    }
+
+    @Test
+    public void testSpelerNemenReturnsFalseOnWaarde(){
+        // Arrange
+        ArrayList<Dobbelsteen> geworpenDobbelstenen = new ArrayList<>();
+
+        geworpenDobbelstenen.add(new Dobbelsteen(4, false));
+        geworpenDobbelstenen.add(new Dobbelsteen(4, false));
+        geworpenDobbelstenen.add(new Dobbelsteen(5, true));
+        geworpenDobbelstenen.add(new Dobbelsteen(4, false));
+        geworpenDobbelstenen.add(new Dobbelsteen(5, false));
+
+        Tegel gekozenTegel = new Tegel(28, true);
+        // Act
+        boolean actual = speler.Nemen(geworpenDobbelstenen, gekozenTegel);
+        // Assert
+        Assert.assertFalse(actual);
+    }
+
+    @Test
     public void testSpelerInleveren(){
         // Arrange
-
+        ArrayList<Tegel> rij = new ArrayList<>();
+        ArrayList<Tegel> stapel = new ArrayList<>();
+        stapel.add(new Tegel(28, true));
         // Act
-        boolean actual = speler.Inleveren();
+        ArrayList<Tegel> actual = speler.Inleveren(rij, stapel);
         // Assert
-        Assert.assertTrue(actual);
+        Assert.assertEquals(1, actual.size());
     }
 }

@@ -22,49 +22,69 @@ public class Speler {
     }
 
     public ArrayList<Dobbelsteen> Dobbelen(int aantal) {
-        Worp worp = new Worp();
-        ArrayList<Dobbelsteen> geworpenDobbelstenen = worp.GenereerWorp(aantal);
-        return geworpenDobbelstenen;
+        if (CheckIfMagDobbelen(aantal)){
+            Worp worp = new Worp();
+            return worp.GenereerWorp(aantal);
+        }
+        // return null solve.
+        return null;
+    }
+
+    public boolean CheckIfMagDobbelen(int aantal){
+        if (aantal > 0){
+            return true;
+        }
+        return false;
     }
 
     public ArrayList<Dobbelsteen> Afleggen(ArrayList<Dobbelsteen> geworpenDobbelstenen, ArrayList<Dobbelsteen> afgelegdeDobbelstenen, Dobbelsteen gekozenDobbelsteen) {
-        ArrayList<Dobbelsteen> toRemove = new ArrayList<>();
-        for (Dobbelsteen afgelegdeDobbelsteen : afgelegdeDobbelstenen){
-            if (afgelegdeDobbelsteen.getWaarde() != gekozenDobbelsteen.getWaarde() || afgelegdeDobbelsteen.getRegenworm() != gekozenDobbelsteen.getRegenworm()){
-                for (Dobbelsteen geworpenDobbelsteen : geworpenDobbelstenen){
-                    if (geworpenDobbelsteen.getWaarde() == gekozenDobbelsteen.getWaarde() && geworpenDobbelsteen.getRegenworm() == gekozenDobbelsteen.getRegenworm()){
-                        toRemove.add(geworpenDobbelsteen);
-                    }
+        ArrayList<Dobbelsteen> gekozenDobbelstenen = new ArrayList<>();
+        if (CheckIfDobbelsteenMagAfleggen(afgelegdeDobbelstenen, gekozenDobbelsteen)){
+            for (Dobbelsteen geworpenDobbelsteen : geworpenDobbelstenen){
+                if (geworpenDobbelsteen.getWaarde() == gekozenDobbelsteen.getWaarde() && geworpenDobbelsteen.getRegenworm() == gekozenDobbelsteen.getRegenworm()){
+                    gekozenDobbelstenen.add(geworpenDobbelsteen);
                 }
-                geworpenDobbelstenen.removeAll(toRemove);
             }
+            afgelegdeDobbelstenen.addAll(gekozenDobbelstenen);
+            geworpenDobbelstenen.removeAll(gekozenDobbelstenen);
         }
         return geworpenDobbelstenen;
+        // Returning multiple items -> Class?
     }
 
-    public boolean CheckIfDobbelsteenMagAfleggen(ArrayList<Dobbelsteen> afgelegdeDobbelstenen, int waarde){
-        for (Dobbelsteen dobbelsteen : afgelegdeDobbelstenen){
-            if (dobbelsteen.getWaarde() == waarde){
-                return false;
-            }
+    public boolean CheckIfDobbelsteenMagAfleggen(ArrayList<Dobbelsteen> afgelegdeDobbelstenen, Dobbelsteen gekozenDobbelsteen){
+        if (!afgelegdeDobbelstenen.contains(gekozenDobbelsteen)){
+            return true;
         }
-        return true;
+        return false;
     }
 
     public boolean Beëindigen() {
         return true;
     }
 
-    public boolean CheckIfTegelIsNeembaar(int worpresultaat, int aantalregenwormen) {
-        if (aantalregenwormen > 0){
-            if (worpresultaat > 21){
+    public boolean Nemen(ArrayList<Dobbelsteen> geworpenDobbelstenen, Tegel gekozenTegel) {
+        int waarde = 0;
+        for (Dobbelsteen dobbelsteen : geworpenDobbelstenen){
+            waarde += dobbelsteen.getWaarde();
+        }
+        for (Dobbelsteen dobbelsteen : geworpenDobbelstenen){
+            if (waarde >= gekozenTegel.getWaarde() && dobbelsteen.getRegenworm()){
                 return true;
             }
         }
         return false;
+        // Returning multiple items -> Class?
     }
 
-    public boolean Inleveren() {
-        return true;
+    public ArrayList<Tegel> Inleveren(ArrayList<Tegel> rij, ArrayList<Tegel> stapel) {
+        Tegel tegel = stapel.get(0);
+        if ((rij.size() - 1) != tegel.getWaarde()){
+            tegel.setZichtbaar(false);
+        }
+        stapel.remove(tegel);
+        rij.add(tegel);
+        return rij;
+        // Returning multiple items -> Class?
     }
 }

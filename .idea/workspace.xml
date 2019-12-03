@@ -30,11 +30,13 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/RegenwormenShared/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../WhiteBoardWebsocketsExample-master" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="regenwormenBigIdea" />
       <recent name="regenwormenshared" />
     </key>
   </component>
@@ -50,12 +52,27 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.SpelerTest">
-    <configuration name="SpelerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.regenwormenBigIdea in RegenwormenShared">
+    <configuration name="DobbelsteenTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RegenwormenShared" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="regenwormenBigIdea.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="regenwormenBigIdea" />
+      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.DobbelsteenTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpelerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RegenwormenShared" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="regenwormenshared.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -67,7 +84,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpelerTest.testSpelerAfleggen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="TegelTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RegenwormenShared" />
       <extension name="coverage">
         <pattern>
@@ -76,14 +93,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="regenwormenBigIdea" />
-      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.SpelerTest" />
-      <option name="METHOD_NAME" value="testSpelerAfleggen" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.TegelTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpelerTest.testSpelerDobbelen" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="WorpTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RegenwormenShared" />
       <extension name="coverage">
         <pattern>
@@ -92,14 +108,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="regenwormenBigIdea" />
-      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.SpelerTest" />
-      <option name="METHOD_NAME" value="testSpelerDobbelen" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.WorpTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SpelerTest.testSpelerIsNotNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="regenwormenBigIdea in RegenwormenShared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RegenwormenShared" />
       <extension name="coverage">
         <pattern>
@@ -108,36 +123,18 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="regenwormenBigIdea" />
-      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.SpelerTest" />
-      <option name="METHOD_NAME" value="testSpelerIsNotNull" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SpelerTest.testSpelerRegistreren" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RegenwormenShared" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="regenwormenBigIdea.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="regenwormenBigIdea" />
-      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.SpelerTest" />
-      <option name="METHOD_NAME" value="testSpelerRegistreren" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.regenwormenBigIdea in RegenwormenShared" />
+        <item itemvalue="JUnit.WorpTest" />
+        <item itemvalue="JUnit.DobbelsteenTest" />
+        <item itemvalue="JUnit.TegelTest" />
         <item itemvalue="JUnit.SpelerTest" />
-        <item itemvalue="JUnit.SpelerTest.testSpelerAfleggen" />
-        <item itemvalue="JUnit.SpelerTest.testSpelerIsNotNull" />
-        <item itemvalue="JUnit.SpelerTest.testSpelerRegistreren" />
-        <item itemvalue="JUnit.SpelerTest.testSpelerDobbelen" />
       </list>
     </recent_temporary>
   </component>
@@ -157,6 +154,7 @@
       <workItem from="1574842765813" duration="23000" />
       <workItem from="1575273554533" duration="10956000" />
       <workItem from="1575304689519" duration="7657000" />
+      <workItem from="1575371654607" duration="9859000" />
     </task>
     <servers />
   </component>
@@ -181,8 +179,23 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Speler.java</url>
-          <line>30</line>
-          <option name="timeStamp" value="11" />
+          <line>41</line>
+          <option name="timeStamp" value="13" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Speler.java</url>
+          <line>55</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Speler.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RegenwormenShared/src/test/java/regenwormenBigIdea/SpelerTest.java</url>
+          <line>109</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
