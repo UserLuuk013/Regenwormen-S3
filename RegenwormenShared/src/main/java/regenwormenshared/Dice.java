@@ -1,20 +1,20 @@
 package regenwormenshared;
 
-public class Dobbelsteen {
-    private int waarde;
+public class Dice {
+    private int value;
     private boolean regenworm;
 
-    public Dobbelsteen(int waarde, boolean regenworm){
-        this.waarde = waarde;
+    public Dice(int value, boolean regenworm){
+        this.value = value;
         this.regenworm = regenworm;
     }
 
-    public int getWaarde() {
-        return waarde;
+    public int getValue() {
+        return value;
     }
 
-    public void setWaarde(int waarde) {
-        this.waarde = waarde;
+    public void setValue(int value) {
+        this.value = value;
     }
 
     public boolean getRegenworm() {
