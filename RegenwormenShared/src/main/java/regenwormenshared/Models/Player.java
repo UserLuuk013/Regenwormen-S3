@@ -1,12 +1,13 @@
-package regenwormenshared;
+package regenwormenshared.Models;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class Player {
     private String username;
     private String password;
     private int numberOfRegenwormen = 0;
-    private ArrayList<Tile> stack = new ArrayList<>();
+    private List<Tile> stack = new ArrayList<>();
 
     public Player() {
 

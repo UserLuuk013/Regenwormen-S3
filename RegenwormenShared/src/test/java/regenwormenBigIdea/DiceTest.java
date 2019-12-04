@@ -2,7 +2,7 @@ package regenwormenBigIdea;
 
 import org.junit.Assert;
 import org.junit.Test;
-import regenwormenshared.Dice;
+import regenwormenshared.Models.Dice;
 
 public class DiceTest {
 

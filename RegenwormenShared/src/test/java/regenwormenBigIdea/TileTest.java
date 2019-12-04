@@ -2,7 +2,7 @@ package regenwormenBigIdea;
 
 import org.junit.Assert;
 import org.junit.Test;
-import regenwormenshared.Tile;
+import regenwormenshared.Models.Tile;
 
 public class TileTest {
 

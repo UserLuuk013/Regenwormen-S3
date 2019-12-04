@@ -11,6 +11,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -32,6 +33,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/RegenwormenShared/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../WhiteBoardWebsocketsExample-master" />
+    <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
@@ -87,7 +89,7 @@
       <module name="RegenwormenShared" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="regenwormenshared.*" />
+          <option name="PATTERN" value="regenwormenshared.Models.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,7 +101,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RoundTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RegenwormenShared" />
       <extension name="coverage">
         <pattern>
@@ -108,7 +110,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="regenwormenBigIdea" />
-      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.TileTest" />
+      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.RoundTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -131,10 +133,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.regenwormenBigIdea in RegenwormenShared" />
+        <item itemvalue="JUnit.RoundTest" />
+        <item itemvalue="JUnit.PlayerTest" />
         <item itemvalue="JUnit.DiceThrowTest" />
         <item itemvalue="JUnit.DiceTest" />
-        <item itemvalue="JUnit.TileTest" />
-        <item itemvalue="JUnit.PlayerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -156,6 +158,7 @@
       <workItem from="1575304689519" duration="7657000" />
       <workItem from="1575371654607" duration="9859000" />
       <workItem from="1575445665732" duration="11108000" />
+      <workItem from="1575461929949" duration="10854000" />
     </task>
     <servers />
   </component>
@@ -179,9 +182,14 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Player.java</url>
-          <line>24</line>
+          <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Models/Player.java</url>
+          <line>25</line>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RegenwormenShared/src/test/java/regenwormenBigIdea/RoundTest.java</url>
+          <line>209</line>
+          <option name="timeStamp" value="19" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

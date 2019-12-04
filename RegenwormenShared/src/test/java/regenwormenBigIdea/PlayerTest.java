@@ -3,7 +3,7 @@ package regenwormenBigIdea;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import regenwormenshared.Player;
+import regenwormenshared.Models.Player;
 
 public class PlayerTest {
 

@@ -1,4 +1,4 @@
-package regenwormenshared;
+package regenwormenshared.Models;
 
 public class Tile {
     private int value;

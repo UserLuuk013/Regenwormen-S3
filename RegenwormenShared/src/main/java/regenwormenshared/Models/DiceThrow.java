@@ -1,12 +1,13 @@
-package regenwormenshared;
+package regenwormenshared.Models;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class DiceThrow {
 
-    public ArrayList<Dice> GenerateDiceThrow(int numberOfDices) {
-        ArrayList<Dice> dices = new ArrayList<>();
+    public List<Dice> GenerateDiceThrow(int numberOfDices) {
+        List<Dice> dices = new ArrayList<>();
         for (int i = 0; i < numberOfDices; i++){
             dices.add(GenerateDice());
         }
