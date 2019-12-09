@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Player {
+    private int id;
     private String username;
     private String password;
     private int numberOfRegenwormen = 0;
@@ -28,7 +29,15 @@ public class Player {
         return true;
     }
 
-    public PlayerDTO CreateDTO() { return new PlayerDTO(username, password); }
+    public PlayerDTO CreateDTO() { return new PlayerDTO(1, username, password); }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public String getUsername() {
         return username;

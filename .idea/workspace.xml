@@ -32,8 +32,11 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/RegenwormenShared/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../WhiteBoardWebsocketsExample-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../petstore-master" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
@@ -163,7 +166,7 @@
       <workItem from="1575461929949" duration="10854000" />
       <workItem from="1575622521971" duration="6065000" />
       <workItem from="1575818983854" duration="759000" />
-      <workItem from="1575885321930" duration="5975000" />
+      <workItem from="1575885321930" duration="12665000" />
     </task>
     <servers />
   </component>
@@ -186,11 +189,6 @@
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Models/Player.java</url>
-          <line>34</line>
-          <option name="timeStamp" value="15" />
-        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Models/Round.java</url>
           <line>61</line>
