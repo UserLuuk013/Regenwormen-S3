@@ -1,21 +1,19 @@
-package regenwormenshared.Models;
+package regenwormenshared.DTO;
 
-import regenwormenshared.DTO.TileDTO;
-
-public class Tile {
+public class TileDTO {
     private int value;
-    private boolean visible;
     private String image;
     private int amountOfRegenwormen;
 
-    public Tile(int value, boolean visible, String image, int amountOfRegenwormen){
+    public TileDTO(){
+
+    }
+
+    public TileDTO(int value, String image, int amountOfRegenwormen){
         this.value = value;
-        this.visible = visible;
         this.image = image;
         this.amountOfRegenwormen = amountOfRegenwormen;
     }
-
-    public TileDTO CreateDTO() { return new TileDTO(value, image, amountOfRegenwormen); }
 
     public int getValue() {
         return value;
@@ -23,14 +21,6 @@ public class Tile {
 
     public void setValue(int value) {
         this.value = value;
-    }
-
-    public boolean getVisible() {
-        return visible;
-    }
-
-    public void setVisible(boolean visible) {
-        this.visible = visible;
     }
 
     public String getImage() {

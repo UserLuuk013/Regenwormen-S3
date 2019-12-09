@@ -1,19 +1,19 @@
-package regenwormenshared.Models;
+package regenwormenshared.DTO;
 
-import regenwormenshared.DTO.DiceDTO;
-
-public class Dice {
+public class DiceDTO {
     private int value;
     private String image;
     private boolean regenworm;
 
-    public Dice(int value, String image, boolean regenworm){
+    public DiceDTO(){
+
+    }
+
+    public DiceDTO(int value, String image, boolean regenworm){
         this.value = value;
         this.image = image;
         this.regenworm = regenworm;
     }
-
-    public DiceDTO CreateDTO() { return new DiceDTO(value, image, regenworm); };
 
     public int getValue() {
         return value;

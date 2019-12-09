@@ -1,4 +1,4 @@
-package regenwormenBigIdea;
+package regenwormenBigIdea.Models;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -38,8 +38,8 @@ public class RoundTest {
     public void testRoundSetAside(){
         // Arrange
         List<Dice> takenDices = new ArrayList<>();
-        takenDices.add(new Dice(1, false));
-        SetAsideResult setAsideResult = new SetAsideResult(takenDices, new Dice(5, false));
+        takenDices.add(new Dice(1, "image.jpg",false));
+        SetAsideResult setAsideResult = new SetAsideResult(takenDices, new Dice(5, "image.jpg",false));
         // Act
         RollDiceResult rollDiceResult = round.RollDice(7);
         SetAsideResult actualResult = round.SetAside(rollDiceResult, setAsideResult);
@@ -55,9 +55,9 @@ public class RoundTest {
     public void testRoundCheckIfDiceMayBePutAsideReturnsTrue(){
         // Arrange
         List<Dice> takenDices = new ArrayList<>();
-        takenDices.add(new Dice(1, false));
+        takenDices.add(new Dice(1, "image.jpg",false));
         // Act
-        boolean actual = round.CheckIfDiceMayBePutAside(takenDices, new Dice(2, false));
+        boolean actual = round.CheckIfDiceMayBePutAside(takenDices, new Dice(2, "image.jpg",false));
         // Assert
         Assert.assertTrue(actual);
     }
@@ -66,7 +66,7 @@ public class RoundTest {
     public void testRoundCheckIfDiceMayBePutAsideReturnsFalse(){
         // Arrange
         List<Dice> takenDices = new ArrayList<>();
-        Dice chosenDice = new Dice(1, false);
+        Dice chosenDice = new Dice(1, "image.jpg",false);
         takenDices.add(chosenDice);
         // Act
         boolean actual = round.CheckIfDiceMayBePutAside(takenDices, chosenDice);
@@ -85,37 +85,17 @@ public class RoundTest {
     }
 
     @Test
-    public void testRoundTakeTileReturnsNewSizeStack(){
-//        // Arrange
-//        List<Dice> thrownDices = new ArrayList<>();
-//
-//        thrownDices.add(new Dice(4, false));
-//        thrownDices.add(new Dice(4, false));
-//        thrownDices.add(new Dice(5, true));
-//        thrownDices.add(new Dice(4, false));
-//        thrownDices.add(new Dice(5, false));
-//
-//        Tile chosenTile = new Tile(21, true);
-//
-//        List<Tile> chosenStackOrRow = new ArrayList<>();
-//        chosenStackOrRow.add(chosenTile);
-//
-//        List<Tile> stack = new ArrayList<>();
-//        // Act
-//        boolean actual = round.TakeTile(thrownDices, chosenTile, chosenStackOrRow, stack);
-//        // Assert
-//        Assert.assertTrue(actual);
-
+    public void testRoundTakeTileEnoughValue(){
         // Arrange
         List<Dice> thrownDices = new ArrayList<>();
 
-        thrownDices.add(new Dice(4, false));
-        thrownDices.add(new Dice(4, false));
-        thrownDices.add(new Dice(5, true));
-        thrownDices.add(new Dice(4, false));
-        thrownDices.add(new Dice(5, false));
+        thrownDices.add(new Dice(4, "image.jpg",false));
+        thrownDices.add(new Dice(4, "image.jpg",false));
+        thrownDices.add(new Dice(5, "image.jpg",true));
+        thrownDices.add(new Dice(4, "image.jpg",false));
+        thrownDices.add(new Dice(5, "image.jpg",false));
 
-        Tile chosenTile = new Tile(21, true);
+        Tile chosenTile = new Tile(21, true, "image.jpg", 1);
 
         List<Tile> chosenStackOrRow = new ArrayList<>();
         chosenStackOrRow.add(chosenTile);
@@ -131,37 +111,17 @@ public class RoundTest {
     }
 
     @Test
-    public void testRoundTakeTileReturnsSameSizeStack(){
-//        // Arrange
-//        List<Dice> thrownDices = new ArrayList<>();
-//
-//        thrownDices.add(new Dice(4, false));
-//        thrownDices.add(new Dice(5, false));
-//        thrownDices.add(new Dice(4, false));
-//        thrownDices.add(new Dice(5, false));
-//        thrownDices.add(new Dice(5, false));
-//
-//        Tile chosenTile = new Tile(21, true);
-//
-//        List<Tile> chosenStackOrRow = new ArrayList<>();
-//        chosenStackOrRow.add(chosenTile);
-//
-//        List<Tile> stack = new ArrayList<>();
-//        // Act
-//        boolean actual = round.TakeTile(thrownDices, chosenTile, chosenStackOrRow, stack);
-//        // Assert
-//        Assert.assertFalse(actual);
-
+    public void testRoundTakeTileNotEnoughValue(){
         // Arrange
         List<Dice> thrownDices = new ArrayList<>();
 
-        thrownDices.add(new Dice(4, false));
-        thrownDices.add(new Dice(4, false));
-        thrownDices.add(new Dice(5, true));
-        thrownDices.add(new Dice(4, false));
-        thrownDices.add(new Dice(5, false));
+        thrownDices.add(new Dice(4, "image.jpg",false));
+        thrownDices.add(new Dice(4, "image.jpg",false));
+        thrownDices.add(new Dice(5, "image.jpg",true));
+        thrownDices.add(new Dice(4, "image.jpg",false));
+        thrownDices.add(new Dice(5, "image.jpg",false));
 
-        Tile chosenTile = new Tile(24, true);
+        Tile chosenTile = new Tile(24, true, "image.jpg", 1);
 
         List<Tile> chosenStackOrRow = new ArrayList<>();
         chosenStackOrRow.add(chosenTile);
@@ -176,39 +136,31 @@ public class RoundTest {
         Assert.assertEquals(actualResult.getStack().size(), 0);
     }
 
-//    @Test
-//    public void testRoundTakeTileReturnsFalseOnValue(){
-//        // Arrange
-//        List<Dice> thrownDices = new ArrayList<>();
-//
-//        thrownDices.add(new Dice(4, false));
-//        thrownDices.add(new Dice(4, false));
-//        thrownDices.add(new Dice(5, true));
-//        thrownDices.add(new Dice(4, false));
-//        thrownDices.add(new Dice(5, false));
-//
-//        Tile chosenTile = new Tile(28, true);
-//
-//        List<Tile> chosenStackOrRow = new ArrayList<>();
-//        chosenStackOrRow.add(chosenTile);
-//
-//        List<Tile> stack = new ArrayList<>();
-//        // Act
-//        boolean actual = round.TakeTile(thrownDices, chosenTile, chosenStackOrRow, stack);
-//        // Assert
-//        Assert.assertFalse(actual);
-//    }
-
     @Test
-    public void testRoundReturnTile(){
+    public void testRoundReturnTileHighestValue(){
         // Arrange
         List<Tile> row = new ArrayList<>();
         List<Tile> stack = new ArrayList<>();
-        stack.add(new Tile(28, true));
+        row.add(new Tile(27, true, "image.jpg", 2));
+        stack.add(new Tile(28, true, "image,jpg", 1));
         ReturnTileResult returnTileResult = new ReturnTileResult(row, stack);
         // Act
         ReturnTileResult actualResult = round.ReturnTile(returnTileResult);
         // Assert
-        Assert.assertEquals(1, actualResult.getRow().size());
+        Assert.assertTrue(actualResult.getRow().get(1).getVisible());
+    }
+
+    @Test
+    public void testRoundReturnTileLowerValueThanHighestValueRow(){
+        // Arrange
+        List<Tile> row = new ArrayList<>();
+        List<Tile> stack = new ArrayList<>();
+        row.add(new Tile(27, true, "image.jpg", 2));
+        stack.add(new Tile(26, true, "image.jpg", 2));
+        ReturnTileResult returnTileResult = new ReturnTileResult(row, stack);
+        // Act
+        ReturnTileResult actualResult = round.ReturnTile(returnTileResult);
+        // Assert
+        Assert.assertFalse(actualResult.getRow().get(1).getVisible());
     }
 }

@@ -18,10 +18,10 @@ public class DiceThrow {
         Random rnd = new Random();
         int value = rnd.nextInt(6) + 1;
         if (value == 6){
-            return new Dice(5, true);
+            return new Dice(5, "image.jpg",true);
         }
         else{
-            return new Dice(value, false);
+            return new Dice(value, "image.jpg",false);
         }
     }
 }

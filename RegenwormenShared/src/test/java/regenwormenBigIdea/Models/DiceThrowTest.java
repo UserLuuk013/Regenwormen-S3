@@ -1,4 +1,4 @@
-package regenwormenBigIdea;
+package regenwormenBigIdea.Models;
 
 import org.junit.Assert;
 import org.junit.Test;
