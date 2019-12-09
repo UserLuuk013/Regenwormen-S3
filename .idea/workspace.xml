@@ -57,35 +57,29 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.regenwormenBigIdea in RegenwormenShared">
-    <configuration name="RoundTest.testRoundReturnTileHighestValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RegenwormenShared" />
+  <component name="RunManager" selected="Application.RestClientMain">
+    <configuration name="RestClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="restclient.RestClientMain" />
+      <module name="RestClient" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="regenwormenBigIdea.DTO.*" />
+          <option name="PATTERN" value="restclient.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="regenwormenBigIdea.Models" />
-      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.Models.RoundTest" />
-      <option name="METHOD_NAME" value="testRoundReturnTileHighestValue" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RoundTest.testRoundTakeTileEnoughValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RegenwormenShared" />
+    <configuration name="RestServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="restserver.RestServer" />
+      <module name="RestServer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="regenwormenBigIdea.DTO.*" />
+          <option name="PATTERN" value="restserver.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="regenwormenBigIdea.Models" />
-      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.Models.RoundTest" />
-      <option name="METHOD_NAME" value="testRoundTakeTileEnoughValue" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -137,11 +131,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RestClientMain" />
+        <item itemvalue="Application.RestServer" />
         <item itemvalue="JUnit.regenwormenBigIdea in RegenwormenShared" />
         <item itemvalue="JUnit.TakeTileResultTest" />
         <item itemvalue="JUnit.TakeTileResultTest.testTakeTileResultNotNull" />
-        <item itemvalue="JUnit.RoundTest.testRoundTakeTileEnoughValue" />
-        <item itemvalue="JUnit.RoundTest.testRoundReturnTileHighestValue" />
       </list>
     </recent_temporary>
   </component>
@@ -166,7 +160,7 @@
       <workItem from="1575461929949" duration="10854000" />
       <workItem from="1575622521971" duration="6065000" />
       <workItem from="1575818983854" duration="759000" />
-      <workItem from="1575885321930" duration="12665000" />
+      <workItem from="1575885321930" duration="15944000" />
     </task>
     <servers />
   </component>
@@ -193,6 +187,11 @@
           <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Models/Round.java</url>
           <line>61</line>
           <option name="timeStamp" value="23" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/RestServer.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
