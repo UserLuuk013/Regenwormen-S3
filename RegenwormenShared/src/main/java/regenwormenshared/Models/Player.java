@@ -21,8 +21,9 @@ public class Player {
         this.password = password;
     }
 
-    public boolean Login(String username, String password) {
-        return username.equals("Luuk") && password.equals("Regenwormen123!");
+    public Player Login(String username, String password) {
+//        return username.equals("Luuk") && password.equals("Regenwormen123!");
+        return new Player();
     }
 
     public boolean Register(String username, String password) {

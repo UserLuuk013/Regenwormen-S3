@@ -13,7 +13,7 @@ public class TakeTileResultTest {
     @Test
     public void testTakeTileResultNotNull(){
         // Arrange
-        Tile chosenTile = new Tile(21, true, "image.jpg", 1);
+        Tile chosenTile = new Tile(21, "image.jpg", 1);
         List<Tile> chosenStackOrRow = new ArrayList<>();
         List<Tile> stack = new ArrayList<>();
         TakeTileResult takeTileResult = new TakeTileResult(chosenTile, chosenStackOrRow, stack);
@@ -26,7 +26,7 @@ public class TakeTileResultTest {
     @Test
     public void testTakeTileResultGetChosenTile(){
         // Arrange
-        Tile chosenTile = new Tile(21, true, "image.jpg", 1);
+        Tile chosenTile = new Tile(21, "image.jpg", 1);
         List<Tile> chosenStackOrRow = new ArrayList<>();
         List<Tile> stack = new ArrayList<>();
         TakeTileResult takeTileResult = new TakeTileResult(chosenTile, chosenStackOrRow, stack);
@@ -39,7 +39,7 @@ public class TakeTileResultTest {
     @Test
     public void testTakeTileResultGetChosenStackOrRow(){
         // Arrange
-        Tile chosenTile = new Tile(21, true, "image.jpg", 1);
+        Tile chosenTile = new Tile(21, "image.jpg", 1);
         List<Tile> chosenStackOrRow = new ArrayList<>();
         List<Tile> stack = new ArrayList<>();
         TakeTileResult takeTileResult = new TakeTileResult(chosenTile, chosenStackOrRow, stack);
@@ -52,7 +52,7 @@ public class TakeTileResultTest {
     @Test
     public void testTakeTileResultGetStack(){
         // Arrange
-        Tile chosenTile = new Tile(21, true, "image.jpg", 1);
+        Tile chosenTile = new Tile(21, "image.jpg", 1);
         List<Tile> chosenStackOrRow = new ArrayList<>();
         List<Tile> stack = new ArrayList<>();
         TakeTileResult takeTileResult = new TakeTileResult(chosenTile, chosenStackOrRow, stack);

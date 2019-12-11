@@ -30,9 +30,9 @@ public class PlayerTest {
         // Arrange
 
         // Act
-        boolean actual = player.Login("Luuk", "Regenwormen123!");
+        Player actual = player.Login("Luuk", "Regenwormen123!");
         // Assert
-        Assert.assertTrue(actual);
+        Assert.assertNotNull(actual);
     }
 
     @Test

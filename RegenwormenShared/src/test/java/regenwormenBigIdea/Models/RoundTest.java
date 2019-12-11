@@ -95,7 +95,7 @@ public class RoundTest {
         thrownDices.add(new Dice(4, "image.jpg",false));
         thrownDices.add(new Dice(5, "image.jpg",false));
 
-        Tile chosenTile = new Tile(21, true, "image.jpg", 1);
+        Tile chosenTile = new Tile(21, "image.jpg", 1);
 
         List<Tile> chosenStackOrRow = new ArrayList<>();
         chosenStackOrRow.add(chosenTile);
@@ -121,7 +121,7 @@ public class RoundTest {
         thrownDices.add(new Dice(4, "image.jpg",false));
         thrownDices.add(new Dice(5, "image.jpg",false));
 
-        Tile chosenTile = new Tile(24, true, "image.jpg", 1);
+        Tile chosenTile = new Tile(24, "image.jpg", 1);
 
         List<Tile> chosenStackOrRow = new ArrayList<>();
         chosenStackOrRow.add(chosenTile);
@@ -141,8 +141,8 @@ public class RoundTest {
         // Arrange
         List<Tile> row = new ArrayList<>();
         List<Tile> stack = new ArrayList<>();
-        row.add(new Tile(27, true, "image.jpg", 2));
-        stack.add(new Tile(28, true, "image,jpg", 1));
+        row.add(new Tile(27, "image.jpg", 2));
+        stack.add(new Tile(28, "image,jpg", 1));
         ReturnTileResult returnTileResult = new ReturnTileResult(row, stack);
         // Act
         ReturnTileResult actualResult = round.ReturnTile(returnTileResult);
@@ -155,8 +155,8 @@ public class RoundTest {
         // Arrange
         List<Tile> row = new ArrayList<>();
         List<Tile> stack = new ArrayList<>();
-        row.add(new Tile(27, true, "image.jpg", 2));
-        stack.add(new Tile(26, true, "image.jpg", 2));
+        row.add(new Tile(27, "image.jpg", 2));
+        stack.add(new Tile(26, "image.jpg", 2));
         ReturnTileResult returnTileResult = new ReturnTileResult(row, stack);
         // Act
         ReturnTileResult actualResult = round.ReturnTile(returnTileResult);

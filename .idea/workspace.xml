@@ -57,7 +57,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RestClientMain">
+  <component name="RunManager" selected="JUnit.regenwormenBigIdea in RegenwormenShared">
     <configuration name="RestClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="restclient.RestClientMain" />
       <module name="RestClient" />
@@ -76,7 +76,7 @@
       <module name="RestServer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="restserver.*" />
+          <option name="PATTERN" value="restserver.Interfaces.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -131,9 +131,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.regenwormenBigIdea in RegenwormenShared" />
         <item itemvalue="Application.RestClientMain" />
         <item itemvalue="Application.RestServer" />
-        <item itemvalue="JUnit.regenwormenBigIdea in RegenwormenShared" />
         <item itemvalue="JUnit.TakeTileResultTest" />
         <item itemvalue="JUnit.TakeTileResultTest.testTakeTileResultNotNull" />
       </list>
@@ -160,7 +160,8 @@
       <workItem from="1575461929949" duration="10854000" />
       <workItem from="1575622521971" duration="6065000" />
       <workItem from="1575818983854" duration="759000" />
-      <workItem from="1575885321930" duration="15944000" />
+      <workItem from="1575885321930" duration="16551000" />
+      <workItem from="1576052657322" duration="20613000" />
     </task>
     <servers />
   </component>
@@ -190,8 +191,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/RestServer.java</url>
-          <line>10</line>
+          <line>11</line>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/MSSQLContexts/PlayerMSSQLContext.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="25" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

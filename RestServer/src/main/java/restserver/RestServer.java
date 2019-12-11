@@ -4,6 +4,7 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.servlet.ServletHolder;
 import org.glassfish.jersey.servlet.ServletContainer;
+import restserver.Endpoints.RestTileEndpoint;
 
 public class RestServer
 {
@@ -18,7 +19,7 @@ public class RestServer
         jerseyServlet.setInitOrder(0);
         // Tells the Jersey Servlet which REST service/class to load.
         jerseyServlet.setInitParameter("jersey.config.server.provider.classnames",
-                RestEndpoint.class.getCanonicalName());
+                RestTileEndpoint.class.getCanonicalName());
 
         try {
             jettyServer.start();

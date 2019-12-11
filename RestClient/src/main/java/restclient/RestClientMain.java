@@ -1,9 +1,5 @@
 package restclient;
 
-/**
- * Hello world!
- *
- */
 public class RestClientMain
 {
     private static RestClient restClient;

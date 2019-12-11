@@ -8,9 +8,8 @@ public class Tile {
     private String image;
     private int amountOfRegenwormen;
 
-    public Tile(int value, boolean visible, String image, int amountOfRegenwormen){
+    public Tile(int value, String image, int amountOfRegenwormen){
         this.value = value;
-        this.visible = visible;
         this.image = image;
         this.amountOfRegenwormen = amountOfRegenwormen;
     }
