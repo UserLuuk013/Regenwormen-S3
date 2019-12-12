@@ -84,32 +84,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TakeTileResultTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RoundTest.testRoundReturnTileHighestValue" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RegenwormenShared" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="regenwormenBigIdea.DTO.*" />
+          <option name="PATTERN" value="regenwormenBigIdea.Models.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="regenwormenBigIdea.Results" />
-      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.Results.TakeTileResultTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="PACKAGE_NAME" value="regenwormenBigIdea.Models" />
+      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.Models.RoundTest" />
+      <option name="METHOD_NAME" value="testRoundReturnTileHighestValue" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TakeTileResultTest.testTakeTileResultNotNull" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RoundTest.testRoundReturnTileLowerValueThanHighestValueRow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RegenwormenShared" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="regenwormenBigIdea.DTO.*" />
+          <option name="PATTERN" value="regenwormenBigIdea.Models.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="regenwormenBigIdea.Results" />
-      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.Results.TakeTileResultTest" />
-      <option name="METHOD_NAME" value="testTakeTileResultNotNull" />
+      <option name="PACKAGE_NAME" value="regenwormenBigIdea.Models" />
+      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.Models.RoundTest" />
+      <option name="METHOD_NAME" value="testRoundReturnTileLowerValueThanHighestValueRow" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -132,10 +133,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.regenwormenBigIdea in RegenwormenShared" />
+        <item itemvalue="JUnit.RoundTest.testRoundReturnTileLowerValueThanHighestValueRow" />
+        <item itemvalue="JUnit.RoundTest.testRoundReturnTileHighestValue" />
         <item itemvalue="Application.RestClientMain" />
         <item itemvalue="Application.RestServer" />
-        <item itemvalue="JUnit.TakeTileResultTest" />
-        <item itemvalue="JUnit.TakeTileResultTest.testTakeTileResultNotNull" />
       </list>
     </recent_temporary>
   </component>
@@ -162,6 +163,7 @@
       <workItem from="1575818983854" duration="759000" />
       <workItem from="1575885321930" duration="16551000" />
       <workItem from="1576052657322" duration="20613000" />
+      <workItem from="1576137763251" duration="7730000" />
     </task>
     <servers />
   </component>
@@ -198,6 +200,11 @@
           <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/MSSQLContexts/PlayerMSSQLContext.java</url>
           <line>31</line>
           <option name="timeStamp" value="25" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RegenwormenShared/src/test/java/regenwormenBigIdea/Models/RoundTest.java</url>
+          <line>158</line>
+          <option name="timeStamp" value="26" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

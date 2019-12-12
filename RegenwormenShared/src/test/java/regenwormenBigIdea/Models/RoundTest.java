@@ -37,18 +37,19 @@ public class RoundTest {
     @Test
     public void testRoundSetAside(){
         // Arrange
+        int expected = 7;
         List<Dice> takenDices = new ArrayList<>();
         takenDices.add(new Dice(1, "image.jpg",false));
         SetAsideResult setAsideResult = new SetAsideResult(takenDices, new Dice(5, "image.jpg",false));
         // Act
-        RollDiceResult rollDiceResult = round.RollDice(7);
+        RollDiceResult rollDiceResult = round.RollDice(expected);
         SetAsideResult actualResult = round.SetAside(rollDiceResult, setAsideResult);
         int actual = actualResult.getTakenDices().size();
         // Assert
-        if (actual == 7){
+        if (actual == expected){
             testRoundSetAside();
         }
-        Assert.assertNotEquals(7, actual);
+        Assert.assertNotEquals(expected, actual);
     }
 
     @Test
@@ -87,6 +88,7 @@ public class RoundTest {
     @Test
     public void testRoundTakeTileEnoughValue(){
         // Arrange
+        int expected = 1;
         List<Dice> thrownDices = new ArrayList<>();
 
         thrownDices.add(new Dice(4, "image.jpg",false));
@@ -107,12 +109,13 @@ public class RoundTest {
         // Act
         TakeTileResult actualResult = round.TakeTile(rollDiceResult, takeTileResult);
         // Assert
-        Assert.assertEquals(actualResult.getStack().size(), 1);
+        Assert.assertEquals(expected, actualResult.getStack().size());
     }
 
     @Test
     public void testRoundTakeTileNotEnoughValue(){
         // Arrange
+        int expected = 0;
         List<Dice> thrownDices = new ArrayList<>();
 
         thrownDices.add(new Dice(4, "image.jpg",false));
@@ -133,7 +136,7 @@ public class RoundTest {
         // Act
         TakeTileResult actualResult = round.TakeTile(rollDiceResult, takeTileResult);
         // Assert
-        Assert.assertEquals(actualResult.getStack().size(), 0);
+        Assert.assertEquals(expected, actualResult.getStack().size());
     }
 
     @Test

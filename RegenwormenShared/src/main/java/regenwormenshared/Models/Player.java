@@ -30,7 +30,7 @@ public class Player {
         return true;
     }
 
-    public PlayerDTO CreateDTO() { return new PlayerDTO(1, username, password); }
+    public PlayerDTO CreateDTO() { return new PlayerDTO(username, password); }
 
     public int getId() {
         return id;

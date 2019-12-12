@@ -12,6 +12,7 @@ public class Tile {
         this.value = value;
         this.image = image;
         this.amountOfRegenwormen = amountOfRegenwormen;
+        this.visible = true;
     }
 
     public TileDTO CreateDTO() { return new TileDTO(value, image, amountOfRegenwormen); }

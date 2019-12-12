@@ -9,8 +9,7 @@ public class PlayerDTO {
 
     }
 
-    public PlayerDTO(int id, String username, String password){
-        this.id = id;
+    public PlayerDTO(String username, String password){
         this.username = username;
         this.password = password;
     }

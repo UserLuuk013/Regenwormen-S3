@@ -5,6 +5,10 @@ import org.junit.Before;
 import org.junit.Test;
 import regenwormenshared.DTO.PlayerDTO;
 import regenwormenshared.Models.Player;
+import regenwormenshared.Models.Tile;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class PlayerTest {
 
@@ -63,7 +67,7 @@ public class PlayerTest {
         // Act
         String actual = player.getUsername();
         // Assert
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(expected, actual);
     }
 
     @Test
@@ -74,6 +78,42 @@ public class PlayerTest {
         // Act
         String actual = player.getPassword();
         // Assert
-        Assert.assertEquals(actual, expected);
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testPlayerGetId(){
+        // Arrange
+        int expected = 1;
+        Player player = new Player("Luuk", "Regenwormen123!");
+        // Act
+        player.setId(expected);
+        int actual = player.getId();
+        // Assert
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testPlayerGetNumberOfRegenwormen(){
+        // Arrange
+        int expected = 10;
+        Player player = new Player("Luuk", "Regenwormen123!");
+        // Act
+        player.setNumberOfRegenwormen(expected);
+        int actual = player.getNumberOfRegenwormen();
+        // Assert
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testPlayerGetStack(){
+        // Arrange
+        List<Tile> expected = new ArrayList<>();
+        Player player = new Player("Luuk", "Regenwormen123!");
+        // Act
+        player.setStack(expected);
+        List<Tile> actual = player.getStack();
+        // Assert
+        Assert.assertEquals(expected, actual);
     }
 }
