@@ -9,10 +9,13 @@ import javax.ws.rs.core.Response;
 import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import regenwormenshared.Models.Dice;
 import restserver.MSSQLContexts.DiceMSSQLContext;
 import restserver.Repositories.DiceRepository;
 
-@Path("/dice")
+import java.util.List;
+
+@Path("/regenwormen")
 public class RestDiceEndpoint {
 
     private static final Logger log = LoggerFactory.getLogger(RestDiceEndpoint.class);
@@ -25,10 +28,11 @@ public class RestDiceEndpoint {
     }
 
     @GET
-    @Path("/all")
+    @Path("/dice/all")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAll(){
         log.info("GET all called");
-        return Response.status(200).entity(gson.toJson(repo.GetAll())).build();
+        List<Dice> dices = repo.GetAll();
+        return Response.status(200).entity(gson.toJson(dices)).build();
     }
 }

@@ -57,7 +57,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.regenwormenBigIdea in RegenwormenShared">
+  <component name="RunManager" selected="Application.RestClientMain">
     <configuration name="RestClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="restclient.RestClientMain" />
       <module name="RestClient" />
@@ -132,11 +132,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.RestClientMain" />
+        <item itemvalue="Application.RestServer" />
         <item itemvalue="JUnit.regenwormenBigIdea in RegenwormenShared" />
         <item itemvalue="JUnit.RoundTest.testRoundReturnTileLowerValueThanHighestValueRow" />
         <item itemvalue="JUnit.RoundTest.testRoundReturnTileHighestValue" />
-        <item itemvalue="Application.RestClientMain" />
-        <item itemvalue="Application.RestServer" />
       </list>
     </recent_temporary>
   </component>
@@ -164,6 +164,7 @@
       <workItem from="1575885321930" duration="16551000" />
       <workItem from="1576052657322" duration="20613000" />
       <workItem from="1576137763251" duration="7730000" />
+      <workItem from="1576157215721" duration="3804000" />
     </task>
     <servers />
   </component>
@@ -205,6 +206,21 @@
           <url>file://$PROJECT_DIR$/RegenwormenShared/src/test/java/regenwormenBigIdea/Models/RoundTest.java</url>
           <line>158</line>
           <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/Endpoints/RestDiceEndpoint.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="28" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RestClient/src/main/java/restclient/DiceRestClient.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Responses/DiceResponse.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="31" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

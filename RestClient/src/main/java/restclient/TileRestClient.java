@@ -20,7 +20,7 @@ import java.util.List;
 
 public class TileRestClient {
 
-    private static final org.slf4j.Logger log = (Logger) LoggerFactory.getLogger(RestTileEndpoint.class);
+    private static final org.slf4j.Logger log = LoggerFactory.getLogger(RestTileEndpoint.class);
 
     private final String url = "http://localhost:8090/regenwormen";
 

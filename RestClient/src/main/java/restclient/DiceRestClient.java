@@ -19,7 +19,7 @@ import restserver.Endpoints.RestDiceEndpoint;
 
 public class DiceRestClient {
 
-    private static final org.slf4j.Logger log = (org.slf4j.Logger) LoggerFactory.getLogger(RestDiceEndpoint.class);
+    private static final org.slf4j.Logger log = LoggerFactory.getLogger(RestDiceEndpoint.class);
 
     private final String url = "http://localhost:8090/regenwormen";
 
