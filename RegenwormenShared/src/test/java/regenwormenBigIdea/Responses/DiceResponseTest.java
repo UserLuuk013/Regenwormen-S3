@@ -31,7 +31,7 @@ public class DiceResponseTest {
     @Test
     public void testDiceResponseGetDice(){
         // Arrange
-        DiceDTO expected = new DiceDTO();
+        DiceDTO expected = new DiceDTO(1, "image.jpg", false);
         DiceResponse diceResponse = new DiceResponse();
         // Act
         diceResponse.setDice(expected);

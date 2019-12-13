@@ -10,31 +10,38 @@ import javax.ws.rs.core.Response;
 import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import regenwormenshared.Converters.PlayerDTOModelConverter;
+import regenwormenshared.DTO.PlayerDTO;
 import restserver.MSSQLContexts.PlayerMSSQLContext;
 import restserver.Repositories.PlayerRepository;
+import restserver.ResponseHelpers.PlayerResponseHelper;
 
-@Path("/player")
+@Path("/regenwormen")
 public class RestPlayerEndpoint {
 
     private static final Logger log = LoggerFactory.getLogger(RestPlayerEndpoint.class);
     private final PlayerRepository repo;
+    private final PlayerDTOModelConverter cvt;
     private final Gson gson;
 
     public RestPlayerEndpoint() throws Exception {
         repo = new PlayerRepository(new PlayerMSSQLContext());
+        cvt = new PlayerDTOModelConverter();
         gson = new Gson();
     }
 
     @POST
-    @Path("/login")
+    @Path("/player/login")
     @Produces(MediaType.APPLICATION_JSON)
     public Response Login(String username, String password){
         log.info("POST called for Login Player");
-        return Response.status(200).entity(gson.toJson(repo.Login(username, password))).build();
+//        return Response.status(200).entity(gson.toJson(repo.Login(username, password))).build();
+        PlayerDTO playerDTO = cvt.ModelToDTO(repo.Login(username, password));
+        return Response.status(200).entity(gson.toJson(PlayerResponseHelper.getSinglePlayerResponse(playerDTO))).build();
     }
 
     @POST
-    @Path("/register")
+    @Path("/player/register")
     @Produces(MediaType.APPLICATION_JSON)
     public Response Register(String username, String password){
         log.info("POST called for Register Player");

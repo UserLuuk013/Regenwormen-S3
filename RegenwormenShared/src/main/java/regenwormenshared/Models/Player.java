@@ -21,6 +21,12 @@ public class Player {
         this.password = password;
     }
 
+    public Player(int id, String username, String password){
+        this.id = id;
+        this.username = username;
+        this.password = password;
+    }
+
     public Player Login(String username, String password) {
 //        return username.equals("Luuk") && password.equals("Regenwormen123!");
         return new Player();

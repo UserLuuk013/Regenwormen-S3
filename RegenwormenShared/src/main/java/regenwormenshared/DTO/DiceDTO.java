@@ -5,10 +5,6 @@ public class DiceDTO {
     private String image;
     private boolean regenworm;
 
-    public DiceDTO(){
-
-    }
-
     public DiceDTO(int value, String image, boolean regenworm){
         this.value = value;
         this.image = image;

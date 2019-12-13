@@ -12,7 +12,7 @@ import org.slf4j.LoggerFactory;
 import restserver.MSSQLContexts.TileMSSQLContext;
 import restserver.Repositories.TileRepository;
 
-@Path("/tile")
+@Path("/regenwormen")
 public class RestTileEndpoint {
 
     private static final Logger log = LoggerFactory.getLogger(RestTileEndpoint.class);
@@ -25,7 +25,7 @@ public class RestTileEndpoint {
     }
 
     @GET
-    @Path("/all")
+    @Path("/tile/all")
     @Produces(MediaType.APPLICATION_JSON)
     public Response getAll(){
         log.info("GET all called");
