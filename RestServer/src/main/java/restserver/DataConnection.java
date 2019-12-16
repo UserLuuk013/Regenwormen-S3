@@ -7,10 +7,15 @@ public class DataConnection {
     private String connectionUrl;
     private Connection conn;
 
-    public DataConnection() throws Exception {
+    public DataConnection() {
         connectionUrl = "jdbc:sqlserver://mssql.fhict.local;databaseName=dbi409381_regenworm;";
-        conn = DriverManager.getConnection(connectionUrl, "dbi409381_regenworm", "UserLuuk013!");
-        Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        try{
+            conn = DriverManager.getConnection(connectionUrl, "dbi409381_regenworm", "UserLuuk013!");
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+        }
+        catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public ResultSet ExecuteQuery(String query){

@@ -27,9 +27,8 @@ public class DiceResponse {
     }
 
     public List<DiceDTO> getDices(){
-//        List<DiceDTO> unmodifiableDiceList = Collections.unmodifiableList(dices);
-//        return unmodifiableDiceList;
-        return dices;
+        List<DiceDTO> unmodifiableDiceList = Collections.unmodifiableList(dices);
+        return unmodifiableDiceList;
     }
 
     public void setDices(List<DiceDTO> dices){

@@ -8,6 +8,9 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="225" />
+  </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -32,7 +35,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/RegenwormenShared/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../petstore-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../S3_BigIdea_Set" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
@@ -84,47 +87,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DiceDTOModelConverterTest.testModelToDTO" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RegenwormenShared" />
+    <configuration name="WebSocketsClient" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="websocketsclient.WebSocketsClient" />
+      <module name="WebSocketsClient" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="regenwormenBigIdea.Converters.*" />
+          <option name="PATTERN" value="websocketsclient.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="regenwormenBigIdea.Converters" />
-      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.Converters.DiceDTOModelConverterTest" />
-      <option name="METHOD_NAME" value="testModelToDTO" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RoundTest.testRoundReturnTileLowerValueThanHighestValueRow" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RegenwormenShared" />
+    <configuration name="WebSocketsServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="websocketsserver.WebSocketsServer" />
+      <module name="WebSocketsServer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="regenwormenBigIdea.Models.*" />
+          <option name="PATTERN" value="websocketsserver.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="regenwormenBigIdea.Models" />
-      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.Models.RoundTest" />
-      <option name="METHOD_NAME" value="testRoundReturnTileLowerValueThanHighestValueRow" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="regenwormenBigIdea in RegenwormenShared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="All in RegenwormenShared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RegenwormenShared" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="regenwormenBigIdea.DTO.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="regenwormenBigIdea" />
+      <option name="PACKAGE_NAME" value="" />
       <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -134,9 +125,9 @@
       <list>
         <item itemvalue="Application.RestClientMain" />
         <item itemvalue="Application.RestServer" />
-        <item itemvalue="JUnit.regenwormenBigIdea in RegenwormenShared" />
-        <item itemvalue="JUnit.DiceDTOModelConverterTest.testModelToDTO" />
-        <item itemvalue="JUnit.RoundTest.testRoundReturnTileLowerValueThanHighestValueRow" />
+        <item itemvalue="Application.WebSocketsClient" />
+        <item itemvalue="Application.WebSocketsServer" />
+        <item itemvalue="JUnit.All in RegenwormenShared" />
       </list>
     </recent_temporary>
   </component>
@@ -167,7 +158,7 @@
       <workItem from="1576157215721" duration="3804000" />
       <workItem from="1576224823843" duration="12154000" />
       <workItem from="1576243626026" duration="3336000" />
-      <workItem from="1576484050044" duration="3433000" />
+      <workItem from="1576484050044" duration="22484000" />
     </task>
     <servers />
   </component>
@@ -194,11 +185,6 @@
           <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Models/Round.java</url>
           <line>61</line>
           <option name="timeStamp" value="23" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/RestServer.java</url>
-          <line>13</line>
-          <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/MSSQLContexts/PlayerMSSQLContext.java</url>
@@ -232,20 +218,74 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/Endpoints/RestTileEndpoint.java</url>
-          <line>30</line>
+          <line>39</line>
           <option name="timeStamp" value="35" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/Endpoints/RestTileEndpoint.java</url>
-          <line>22</line>
+          <line>30</line>
           <option name="timeStamp" value="36" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RestClient/src/main/java/restclient/RestClientMain.java</url>
-          <line>31</line>
+          <line>35</line>
           <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RestClient/src/main/java/restclient/TileRestClient.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RestClient/src/main/java/restclient/RestClientMain.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RestClient/src/main/java/restclient/TileRestClient.java</url>
+          <line>35</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/DataConnection.java</url>
+          <line>10</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/MSSQLContexts/TileMSSQLContext.java</url>
+          <line>18</line>
+          <option name="timeStamp" value="43" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/ResponseHelpers/TileResponseHelper.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="44" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Responses/TileResponse.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="45" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Responses/TileResponse.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="46" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RestClient/src/main/java/restclient/TileRestClient.java</url>
+          <line>53</line>
+          <option name="timeStamp" value="48" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Regenwormen$All_in_RegenwormenShared.ic" NAME="All in RegenwormenShared Coverage Results" MODIFIED="1576489726583" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Regenwormen$regenwormenBigIdea_in_RegenwormenShared.ic" NAME="regenwormenBigIdea in RegenwormenShared Coverage Results" MODIFIED="1576489633879" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>regenwormenBigIdea.DTO.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Regenwormen$DiceDTOModelConverterTest.ic" NAME="DiceDTOModelConverterTest Coverage Results" MODIFIED="1576489664771" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>regenwormenBigIdea.Converters.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -57,15 +57,16 @@ public class TileRestClient {
             final String entityString = EntityUtils.toString(entity);
             log.info("[Entity] : " + entityString);
             TileResponse tileResponse = gson.fromJson(entityString, TileResponse.class);
+
             return tileResponse;
         } catch (IOException e) {
             log.info("IOException : " + e.toString());
-            TileResponse tileResponse = new TileResponse();
+            TileResponse tileResponse = TileResponse.getInstance();
             tileResponse.setSuccess(false);
             return tileResponse;
         } catch (JsonSyntaxException e) {
             log.info("JsonSyntaxException : " + e.toString());
-            TileResponse tileResponse = new TileResponse();
+            TileResponse tileResponse = TileResponse.getInstance();
             tileResponse.setSuccess(false);
             return tileResponse;
         }

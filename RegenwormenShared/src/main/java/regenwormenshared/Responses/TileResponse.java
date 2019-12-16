@@ -6,6 +6,7 @@ import java.util.Collections;
 import java.util.List;
 
 public class TileResponse {
+    private static TileResponse instance = null;
     private boolean success;
     private TileDTO tile;
     private List<TileDTO> tiles;
@@ -27,7 +28,19 @@ public class TileResponse {
     }
 
     public List<TileDTO> getTiles(){
+
         List<TileDTO> unmodifiableTileList = Collections.unmodifiableList(tiles);
         return unmodifiableTileList;
+    }
+
+    public void setTiles(List<TileDTO> tiles){
+        this.tiles = tiles;
+    }
+
+    public static TileResponse getInstance(){
+        if (instance == null){
+            instance = new TileResponse();
+        }
+        return instance;
     }
 }

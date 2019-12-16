@@ -10,7 +10,7 @@ import java.util.List;
 
 public class TileMSSQLContext extends DataConnection implements ITileContext {
 
-    public TileMSSQLContext() throws Exception {
+    public TileMSSQLContext() {
 
     }
 

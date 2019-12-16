@@ -24,7 +24,7 @@ public class RestPlayerEndpoint {
     private final PlayerDTOModelConverter cvt;
     private final Gson gson;
 
-    public RestPlayerEndpoint() throws Exception {
+    public RestPlayerEndpoint() {
         repo = new PlayerRepository(new PlayerMSSQLContext());
         cvt = new PlayerDTOModelConverter();
         gson = new Gson();
