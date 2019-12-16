@@ -166,6 +166,8 @@
       <workItem from="1576137763251" duration="7730000" />
       <workItem from="1576157215721" duration="3804000" />
       <workItem from="1576224823843" duration="12154000" />
+      <workItem from="1576243626026" duration="3336000" />
+      <workItem from="1576484050044" duration="3433000" />
     </task>
     <servers />
   </component>
@@ -195,7 +197,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/RestServer.java</url>
-          <line>11</line>
+          <line>13</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -224,9 +226,24 @@
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RestClient/src/main/java/restclient/DiceRestClient.java</url>
+          <line>50</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/Endpoints/RestTileEndpoint.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/Endpoints/RestTileEndpoint.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RestClient/src/main/java/restclient/RestClientMain.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="32" />
+          <line>31</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

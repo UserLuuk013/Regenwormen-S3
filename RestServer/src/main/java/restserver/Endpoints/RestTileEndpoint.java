@@ -26,7 +26,7 @@ public class RestTileEndpoint {
 
     @GET
     @Path("/tile/all")
-    @Produces(MediaType.APPLICATION_JSON)
+//    @Produces(MediaType.APPLICATION_JSON)
     public Response getAll(){
         log.info("GET all called");
         return Response.status(200).entity(gson.toJson(repo.GetAll())).build();
