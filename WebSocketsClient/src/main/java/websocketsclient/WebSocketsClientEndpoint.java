@@ -68,6 +68,11 @@ public class WebSocketsClientEndpoint {
     public void onWebSocketText(String message, Session session){
         this.message = message;
         System.out.println("[WebSocket Client message received] " + message);
+        onWebSocketsMessageReceived(message, session.getId());
+    }
+
+    public void onWebSocketsMessageReceived(String message, String sessionId){
+        
     }
 
     @OnError

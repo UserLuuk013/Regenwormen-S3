@@ -54,8 +54,9 @@ public class DiceRestClient {
             HttpEntity entity = response.getEntity();
             final String entityString = EntityUtils.toString(entity);
             log.info("[Entity] : " + entityString);
-            DiceResponse diceResponse = gson.fromJson(entityString, DiceResponse.class);
-            return diceResponse;
+//            DiceResponse diceResponse = gson.fromJson(entityString, DiceResponse.class);
+//            return diceResponse;
+            return gson.fromJson(entityString, DiceResponse.class);
         } catch (IOException e) {
             log.info("IOException : " + e.toString());
             DiceResponse diceResponse = new DiceResponse();

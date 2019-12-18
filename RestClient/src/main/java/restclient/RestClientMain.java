@@ -37,7 +37,7 @@ public class RestClientMain
 //        System.out.println(tiles.size());
 
         //Fill List of Tiles by Repo
-        boolean bool = repo.Register("Luuk", "Regenwormen123!");
-        System.out.println(bool);
+//        boolean bool = playerRestClient.Register("Luuk", "Regenwormen123!");
+//        System.out.println(bool);
     }
 }
