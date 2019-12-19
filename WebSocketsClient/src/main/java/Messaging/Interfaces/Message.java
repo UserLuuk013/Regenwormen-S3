@@ -1,4 +1,4 @@
-package regenwormenshared.Messaging.Interfaces;
+package Messaging.Interfaces;
 
 public interface Message {
     PayLoad getPayload();

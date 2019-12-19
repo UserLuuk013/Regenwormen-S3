@@ -44,6 +44,9 @@
     <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="CreateClassDialog.RecentsKey">
       <recent name="regenwormenBigIdea" />
       <recent name="regenwormenshared" />
@@ -172,7 +175,8 @@
       <workItem from="1576595478272" duration="691000" />
       <workItem from="1576655172091" duration="16072000" />
       <workItem from="1576683216096" duration="16000" />
-      <workItem from="1576743987400" duration="11793000" />
+      <workItem from="1576743987400" duration="12001000" />
+      <workItem from="1576759716587" duration="4535000" />
     </task>
     <servers />
   </component>

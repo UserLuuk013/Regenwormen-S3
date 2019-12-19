@@ -1,6 +1,6 @@
-package regenwormenshared.Messaging;
+package Messaging;
 
-import regenwormenshared.Messaging.Interfaces.PayLoad;
+import Messaging.Interfaces.PayLoad;
 
 public class StringPayload implements PayLoad {
     private String content;

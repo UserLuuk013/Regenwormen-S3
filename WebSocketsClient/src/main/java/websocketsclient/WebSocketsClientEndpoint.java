@@ -1,7 +1,6 @@
 package websocketsclient;
 
 import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
 
 import java.net.URI;
 import javax.websocket.ClientEndpoint;
@@ -40,6 +39,8 @@ public class WebSocketsClientEndpoint {
     private WebSocketsClientEndpoint() {
         gson = new Gson();
     }
+
+
 
     /**
      * Get singleton instance of this class.
@@ -85,6 +86,19 @@ public class WebSocketsClientEndpoint {
         System.out.print("[WebSocket Client close session] " + session.getRequestURI());
         System.out.println(" for reason " + reason);
         session = null;
+    }
+
+    private void sendMessageToServer(String message){
+        try{
+            session.getBasicRemote().sendText(message);
+        } catch (IOException e){
+            System.out.println(e);
+        }
+    }
+
+    public void send(Object object){
+//        String msg = messageGenerator.messageToString(object);
+//        sendMessageToServer(msg);
     }
 
     /**

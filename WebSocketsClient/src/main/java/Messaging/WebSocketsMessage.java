@@ -1,7 +1,7 @@
-package regenwormenshared.Messaging;
+package Messaging;
 
-import regenwormenshared.Messaging.Interfaces.Message;
-import regenwormenshared.Messaging.Interfaces.PayLoad;
+import Messaging.Interfaces.Message;
+import Messaging.Interfaces.PayLoad;
 
 public class WebSocketsMessage implements Message {
     private final PayLoad payload;
