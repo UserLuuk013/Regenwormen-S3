@@ -14,7 +14,7 @@ public class RestClientMain
     private static DiceRestClient diceRestClient;
     private static PlayerRestClient playerRestClient;
     private static TileRestClient tileRestClient;
-    private static PlayerRepository repo;
+    private static RestClient restClient;
 
     public static void main( String[] args )
     {
@@ -22,7 +22,7 @@ public class RestClientMain
         diceRestClient = new DiceRestClient();
         playerRestClient = new PlayerRestClient();
         tileRestClient = new TileRestClient();
-        repo = new PlayerRepository(new PlayerMSSQLContext());
+        restClient = new RestClient();
 
 //        //Fill List of Dices
 //        List<DiceDTO> dices = diceRestClient.getAll();
@@ -38,6 +38,30 @@ public class RestClientMain
 
         //Fill List of Tiles by Repo
 //        boolean bool = playerRestClient.Register("Luuk", "Regenwormen123!");
+//        System.out.println(bool);
+
+
+        // NEW REST CLIENT
+
+//        //Fill List of Dices
+//        List<DiceDTO> dices = restClient.getAllDices();
+//        System.out.println(dices.size());
+//
+//        // Fill List of Tiles
+//        List<TileDTO> tiles = restClient.getAllTiles();
+//        System.out.println(tiles.size());
+
+        // Player Login
+        PlayerDTO player = restClient.playerLogin("UserLuuk013", "Regenwormen123!");
+        if (player == null){
+            System.out.println("Wrong username or password");
+        }
+        else{
+            System.out.println(player.getUsername());
+        }
+
+//        // Player Register
+//        boolean bool = restClient.playerRegister("UserLuuk013", "Regenwormen123!");
 //        System.out.println(bool);
     }
 }

@@ -14,9 +14,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
         <option value="package-info" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -61,7 +61,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.RestServer">
+  <component name="RunManager" selected="Application.RestClientMain">
     <configuration name="RestClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="restclient.RestClientMain" />
       <module name="RestClient" />
@@ -131,8 +131,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RestServer" />
         <item itemvalue="Application.RestClientMain" />
+        <item itemvalue="Application.RestServer" />
         <item itemvalue="Application.WebSocketsClient" />
         <item itemvalue="Application.WebSocketsServer" />
         <item itemvalue="JUnit.All in RegenwormenShared" />
@@ -171,6 +171,8 @@
       <workItem from="1576578409938" duration="2509000" />
       <workItem from="1576595478272" duration="691000" />
       <workItem from="1576655172091" duration="16072000" />
+      <workItem from="1576683216096" duration="16000" />
+      <workItem from="1576743987400" duration="11793000" />
     </task>
     <servers />
   </component>
@@ -275,8 +277,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/RestServer.java</url>
-          <line>14</line>
+          <line>15</line>
           <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RestClient/src/main/java/restclient/RestClient.java</url>
+          <line>59</line>
+          <option name="timeStamp" value="55" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RestClient/src/main/java/restclient/RestClient.java</url>
+          <line>97</line>
+          <option name="timeStamp" value="56" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -31,8 +31,8 @@ public class PlayerMSSQLContext extends DataConnection implements IPlayerContext
     public boolean Register(String username, String password) {
         try{
             String query = "INSERT INTO Player (Username, Password) VALUES ('" + username + "', '" + password + "')";
-            ResultSet rs = ExecuteQuery(query);
-            return false;
+            ExecuteQueryNoResultSet(query);
+            return true;
         }
         catch (Exception e){
             e.printStackTrace();
