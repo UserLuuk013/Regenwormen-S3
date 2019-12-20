@@ -40,8 +40,6 @@ public class WebSocketsClientEndpoint {
         gson = new Gson();
     }
 
-
-
     /**
      * Get singleton instance of this class.
      * Ensure that only one instance of this class is created.
@@ -73,7 +71,8 @@ public class WebSocketsClientEndpoint {
     }
 
     public void onWebSocketsMessageReceived(String message, String sessionId){
-        
+//        WebSocketsMessage msg = ser.deserialize(message, WebSocketsMessage.class);
+//        processor.processMessage(sessionId, msg.getType(), msg.getData());
     }
 
     @OnError
@@ -96,10 +95,10 @@ public class WebSocketsClientEndpoint {
         }
     }
 
-    public void send(Object object){
-//        String msg = messageGenerator.messageToString(object);
+//    public void send(Object object){
+//        String msg = generator.generateMessageString(object);
 //        sendMessageToServer(msg);
-    }
+//    }
 
     /**
      * Start a WebSocket client.
