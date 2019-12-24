@@ -10,7 +10,7 @@ public class WebSocketsClient
 {
     public static void main( String[] args )
     {
-        WebSocketsClientEndpoint.getInstance().startClient();
+        WebSocketsClientEndpoint.getInstance().start();
 //        WebSocketsClientEndpoint.getInstance().send(createMessage());
     }
 

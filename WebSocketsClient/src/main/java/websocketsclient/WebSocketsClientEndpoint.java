@@ -1,6 +1,12 @@
 package websocketsclient;
 
 import com.google.gson.Gson;
+import regenwormenshared.MessageHandling.Encapsulating.EncapsulatingMessage;
+import regenwormenshared.MessageHandling.Processor.IMessageProcessor;
+import regenwormenshared.Serialization.ISerializer;
+import regenwormenshared.Serialization.SerializationProvider;
+import regenwormenshared.WebSockets.IWebSocketsClientEndpoint;
+import regenwormenshared.WebSockets.WebSocketsBase;
 
 import java.net.URI;
 import javax.websocket.ClientEndpoint;
@@ -17,7 +23,7 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 
 @ClientEndpoint
-public class WebSocketsClientEndpoint {
+public class WebSocketsClientEndpoint extends WebSocketsBase implements IWebSocketsClientEndpoint {
     // Singleton
     private static WebSocketsClientEndpoint instance = null;
 
@@ -27,18 +33,6 @@ public class WebSocketsClientEndpoint {
     private final String uri = "ws://localhost:8095/regenwormen/";
 
     private Session session;
-
-    private String message;
-
-    private Gson gson = null;
-
-    // Status of the webSocket client
-    boolean isRunning = false;
-
-    // Private constructor (singleton pattern)
-    private WebSocketsClientEndpoint() {
-        gson = new Gson();
-    }
 
     /**
      * Get singleton instance of this class.
@@ -53,6 +47,31 @@ public class WebSocketsClientEndpoint {
         return instance;
     }
 
+    @Override
+    public void start() {
+        System.out.println("[WebSocket Client start]");
+        try {
+            WebSocketContainer container = ContainerProvider.getWebSocketContainer();
+            container.connectToServer(this, new URI(uri));
+
+        } catch (IOException | URISyntaxException | DeploymentException ex) {
+            // do something useful eventually
+            ex.printStackTrace();
+        }
+    }
+
+    @Override
+    public void stop() {
+        System.out.println("[WebSocket Client stop]");
+        try {
+            session.close();
+
+        } catch (IOException ex){
+            // do something useful eventually
+            ex.printStackTrace();
+        }
+    }
+
     /**
      *  Start the connection.
      */
@@ -65,14 +84,21 @@ public class WebSocketsClientEndpoint {
 
     @OnMessage
     public void onWebSocketText(String message, Session session){
-        this.message = message;
         System.out.println("[WebSocket Client message received] " + message);
         onWebSocketsMessageReceived(message, session.getId());
     }
 
     public void onWebSocketsMessageReceived(String message, String sessionId){
-//        WebSocketsMessage msg = ser.deserialize(message, WebSocketsMessage.class);
-//        processor.processMessage(sessionId, msg.getType(), msg.getData());
+        ISerializer<String> ser = SerializationProvider.getSerializer();
+        EncapsulatingMessage msg = ser.deserialize(message, EncapsulatingMessage.class);
+        messageProcessor.processMessage(sessionId, msg.getMessageType(), msg.getMessageData());
+    }
+
+    IMessageProcessor messageProcessor;
+
+    @Override
+    public void setMessageProcessor(IMessageProcessor handler) {
+        this.messageProcessor = handler;
     }
 
     @OnError
@@ -95,37 +121,9 @@ public class WebSocketsClientEndpoint {
         }
     }
 
-//    public void send(Object object){
-//        String msg = generator.generateMessageString(object);
-//        sendMessageToServer(msg);
-//    }
-
-    /**
-     * Start a WebSocket client.
-     */
-    public void startClient() {
-        System.out.println("[WebSocket Client start]");
-        try {
-            WebSocketContainer container = ContainerProvider.getWebSocketContainer();
-            container.connectToServer(this, new URI(uri));
-
-        } catch (IOException | URISyntaxException | DeploymentException ex) {
-            // do something useful eventually
-            ex.printStackTrace();
-        }
-    }
-
-    /**
-     * Stop the client when it is running.
-     */
-    public void stopClient(){
-        System.out.println("[WebSocket Client stop]");
-        try {
-            session.close();
-
-        } catch (IOException ex){
-            // do something useful eventually
-            ex.printStackTrace();
-        }
+    @Override
+    public void send(Object object) {
+        String msg = getEncapsulatingMessageGenerator().generateMessageString(object);
+        sendMessageToServer(msg);
     }
 }
