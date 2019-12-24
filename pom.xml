@@ -14,6 +14,7 @@
         <module>RegenwormenShared</module>
         <module>RestClient</module>
         <module>RestServer</module>
+        <module>RegenwormenClient</module>
     </modules>
 
 

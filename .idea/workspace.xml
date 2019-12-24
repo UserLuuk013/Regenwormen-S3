@@ -15,8 +15,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="package-info" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -178,7 +178,7 @@
       <workItem from="1576743987400" duration="12001000" />
       <workItem from="1576759716587" duration="4535000" />
       <workItem from="1576831378944" duration="9635000" />
-      <workItem from="1577191947715" duration="2680000" />
+      <workItem from="1577191947715" duration="8118000" />
     </task>
     <servers />
   </component>

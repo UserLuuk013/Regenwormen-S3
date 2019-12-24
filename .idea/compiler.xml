@@ -9,8 +9,9 @@
         <module name="WebSocketsServer" />
         <module name="RegenwormenShared" />
         <module name="WebSocketsClient" />
-        <module name="RestClient" />
+        <module name="RegenwormenClient" />
         <module name="RestServer" />
+        <module name="RestClient" />
       </profile>
     </annotationProcessing>
   </component>
