@@ -64,7 +64,20 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.WebSocketsClient">
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="regenwormenclient.App" />
+      <module name="RegenwormenClient" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="regenwormenclient.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RestClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="restclient.RestClientMain" />
       <module name="RestClient" />
@@ -117,28 +130,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in RegenwormenShared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="RegenwormenShared" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
       <item itemvalue="Application.RestClientMain" />
       <item itemvalue="Application.RestServer" />
       <item itemvalue="Application.WebSocketsClient" />
       <item itemvalue="Application.WebSocketsServer" />
-      <item itemvalue="JUnit.All in RegenwormenShared" />
+      <item itemvalue="Application.App" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.WebSocketsClient" />
+        <item itemvalue="Application.App" />
         <item itemvalue="Application.WebSocketsServer" />
+        <item itemvalue="Application.WebSocketsClient" />
         <item itemvalue="Application.RestClientMain" />
         <item itemvalue="Application.RestServer" />
-        <item itemvalue="JUnit.All in RegenwormenShared" />
       </list>
     </recent_temporary>
   </component>
@@ -179,7 +184,7 @@
       <workItem from="1576759716587" duration="4535000" />
       <workItem from="1576831378944" duration="9635000" />
       <workItem from="1577191947715" duration="8672000" />
-      <workItem from="1577269202082" duration="6493000" />
+      <workItem from="1577269202082" duration="10369000" />
     </task>
     <servers />
   </component>
@@ -301,6 +306,11 @@
           <url>file://$PROJECT_DIR$/WebSocketsClient/src/main/java/websocketsclient/WebSocketsClient.java</url>
           <line>13</line>
           <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WebSocketsServer/src/main/java/websocketsserver/WebSocketsEndpoint.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="60" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

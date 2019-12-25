@@ -31,6 +31,12 @@
           <version>1.0-SNAPSHOT</version>
           <scope>compile</scope>
       </dependency>
+      <dependency>
+          <groupId>regenwormenBigIdea</groupId>
+          <artifactId>WebSocketsClient</artifactId>
+          <version>1.0-SNAPSHOT</version>
+          <scope>compile</scope>
+      </dependency>
   </dependencies>
 
   <build>

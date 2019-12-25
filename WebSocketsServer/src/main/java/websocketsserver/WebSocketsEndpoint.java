@@ -27,7 +27,7 @@ public class WebSocketsEndpoint extends WebSocketsBase implements IWebSocketsEnd
 
     @Override
     public void setMessageProcessor(IMessageProcessor processor) {
-        this.messageProcessor = messageProcessor;
+        this.messageProcessor = processor;
     }
 
     public IMessageProcessor getMessageProcessor(){

@@ -5,6 +5,9 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.websocket.jsr356.server.deploy.WebSocketServerContainerInitializer;
+import regenwormenshared.MessageHandling.Handler.IMessageHandlerFactory;
+import regenwormenshared.Messaging.Server.*;
+import regenwormenshared.Messaging.Server.messageHandlers.ServerMessageHandlerFactory;
 
 /**
  * Hello world!
@@ -15,6 +18,16 @@ public class WebSocketsServer
     private static final int PORT = 8095;
     public static void main( String[] args )
     {
+        IMessageHandlerFactory factory = new ServerMessageHandlerFactory();
+        IServerMessageProcessor messageProcessor = new ServerMessageProcessor(factory);
+        final WebSocketsEndpoint socket = new WebSocketsEndpoint();
+        socket.setMessageProcessor(messageProcessor);
+
+        IServerMessageGenerator messageGenerator = new ServerMessageGenerator(socket);
+
+        IGameServer game = new GameServer(messageGenerator);
+        messageProcessor.registerGame(game);
+
         startWebSocketServer();
     }
 
