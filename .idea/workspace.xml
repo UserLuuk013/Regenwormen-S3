@@ -36,7 +36,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/RegenwormenShared/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../S3_BigIdea_Set" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../s3_killerapp" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -178,7 +178,8 @@
       <workItem from="1576743987400" duration="12001000" />
       <workItem from="1576759716587" duration="4535000" />
       <workItem from="1576831378944" duration="9635000" />
-      <workItem from="1577191947715" duration="8118000" />
+      <workItem from="1577191947715" duration="8672000" />
+      <workItem from="1577269202082" duration="6493000" />
     </task>
     <servers />
   </component>

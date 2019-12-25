@@ -5,5 +5,6 @@ import regenwormenshared.Models.Dice;
 import java.util.List;
 
 public interface IGameClient {
-    void sendDiceThrowResult(List<Dice> dices);
+    void throwDices(int numberOfDices);
+    void processThrowDices(String sessionId, List<Dice> dices);
 }

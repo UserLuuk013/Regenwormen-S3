@@ -15,7 +15,17 @@ public class GameClient implements IGameClient {
     }
 
     @Override
-    public void sendDiceThrowResult(List<Dice> dices) {
-        messageGenerator.sendDiceThrowResult(dices);
+    public void throwDices(int numberOfDices) {
+        this.messageGenerator.throwDices(numberOfDices);
     }
+
+    @Override
+    public void processThrowDices(String sessionId, List<Dice> dices) {
+        System.out.println("The result of the thrown dices by Player " + sessionId + " is:");
+        for(Dice dice : dices){
+            System.out.println(dice.getValue() + " " + dice.getRegenworm());
+        }
+    }
+
+
 }

@@ -5,5 +5,5 @@ import regenwormenshared.Models.Dice;
 import java.util.List;
 
 public interface IClientMessageGenerator {
-    void sendDiceThrowResult(List<Dice> dices);
+    void throwDices(int numberOfDices);
 }

@@ -1,6 +1,7 @@
 package regenwormenshared.Messaging.Client;
 
 import regenwormenshared.Messaging.Messages.DiceThrowResultMessage;
+import regenwormenshared.Messaging.Messages.ThrowDicesMessage;
 import regenwormenshared.Models.Dice;
 import regenwormenshared.WebSockets.IWebSocketsClientEndpoint;
 
@@ -15,7 +16,7 @@ public class ClientMessageGenerator implements IClientMessageGenerator {
     }
 
     @Override
-    public void sendDiceThrowResult(List<Dice> dices) {
-        clientEndpoint.send(new DiceThrowResultMessage(dices));
+    public void throwDices(int numberOfDices) {
+        clientEndpoint.send(new ThrowDicesMessage(numberOfDices));
     }
 }
