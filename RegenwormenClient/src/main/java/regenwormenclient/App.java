@@ -15,7 +15,7 @@ public class App
     private static IGameClient gameClient;
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+//        System.out.println( "Hello World!" );
         start();
         gameClient.throwDices(8);
     }
