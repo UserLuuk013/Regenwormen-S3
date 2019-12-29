@@ -58,15 +58,20 @@ public class Round {
         return true;
     }
 
-    public TakeTileResult TakeTile(RollDiceResult rollDiceResult, TakeTileResult takeTileResult){
+    public TakeTileResult TakeTile(SetAsideResult setAsideResult, TakeTileResult takeTileResult){
         int value = 0;
-        for (Dice dice : rollDiceResult.getThrownDices()){
+        for (Dice dice : setAsideResult.getTakenDices()){
             value += dice.getValue();
         }
-        for (Dice dice : rollDiceResult.getThrownDices()){
+        for (Dice dice : setAsideResult.getTakenDices()){
             if (value >= takeTileResult.getChosenTile().getValue() && dice.getRegenworm()){
-                takeTileResult.getChosenStackOrRow().remove(takeTileResult.getChosenTile());
-                takeTileResult.getStack().add(takeTileResult.getChosenTile());
+                for (Tile tile : takeTileResult.getChosenStackOrRow()){
+                    if (tile.getValue() == takeTileResult.getChosenTile().getValue()){
+                        takeTileResult.getChosenStackOrRow().remove(tile);
+                        takeTileResult.getStack().add(tile);
+                        break;
+                    }
+                }
             }
         }
         return takeTileResult;

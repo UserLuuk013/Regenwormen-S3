@@ -11,8 +11,14 @@ public class ServerMessageHandlerFactory implements IMessageHandlerFactory {
 
         IGameServer igame = (IGameServer)game;
         switch (simpleType){
-            case "ThrowDicesMessage":
-                return new ThrowDicesMessageHandler(igame);
+            case "RollDiceMessage":
+                return new RollDiceMessageHandler(igame);
+            case "SetAsideMessage":
+                return new SetAsideMessageHandler(igame);
+            case "TakeTileMessage":
+                return new TakeTileMessageHandler(igame);
+            case "ReturnTileMessage":
+                return new ReturnTileMessageHandler(igame);
             default:
                 return null;
         }

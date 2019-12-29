@@ -10,8 +10,14 @@ public class ClientMessageHandlerFactory implements IMessageHandlerFactory {
         IGameClient client = (IGameClient)game;
 
         switch(simpleType){
-            case "DiceThrowResultMessage":
-                return new DiceThrowMessageHandler(client);
+            case "RollDiceResultMessage":
+                return new RollDiceResultMessageHandler(client);
+            case "SetAsideResultMessage":
+                return new SetAsideResultMessageHandler(client);
+            case "TakeTileResultMessage":
+                return new TakeTileResultMessageHandler(client);
+            case "ReturnTileResultMessage":
+                return new ReturnTileResultMessageHandler(client);
             default:
                 return null;
         }

@@ -1,6 +1,6 @@
 package regenwormenshared.Messaging.Messages;
 
-public class ThrowDicesMessage {
+public class RollDiceMessage {
 
     private int numberOfDices;
 
@@ -8,7 +8,7 @@ public class ThrowDicesMessage {
         return numberOfDices;
     }
 
-    public ThrowDicesMessage(int numberOfDices){
+    public RollDiceMessage(int numberOfDices){
         this.numberOfDices = numberOfDices;
     }
 }

@@ -88,14 +88,15 @@ public class RoundTest {
     @Test
     public void testRoundTakeTileEnoughValue(){
         // Arrange
-        int expected = 1;
-        List<Dice> thrownDices = new ArrayList<>();
+        int expectedStackSize = 1;
+        int expectedStackOrRowSize = 0;
+        List<Dice> takenDices = new ArrayList<>();
 
-        thrownDices.add(new Dice(4, "image.jpg",false));
-        thrownDices.add(new Dice(4, "image.jpg",false));
-        thrownDices.add(new Dice(5, "image.jpg",true));
-        thrownDices.add(new Dice(4, "image.jpg",false));
-        thrownDices.add(new Dice(5, "image.jpg",false));
+        takenDices.add(new Dice(4, "image.jpg",false));
+        takenDices.add(new Dice(4, "image.jpg",false));
+        takenDices.add(new Dice(5, "image.jpg",true));
+        takenDices.add(new Dice(4, "image.jpg",false));
+        takenDices.add(new Dice(5, "image.jpg",false));
 
         Tile chosenTile = new Tile(21, "image.jpg", 1);
 
@@ -104,25 +105,27 @@ public class RoundTest {
 
         List<Tile> stack = new ArrayList<>();
 
-        RollDiceResult rollDiceResult = new RollDiceResult(thrownDices);
+        SetAsideResult setAsideResult = new SetAsideResult(takenDices, new Dice(4, "image.jpg", false));
         TakeTileResult takeTileResult = new TakeTileResult(chosenTile, chosenStackOrRow, stack);
         // Act
-        TakeTileResult actualResult = round.TakeTile(rollDiceResult, takeTileResult);
+        TakeTileResult actualResult = round.TakeTile(setAsideResult, takeTileResult);
         // Assert
-        Assert.assertEquals(expected, actualResult.getStack().size());
+        Assert.assertEquals(expectedStackSize, actualResult.getStack().size());
+        Assert.assertEquals(expectedStackOrRowSize, actualResult.getChosenStackOrRow().size());
     }
 
     @Test
     public void testRoundTakeTileNotEnoughValue(){
         // Arrange
-        int expected = 0;
-        List<Dice> thrownDices = new ArrayList<>();
+        int expectedStackSize = 0;
+        int expectedStackOrRowSize = 1;
+        List<Dice> takenDices = new ArrayList<>();
 
-        thrownDices.add(new Dice(4, "image.jpg",false));
-        thrownDices.add(new Dice(4, "image.jpg",false));
-        thrownDices.add(new Dice(5, "image.jpg",true));
-        thrownDices.add(new Dice(4, "image.jpg",false));
-        thrownDices.add(new Dice(5, "image.jpg",false));
+        takenDices.add(new Dice(4, "image.jpg",false));
+        takenDices.add(new Dice(4, "image.jpg",false));
+        takenDices.add(new Dice(5, "image.jpg",true));
+        takenDices.add(new Dice(4, "image.jpg",false));
+        takenDices.add(new Dice(5, "image.jpg",false));
 
         Tile chosenTile = new Tile(24, "image.jpg", 1);
 
@@ -131,12 +134,13 @@ public class RoundTest {
 
         List<Tile> stack = new ArrayList<>();
 
-        RollDiceResult rollDiceResult = new RollDiceResult(thrownDices);
+        SetAsideResult setAsideResult = new SetAsideResult(takenDices, new Dice(4, "image.jpg", false));
         TakeTileResult takeTileResult = new TakeTileResult(chosenTile, chosenStackOrRow, stack);
         // Act
-        TakeTileResult actualResult = round.TakeTile(rollDiceResult, takeTileResult);
+        TakeTileResult actualResult = round.TakeTile(setAsideResult, takeTileResult);
         // Assert
-        Assert.assertEquals(expected, actualResult.getStack().size());
+        Assert.assertEquals(expectedStackSize, actualResult.getStack().size());
+        Assert.assertEquals(expectedStackOrRowSize, actualResult.getChosenStackOrRow().size());
     }
 
     @Test
