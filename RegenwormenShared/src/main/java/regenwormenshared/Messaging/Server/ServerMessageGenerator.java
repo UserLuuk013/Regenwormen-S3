@@ -1,9 +1,7 @@
 package regenwormenshared.Messaging.Server;
 
-import regenwormenshared.Messaging.Messages.ReturnTileResultMessage;
-import regenwormenshared.Messaging.Messages.RollDiceResultMessage;
-import regenwormenshared.Messaging.Messages.SetAsideResultMessage;
-import regenwormenshared.Messaging.Messages.TakeTileResultMessage;
+import regenwormenshared.Messaging.Messages.*;
+import regenwormenshared.Models.Player;
 import regenwormenshared.Results.ReturnTileResult;
 import regenwormenshared.Results.RollDiceResult;
 import regenwormenshared.Results.SetAsideResult;
@@ -15,6 +13,18 @@ public class ServerMessageGenerator implements IServerMessageGenerator {
 
     public ServerMessageGenerator(IWebSocketsEndpoint serverEndpoint){
         this.serverEndpoint = serverEndpoint;
+    }
+
+    @Override
+    public void notifyRegisterPlayerResult(String sessionId, boolean result) {
+        RegisterPlayerResultMessage message = new RegisterPlayerResultMessage(result);
+        this.serverEndpoint.sendTo(sessionId, message);
+    }
+
+    @Override
+    public void notifyLoginPlayerResult(String sessionId, Player player) {
+        LoginPlayerResultMessage message = new LoginPlayerResultMessage(player);
+        this.serverEndpoint.sendTo(sessionId, message);
     }
 
     @Override

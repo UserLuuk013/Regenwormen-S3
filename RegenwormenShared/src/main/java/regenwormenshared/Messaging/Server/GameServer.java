@@ -11,10 +11,30 @@ import regenwormenshared.Results.TakeTileResult;
 public class GameServer implements IGameServer {
 
     private Round round;
+//    private RestClient restClient;
+    //private PlayerDTOModelConverter cvt;
     private IServerMessageGenerator messageGenerator;
 
     public GameServer(IServerMessageGenerator messageGenerator){
         this.messageGenerator = messageGenerator;
+    }
+
+    @Override
+    public void registerPlayer(String sessionId, String username, String password) {
+        //restClient = new RestClient();
+
+        //boolean result = restClient.playerRegister(username, password);
+        //messageGenerator.notifyRegisterPlayerResult(sessionId, result);
+    }
+
+    @Override
+    public void loginPlayer(String sessionId, String username, String password) {
+        //restClient = new RestClient();
+        //cvt = new PlayerDTOModelConverter();
+
+        //PlayerDTO playerDTO = restClient.playerLogin(username, password);
+        //Player player = cvt.ModelFromDTO(playerDTO);
+        //messageGenerator.notifyLoginPlayerResult(sessionId, player);
     }
 
     @Override

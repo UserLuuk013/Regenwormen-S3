@@ -10,6 +10,10 @@ public class ClientMessageHandlerFactory implements IMessageHandlerFactory {
         IGameClient client = (IGameClient)game;
 
         switch(simpleType){
+            case "RegisterPlayerResultMessage":
+                return new RegisterPlayerResultMessageHandler(client);
+            case "LoginPlayerResultMessage":
+                return new LoginPlayerResultMessageHandler(client);
             case "RollDiceResultMessage":
                 return new RollDiceResultMessageHandler(client);
             case "SetAsideResultMessage":

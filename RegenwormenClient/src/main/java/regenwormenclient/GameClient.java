@@ -3,6 +3,7 @@ package regenwormenclient;
 import regenwormenshared.Messaging.Client.IClientMessageGenerator;
 import regenwormenshared.Messaging.Client.IGameClient;
 import regenwormenshared.Models.Dice;
+import regenwormenshared.Models.Player;
 import regenwormenshared.Models.Tile;
 import regenwormenshared.Results.ReturnTileResult;
 import regenwormenshared.Results.RollDiceResult;
@@ -15,6 +16,16 @@ public class GameClient implements IGameClient {
 
     public GameClient(IClientMessageGenerator messageGenerator){
         this.messageGenerator = messageGenerator;
+    }
+
+    @Override
+    public void registerPlayer(String username, String password) {
+        this.messageGenerator.registerPlayer(username, password);
+    }
+
+    @Override
+    public void loginPlayer(String username, String password) {
+        this.messageGenerator.loginPlayer(username, password);
     }
 
     @Override
@@ -35,6 +46,18 @@ public class GameClient implements IGameClient {
     @Override
     public void returnTile(ReturnTileResult returnTileResult) {
         this.messageGenerator.returnTile(returnTileResult);
+    }
+
+    @Override
+    public void processRegisterPlayerResult(String sessionId, boolean result) {
+        System.out.println("The result of registering by Player " + sessionId + " is:");
+        System.out.println(result);
+    }
+
+    @Override
+    public void processLoginPlayerResult(String sessionId, Player player) {
+        System.out.println("The name of Player " + sessionId + " who logged in is:");
+        System.out.println(player.getUsername());
     }
 
     @Override

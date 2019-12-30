@@ -1,9 +1,6 @@
 package regenwormenshared.Messaging.Client;
 
-import regenwormenshared.Messaging.Messages.ReturnTileMessage;
-import regenwormenshared.Messaging.Messages.SetAsideMessage;
-import regenwormenshared.Messaging.Messages.RollDiceMessage;
-import regenwormenshared.Messaging.Messages.TakeTileMessage;
+import regenwormenshared.Messaging.Messages.*;
 import regenwormenshared.Results.ReturnTileResult;
 import regenwormenshared.Results.RollDiceResult;
 import regenwormenshared.Results.SetAsideResult;
@@ -16,6 +13,16 @@ public class ClientMessageGenerator implements IClientMessageGenerator {
 
     public ClientMessageGenerator(IWebSocketsClientEndpoint clientEndpoint){
         this.clientEndpoint = clientEndpoint;
+    }
+
+    @Override
+    public void registerPlayer(String username, String password) {
+        clientEndpoint.send(new RegisterPlayerMessage(username, password));
+    }
+
+    @Override
+    public void loginPlayer(String username, String password) {
+        clientEndpoint.send(new LoginPlayerMessage(username, password));
     }
 
     @Override

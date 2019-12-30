@@ -6,6 +6,8 @@ import regenwormenshared.Results.SetAsideResult;
 import regenwormenshared.Results.TakeTileResult;
 
 public interface IClientMessageGenerator {
+    void registerPlayer(String username, String password);
+    void loginPlayer(String username, String password);
     void throwDices(int numberOfDices);
     void setAside(RollDiceResult rollDiceResult, SetAsideResult setAsideResult);
     void takeTile(SetAsideResult setAsideResult, TakeTileResult takeTileResult);
