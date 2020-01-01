@@ -12,4 +12,6 @@ public interface IClientMessageGenerator {
     void setAside(RollDiceResult rollDiceResult, SetAsideResult setAsideResult);
     void takeTile(SetAsideResult setAsideResult, TakeTileResult takeTileResult);
     void returnTile(ReturnTileResult returnTileResult);
+    void getAllTiles();
+    void getAllDices();
 }

@@ -10,6 +10,8 @@ import regenwormenshared.Results.RollDiceResult;
 import regenwormenshared.Results.SetAsideResult;
 import regenwormenshared.Results.TakeTileResult;
 
+import java.util.List;
+
 public class GameClient implements IGameClient {
 
     IClientMessageGenerator messageGenerator;
@@ -49,6 +51,16 @@ public class GameClient implements IGameClient {
     }
 
     @Override
+    public void getAllTiles() {
+        this.messageGenerator.getAllTiles();
+    }
+
+    @Override
+    public void getAllDices() {
+        this.messageGenerator.getAllDices();
+    }
+
+    @Override
     public void processRegisterPlayerResult(String sessionId, boolean result) {
         System.out.println("The result of registering by Player " + sessionId + " is:");
         System.out.println(result);
@@ -58,6 +70,7 @@ public class GameClient implements IGameClient {
     public void processLoginPlayerResult(String sessionId, Player player) {
         System.out.println("The name of Player " + sessionId + " who logged in is:");
         System.out.println(player.getUsername());
+        System.out.println(player.getPassword());
     }
 
     @Override
@@ -97,6 +110,22 @@ public class GameClient implements IGameClient {
         System.out.println("The row of the Game after return Player " + sessionId + " his tile");
         for (Tile tile : returnTileResult.getRow()){
             System.out.println(tile.getValue());
+        }
+    }
+
+    @Override
+    public void processGetAllTilesResult(String sessionId, List<Tile> tiles) {
+        System.out.println("The list of Tiles after calling query by Player " + sessionId + " looks like this:");
+        for (Tile tile : tiles){
+            System.out.println(tile.getValue());
+        }
+    }
+
+    @Override
+    public void processGetAllDicesResult(String sessionId, List<Dice> dices) {
+        System.out.println("The list of Dices after calling query by Player " + sessionId + " looks like this:");
+        for (Dice dice : dices){
+            System.out.println(dice.getValue() + " " + dice.getRegenworm());
         }
     }
 }

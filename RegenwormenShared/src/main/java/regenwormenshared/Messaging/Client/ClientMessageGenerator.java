@@ -44,4 +44,14 @@ public class ClientMessageGenerator implements IClientMessageGenerator {
     public void returnTile(ReturnTileResult returnTileResult) {
         clientEndpoint.send(new ReturnTileMessage(returnTileResult));
     }
+
+    @Override
+    public void getAllTiles() {
+        clientEndpoint.send(new GetAllTilesMessage());
+    }
+
+    @Override
+    public void getAllDices() {
+        clientEndpoint.send(new GetAllDicesMessage());
+    }
 }

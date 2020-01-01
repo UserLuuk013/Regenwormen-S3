@@ -22,6 +22,10 @@ public class ClientMessageHandlerFactory implements IMessageHandlerFactory {
                 return new TakeTileResultMessageHandler(client);
             case "ReturnTileResultMessage":
                 return new ReturnTileResultMessageHandler(client);
+            case "GetAllTilesResultMessage":
+                return new GetAllTilesResultMessageHandler(client);
+            case "GetAllDicesResultMessage":
+                return new GetAllDicesResultMessageHandler(client);
             default:
                 return null;
         }

@@ -23,6 +23,10 @@ public class ServerMessageHandlerFactory implements IMessageHandlerFactory {
                 return new TakeTileMessageHandler(igame);
             case "ReturnTileMessage":
                 return new ReturnTileMessageHandler(igame);
+            case "GetAllTilesMessage":
+                return new GetAllTilesMessageHandler(igame);
+            case "GetAllDicesMessage":
+                return new GetAllDicesMessageHandler(igame);
             default:
                 return null;
         }

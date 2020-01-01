@@ -26,7 +26,7 @@ public class App
     {
 //        System.out.println( "Hello World!" );
         start();
-        returnTile();
+        getAllTiles();
     }
 
     public static void start(){
@@ -41,6 +41,14 @@ public class App
 
         socket.start();
         processor.registerGameClient(gameClient);
+    }
+
+    private static void playerRegister(){
+        gameClient.registerPlayer("UserLuuk2020", "Regenwormen2020!");
+    }
+
+    private static void playerLogin(){
+        gameClient.loginPlayer("UserLuuk2020", "Regenwormen2020!");
     }
 
     private static void rollDice(){
@@ -110,5 +118,13 @@ public class App
 
         // Executing ReturnTile of GameClient
         gameClient.returnTile(returnTileResult);
+    }
+
+    private static void getAllTiles(){
+        gameClient.getAllTiles();
+    }
+
+    private static void getAllDices(){
+
     }
 }

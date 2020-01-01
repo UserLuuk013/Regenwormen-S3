@@ -38,10 +38,11 @@
     <property name="last_directory_selection" value="$PROJECT_DIR$/RegenwormenShared/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../s3_killerapp" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.editor" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+    <property name="settings.editor.splitter.proportion" value="0.30822712" />
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
@@ -78,12 +79,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RestClientMain" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="restclient.RestClientMain" />
-      <module name="RestClient" />
+    <configuration name="RestServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="restserver.RestServer" />
+      <module name="RestServer" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="restclient.*" />
+          <option name="PATTERN" value="restserver.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -132,19 +133,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.RestClientMain" />
       <item itemvalue="Application.WebSocketsClient" />
       <item itemvalue="Application.WebSocketsServer" />
       <item itemvalue="Application.App" />
       <item itemvalue="JUnit.regenwormenBigIdea in RegenwormenShared" />
+      <item itemvalue="Application.RestServer" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.App" />
+        <item itemvalue="Application.RestServer" />
         <item itemvalue="Application.WebSocketsServer" />
         <item itemvalue="JUnit.regenwormenBigIdea in RegenwormenShared" />
         <item itemvalue="Application.WebSocketsClient" />
-        <item itemvalue="Application.RestClientMain" />
       </list>
     </recent_temporary>
   </component>
@@ -191,6 +192,7 @@
       <workItem from="1577630925205" duration="5921000" />
       <workItem from="1577646459255" duration="1644000" />
       <workItem from="1577706427008" duration="2426000" />
+      <workItem from="1577876859936" duration="8056000" />
     </task>
     <servers />
   </component>
@@ -294,23 +296,8 @@
           <option name="timeStamp" value="53" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/RestServer.java</url>
-          <line>15</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/RestClient/src/main/java/restclient/RestClient.java</url>
-          <line>59</line>
-          <option name="timeStamp" value="55" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/RestClient/src/main/java/restclient/RestClient.java</url>
-          <line>97</line>
-          <option name="timeStamp" value="56" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/WebSocketsClient/src/main/java/websocketsclient/WebSocketsClient.java</url>
-          <line>13</line>
+          <line>9</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
       </breakpoints>

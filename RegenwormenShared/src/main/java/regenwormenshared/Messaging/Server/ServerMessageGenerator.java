@@ -1,12 +1,16 @@
 package regenwormenshared.Messaging.Server;
 
 import regenwormenshared.Messaging.Messages.*;
+import regenwormenshared.Models.Dice;
 import regenwormenshared.Models.Player;
+import regenwormenshared.Models.Tile;
 import regenwormenshared.Results.ReturnTileResult;
 import regenwormenshared.Results.RollDiceResult;
 import regenwormenshared.Results.SetAsideResult;
 import regenwormenshared.Results.TakeTileResult;
 import regenwormenshared.WebSockets.IWebSocketsEndpoint;
+
+import java.util.List;
 
 public class ServerMessageGenerator implements IServerMessageGenerator {
     private IWebSocketsEndpoint serverEndpoint;
@@ -49,5 +53,17 @@ public class ServerMessageGenerator implements IServerMessageGenerator {
     public void notifyReturnTileResult(String sessionId, ReturnTileResult returnTileResult) {
         ReturnTileResultMessage message = new ReturnTileResultMessage(returnTileResult);
         this.serverEndpoint.broadcast(message);
+    }
+
+    @Override
+    public void notifyGetAllTilesResult(String sessionId, List<Tile> tiles) {
+        GetAllTilesResultMessage message = new GetAllTilesResultMessage(tiles);
+        this.serverEndpoint.sendTo(sessionId, message);
+    }
+
+    @Override
+    public void notifyGetAllDicesResult(String sessionId, List<Dice> dices) {
+        GetAllDicesResultMessage message = new GetAllDicesResultMessage(dices);
+        this.serverEndpoint.sendTo(sessionId, message);
     }
 }

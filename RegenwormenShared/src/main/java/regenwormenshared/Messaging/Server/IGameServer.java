@@ -12,5 +12,7 @@ public interface IGameServer {
     void setAside(String sessionId, RollDiceResult rollDiceResult, SetAsideResult setAsideResult);
     void takeTile(String sessionId, SetAsideResult setAsideResult, TakeTileResult takeTileResult);
     void returnTile(String sessionId, ReturnTileResult returnTileResult);
+    void getAllTiles(String sessionId);
+    void getAllDices(String sessionId);
     void processClientDisconnect(String sessionId);
 }

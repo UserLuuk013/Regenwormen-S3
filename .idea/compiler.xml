@@ -2,16 +2,19 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
       <profile name="Maven default annotation processors profile" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="WebSocketsServer" />
-        <module name="RegenwormenShared" />
-        <module name="WebSocketsClient" />
         <module name="RegenwormenClient" />
-        <module name="RestServer" />
+        <module name="WebSocketsClient" />
+      </profile>
+      <profile name="AnnotationProcessorTest">
         <module name="RestClient" />
+        <module name="RegenwormenShared" />
+        <module name="RestServer" />
       </profile>
     </annotationProcessing>
   </component>
