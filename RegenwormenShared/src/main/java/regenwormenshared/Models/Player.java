@@ -9,8 +9,9 @@ public class Player {
     private int id;
     private String username;
     private String password;
-    private int numberOfRegenwormen = 0;
+
     private List<Tile> stack = new ArrayList<>();
+    private boolean hasTurn;
 
     public Player() {
 
@@ -26,17 +27,6 @@ public class Player {
         this.username = username;
         this.password = password;
     }
-
-    public Player Login(String username, String password) {
-//        return username.equals("Luuk") && password.equals("Regenwormen123!");
-        return new Player();
-    }
-
-    public boolean Register(String username, String password) {
-        return true;
-    }
-
-    public PlayerDTO CreateDTO() { return new PlayerDTO(username, password); }
 
     public int getId() {
         return id;
@@ -62,19 +52,19 @@ public class Player {
         this.password = password;
     }
 
-    public int getNumberOfRegenwormen() {
-        return numberOfRegenwormen;
-    }
-
-    public void setNumberOfRegenwormen(int numberOfRegenwormen) {
-        this.numberOfRegenwormen = numberOfRegenwormen;
-    }
-
     public List<Tile> getStack() {
         return stack;
     }
 
     public void setStack(List<Tile> stack) {
         this.stack = stack;
+    }
+
+    public boolean isHasTurn() {
+        return hasTurn;
+    }
+
+    public void setHasTurn(boolean hasTurn) {
+        this.hasTurn = hasTurn;
     }
 }

@@ -9,30 +9,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Round {
-    private List<Tile> row;
-    private List<Player> players;
-    private boolean singlePlayer;
-    private String turn;
-    private List<Dice> thrownDices;
     private List<Dice> takenDices;
-
-    public Round(List<Tile> row, List<Player> players, boolean singlePlayer, String turn,
-                 List<Dice> thrownDices, List<Dice> takenDices){
-        this.row = row;
-        this.players = players;
-        this.singlePlayer = singlePlayer;
-        this.turn = turn;
-        this.thrownDices = thrownDices;
-        this.takenDices = takenDices;
-    }
+    private List<Dice> thrownDices;
 
     public Round(){
-
+        takenDices = new ArrayList<>();
+        thrownDices = new ArrayList<>();
     }
 
     public RollDiceResult RollDice(int numberOfDices) {
         DiceThrow diceThrow = new DiceThrow();
-        return new RollDiceResult(diceThrow.GenerateDiceThrow(numberOfDices));
+        this.thrownDices = diceThrow.GenerateDiceThrow(numberOfDices);
+        return new RollDiceResult(thrownDices);
     }
 
     public SetAsideResult SetAside(RollDiceResult rollDiceResult, SetAsideResult setAsideResult) {
@@ -45,7 +33,8 @@ public class Round {
                 }
             }
             setAsideResult.getTakenDices().addAll(chosenDices);
-            rollDiceResult.getThrownDices().removeAll(chosenDices);
+            this.takenDices = setAsideResult.getTakenDices();
+//            rollDiceResult.getThrownDices().removeAll(chosenDices);
         }
         return setAsideResult;
     }
@@ -89,5 +78,13 @@ public class Round {
         returnTileResult.getRow().add(tile);
 
         return returnTileResult;
+    }
+
+    public List<Dice> getTakenDices() {
+        return takenDices;
+    }
+
+    public List<Dice> getThrownDices() {
+        return thrownDices;
     }
 }

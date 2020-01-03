@@ -30,36 +30,6 @@ public class PlayerTest {
     }
 
     @Test
-    public void testPlayerLogin(){
-        // Arrange
-
-        // Act
-        Player actual = player.Login("Luuk", "Regenwormen123!");
-        // Assert
-        Assert.assertNotNull(actual);
-    }
-
-    @Test
-    public void testPlayerRegister(){
-        // Arrange
-
-        // Act
-        boolean actual = player.Register("Luuk", "Regenwormen123!");
-        // Assert
-        Assert.assertTrue(actual);
-    }
-
-    @Test
-    public void testPlayerCreateDTONotNull(){
-        // Arrange
-
-        // Act
-        PlayerDTO playerDTO = player.CreateDTO();
-        // Assert
-        Assert.assertNotNull(playerDTO);
-    }
-
-    @Test
     public void testPlayerGetUsername(){
         // Arrange
         String expected = "Luuk";
@@ -89,18 +59,6 @@ public class PlayerTest {
         // Act
         player.setId(expected);
         int actual = player.getId();
-        // Assert
-        Assert.assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testPlayerGetNumberOfRegenwormen(){
-        // Arrange
-        int expected = 10;
-        Player player = new Player("Luuk", "Regenwormen123!");
-        // Act
-        player.setNumberOfRegenwormen(expected);
-        int actual = player.getNumberOfRegenwormen();
         // Assert
         Assert.assertEquals(expected, actual);
     }

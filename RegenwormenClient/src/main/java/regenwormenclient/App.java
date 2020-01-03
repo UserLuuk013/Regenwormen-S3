@@ -26,7 +26,7 @@ public class App
     {
 //        System.out.println( "Hello World!" );
         start();
-        getAllTiles();
+        rollDice();
     }
 
     public static void start(){
