@@ -1,7 +1,7 @@
 package regenwormenshared.Messaging.Server.messageHandlers;
 
 import regenwormenshared.MessageHandling.Handler.MessageHandlerBase;
-import regenwormenshared.Messaging.Messages.GetAllDicesMessage;
+import regenwormenshared.Messaging.Messages.Client.GetAllDicesMessage;
 import regenwormenshared.Messaging.Server.IGameServer;
 
 public class GetAllDicesMessageHandler extends MessageHandlerBase<GetAllDicesMessage> {

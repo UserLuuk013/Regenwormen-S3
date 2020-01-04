@@ -34,7 +34,6 @@ public class Round {
             }
             setAsideResult.getTakenDices().addAll(chosenDices);
             this.takenDices = setAsideResult.getTakenDices();
-//            rollDiceResult.getThrownDices().removeAll(chosenDices);
         }
         return setAsideResult;
     }

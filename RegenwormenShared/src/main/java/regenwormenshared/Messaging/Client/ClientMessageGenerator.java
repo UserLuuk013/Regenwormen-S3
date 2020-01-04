@@ -1,10 +1,8 @@
 package regenwormenshared.Messaging.Client;
 
-import regenwormenshared.Messaging.Messages.*;
-import regenwormenshared.Results.ReturnTileResult;
-import regenwormenshared.Results.RollDiceResult;
-import regenwormenshared.Results.SetAsideResult;
-import regenwormenshared.Results.TakeTileResult;
+import regenwormenshared.Messaging.Messages.Client.*;
+import regenwormenshared.Models.Dice;
+import regenwormenshared.Models.Tile;
 import regenwormenshared.WebSockets.IWebSocketsClientEndpoint;
 
 public class ClientMessageGenerator implements IClientMessageGenerator {
@@ -26,23 +24,28 @@ public class ClientMessageGenerator implements IClientMessageGenerator {
     }
 
     @Override
-    public void throwDices(int numberOfDices) {
-        clientEndpoint.send(new RollDiceMessage(numberOfDices));
+    public void rollDice() {
+        clientEndpoint.send(new RollDiceMessage());
     }
 
     @Override
-    public void setAside(RollDiceResult rollDiceResult, SetAsideResult setAsideResult) {
-        clientEndpoint.send(new SetAsideMessage(rollDiceResult, setAsideResult));
+    public void setAside(Dice chosenDice) {
+        clientEndpoint.send(new SetAsideMessage(chosenDice));
     }
 
     @Override
-    public void takeTile(SetAsideResult setAsideResult, TakeTileResult takeTileResult) {
-        clientEndpoint.send(new TakeTileMessage(setAsideResult, takeTileResult));
+    public void endRollDice() {
+        clientEndpoint.send(new EndRollDiceMessage());
     }
 
     @Override
-    public void returnTile(ReturnTileResult returnTileResult) {
-        clientEndpoint.send(new ReturnTileMessage(returnTileResult));
+    public void takeTile(Tile chosenTile) {
+        clientEndpoint.send(new TakeTileMessage(chosenTile));
+    }
+
+    @Override
+    public void returnTile() {
+        clientEndpoint.send(new ReturnTileMessage());
     }
 
     @Override

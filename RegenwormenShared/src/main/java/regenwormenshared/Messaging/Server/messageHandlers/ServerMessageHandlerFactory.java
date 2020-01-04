@@ -19,6 +19,8 @@ public class ServerMessageHandlerFactory implements IMessageHandlerFactory {
                 return new RollDiceMessageHandler(igame);
             case "SetAsideMessage":
                 return new SetAsideMessageHandler(igame);
+            case "EndRollDiceMessage":
+                return new EndRollDiceMessageHandler(igame);
             case "TakeTileMessage":
                 return new TakeTileMessageHandler(igame);
             case "ReturnTileMessage":

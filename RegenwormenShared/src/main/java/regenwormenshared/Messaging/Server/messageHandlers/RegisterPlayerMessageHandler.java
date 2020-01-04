@@ -1,7 +1,7 @@
 package regenwormenshared.Messaging.Server.messageHandlers;
 
 import regenwormenshared.MessageHandling.Handler.MessageHandlerBase;
-import regenwormenshared.Messaging.Messages.RegisterPlayerMessage;
+import regenwormenshared.Messaging.Messages.Client.RegisterPlayerMessage;
 import regenwormenshared.Messaging.Server.IGameServer;
 
 public class RegisterPlayerMessageHandler extends MessageHandlerBase<RegisterPlayerMessage> {

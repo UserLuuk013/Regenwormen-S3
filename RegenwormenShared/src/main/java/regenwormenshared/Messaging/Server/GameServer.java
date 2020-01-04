@@ -59,19 +59,18 @@ public class GameServer implements IGameServer {
         if (player1 == null){
             player1 = player;
             player1.setHasTurn(true);
-            joinGame(sessionId, player1.getUsername());
+            joinGame(sessionId, player1);
         }
         else if (player2 == null){
             player2 = player;
             player2.setHasTurn(false);
-            joinGame(sessionId, player2.getUsername());
-            setupGame();
+            joinGame(sessionId, player2);
+            setupGame(sessionId);
         }
     }
 
     @Override
-    public void rollDice(String sessionId, int numberOfDices) {
-        //Change method by deleting numberOfDices
+    public void rollDice(String sessionId) {
         currentRound = new Round();
         gameState = GameState.ROLLDICE;
         this.rollDiceResult = currentRound.RollDice(8 - currentRound.getTakenDices().size());
@@ -79,9 +78,7 @@ public class GameServer implements IGameServer {
     }
 
     @Override
-    public void setAside(String sessionId, RollDiceResult rollDiceResult, SetAsideResult setAsideResult) {
-        //Change method by deleting rollDiceResult and setAsideResult. Only (value of) chosenDice is needed
-        Dice chosenDice = new Dice(1, "image.jpg", false);
+    public void setAside(String sessionId, Dice chosenDice) {
         gameState = GameState.SETASIDE;
         this.setAsideResult = currentRound.SetAside(rollDiceResult, new SetAsideResult(currentRound.getTakenDices(), chosenDice));
         messageGenerator.notifySetAsideResult(sessionId, setAsideResult);
@@ -109,42 +106,104 @@ public class GameServer implements IGameServer {
                 endRollDice = true;
             }
         }
-
-        if (endRollDice){
-            //messageGenerator.notifyRollDiceEnded(String sessionId);
-        }
-        else{
-            //messageGenerator.notifyRollDiceNotEnded(String sessionId);
-        }
+        messageGenerator.notifyEndRollDiceResult(sessionId, endRollDice);
     }
 
     @Override
-    public void takeTile(String sessionId, SetAsideResult setAsideResult, TakeTileResult takeTileResult) {
-        //Change method by deleting setAsideResult and takeTileResult. Only chosenTile is needed.
-        Tile chosenTile = new Tile(21, "image.jpg", 1);
+    public void takeTile(String sessionId, Tile chosenTile) {
         gameState = GameState.TAKETILE;
         for (Tile tile : row){
             if (tile.getValue() == chosenTile.getValue() && tile.getVisible()){
                 this.takeTileResult = currentRound.TakeTile(setAsideResult, new TakeTileResult(chosenTile, row, getPlayerByTurn(true).getStack()));
+                row = takeTileResult.getChosenStackOrRow();
+                getPlayerByTurn(true).setStack(takeTileResult.getStack());
             }
         }
 
         for (Tile tile : getPlayerByTurn(false).getStack()){
             if (tile.getValue() == chosenTile.getValue() && tile.getVisible()){
                 this.takeTileResult = currentRound.TakeTile(setAsideResult, new TakeTileResult(chosenTile, getPlayerByTurn(false).getStack(), getPlayerByTurn(true).getStack()));
+                getPlayerByTurn(false).setStack(takeTileResult.getChosenStackOrRow());
+                getPlayerByTurn(true).setStack(takeTileResult.getStack());
             }
         }
         messageGenerator.notifyTakeTileResult(sessionId, takeTileResult);
-        roundEnded();
+        roundEnded(sessionId);
     }
 
     @Override
-    public void returnTile(String sessionId, ReturnTileResult returnTileResult) {
-        //Change method by deleting returnTileResult.
+    public void returnTile(String sessionId) {
         gameState = GameState.RETURNTILE;
         this.returnTileResult = currentRound.ReturnTile(new ReturnTileResult(row, getPlayerByTurn(true).getStack()));
+
+        row = returnTileResult.getRow();
+        getPlayerByTurn(true).setStack(returnTileResult.getStack());
+
         messageGenerator.notifyReturnTileResult(sessionId, returnTileResult);
-        roundEnded();
+        roundEnded(sessionId);
+    }
+
+    @Override
+    public void roundEnded(String sessionId) {
+        gameState = GameState.ENDROUND;
+        checkGame(sessionId);
+    }
+
+    @Override
+    public void checkGame(String sessionId) {
+        gameState = GameState.CHECKGAME;
+        for (Tile tile : row){
+            if (row.size() == 0 || !tile.getVisible()){
+                gameEnded(sessionId);
+            }
+            else{
+                startNewRound(sessionId);
+            }
+        }
+    }
+
+    @Override
+    public void gameEnded(String sessionId) {
+        int scorePlayer1 = 0;
+        int scorePlayer2 = 0;
+
+
+        for (Tile tile : player1.getStack()){
+            scorePlayer1 += tile.getAmountOfRegenwormen();
+        }
+
+        for (Tile tile : player2.getStack()){
+            scorePlayer2 += tile.getAmountOfRegenwormen();
+        }
+
+        if (scorePlayer1 != scorePlayer2){
+            messageGenerator.notifyGameEndedResult(sessionId, scorePlayer1, scorePlayer2, false);
+        }
+        else{
+            messageGenerator.notifyGameEndedResult(sessionId, scorePlayer1, scorePlayer2, true);
+        }
+    }
+
+    @Override
+    public void startNewRound(String sessionId) {
+        this.currentRound = new Round();
+        if (roundCounter != 0){
+            swapTurns();
+        }
+        roundCounter += 1;
+        messageGenerator.notifyNewRoundStarted(sessionId, player1, player2, row);
+    }
+
+    @Override
+    public void swapTurns() {
+        if (player1.isHasTurn()){
+            player1.setHasTurn(false);
+            player2.setHasTurn(true);
+        }
+        else{
+            player1.setHasTurn(true);
+            player2.setHasTurn(false);
+        }
     }
 
     @Override
@@ -179,30 +238,14 @@ public class GameServer implements IGameServer {
     }
 
     @Override
-    public void joinGame(String sessionId, String username) {
-        //messageGenerator.notifyPlayerJoined(sessionId, username);
+    public void joinGame(String sessionId, Player player) {
+        //messageGenerator.notifyPlayerJoined(sessionId, player);
     }
 
     @Override
-    public void startNewRound() {
-        this.currentRound = new Round();
-        if (roundCounter != 0){
-            swapTurns();
-        }
-        roundCounter += 1;
-        //messageGenerator.notifyNewRoundStarted(player1.isHasTurn(), player2.isHasTurn());
-    }
-
-    @Override
-    public void roundEnded() {
-        gameState = GameState.ENDROUND;
-        checkGame();
-    }
-
-    @Override
-    public void setupGame() {
+    public void setupGame(String sessionId) {
         row = new ArrayList<>();
-        for (int i = 21; i < 36; i++){
+        for (int i = 21; i < 37; i++){
             if (i < 25) {
                 row.add(new Tile(i, "image.jpg", 1));
             }
@@ -217,57 +260,7 @@ public class GameServer implements IGameServer {
             }
         }
         this.roundCounter = 0;
-        startNewRound();
-    }
-
-    @Override
-    public void swapTurns() {
-        if (player1.isHasTurn()){
-            player1.setHasTurn(false);
-            player2.setHasTurn(true);
-        }
-        else{
-            player1.setHasTurn(true);
-            player2.setHasTurn(false);
-        }
-    }
-
-    @Override
-    public void checkGame() {
-        gameState = GameState.CHECKGAME;
-        for (Tile tile : row){
-            if (row.size() == 0 || !tile.getVisible()){
-                gameEnded();
-            }
-            else{
-                startNewRound();
-            }
-        }
-    }
-
-    @Override
-    public void gameEnded() {
-        int scorePlayer1 = 0;
-        int scorePlayer2 = 0;
-
-
-        for (Tile tile : player1.getStack()){
-            scorePlayer1 += tile.getAmountOfRegenwormen();
-        }
-
-        for (Tile tile : player2.getStack()){
-            scorePlayer2 += tile.getAmountOfRegenwormen();
-        }
-
-        if (scorePlayer1 > scorePlayer2){
-            //messageGenerator.notifyGameEnded(scorePlayer1, scorePlayer2);
-        }
-        else if (scorePlayer2 > scorePlayer1){
-            //messageGenerator.notifyGameEnded(scorePlayer2, scorePlayer1);
-        }
-        else{
-            //messageGenerator.notifyGameEndedDraw(scorePlayer1, scorePlayer2);
-        }
+        startNewRound(sessionId);
     }
 
     @Override

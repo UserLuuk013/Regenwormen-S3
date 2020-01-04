@@ -15,8 +15,12 @@ public interface IServerMessageGenerator {
     void notifyLoginPlayerResult(String sessionId, Player player);
     void notifyRollDiceResult(String sessionId, RollDiceResult rollDiceResult);
     void notifySetAsideResult(String sessionId, SetAsideResult setAsideResult);
+    void notifyEndRollDiceResult(String sessionId, boolean result);
     void notifyTakeTileResult(String sessionId, TakeTileResult takeTileResult);
     void notifyReturnTileResult(String sessionId, ReturnTileResult returnTileResult);
+    void notifyGameEndedResult(String sessionId, int scorePlayer1, int scorePlayer2, boolean draw);
+    void notifyNewRoundStarted(String sessionId, Player player1, Player player2, List<Tile> row);
     void notifyGetAllTilesResult(String sessionId, List<Tile> tiles);
     void notifyGetAllDicesResult(String sessionId, List<Dice> dices);
+    void notifyPlayerJoined(String sessionId, Player player);
 }

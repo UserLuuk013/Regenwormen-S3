@@ -1,7 +1,7 @@
 package regenwormenshared.Messaging.Server.messageHandlers;
 
 import regenwormenshared.MessageHandling.Handler.MessageHandlerBase;
-import regenwormenshared.Messaging.Messages.TakeTileMessage;
+import regenwormenshared.Messaging.Messages.Client.TakeTileMessage;
 import regenwormenshared.Messaging.Server.IGameServer;
 
 public class TakeTileMessageHandler extends MessageHandlerBase<TakeTileMessage> {
@@ -14,6 +14,6 @@ public class TakeTileMessageHandler extends MessageHandlerBase<TakeTileMessage> 
 
     @Override
     public void handleMessageInternal(TakeTileMessage message, String sessionId) {
-        game.takeTile(sessionId, message.getSetAsideResult(), message.getTakeTileResult());
+        game.takeTile(sessionId, message.getChosenTile());
     }
 }

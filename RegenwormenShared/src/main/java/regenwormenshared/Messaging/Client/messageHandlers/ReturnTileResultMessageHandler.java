@@ -2,7 +2,7 @@ package regenwormenshared.Messaging.Client.messageHandlers;
 
 import regenwormenshared.MessageHandling.Handler.MessageHandlerBase;
 import regenwormenshared.Messaging.Client.IGameClient;
-import regenwormenshared.Messaging.Messages.ReturnTileResultMessage;
+import regenwormenshared.Messaging.Messages.Server.ReturnTileResultMessage;
 
 public class ReturnTileResultMessageHandler extends MessageHandlerBase<ReturnTileResultMessage> {
     private IGameClient client;

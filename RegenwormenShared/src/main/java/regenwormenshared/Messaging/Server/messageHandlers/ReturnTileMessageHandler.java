@@ -1,7 +1,7 @@
 package regenwormenshared.Messaging.Server.messageHandlers;
 
 import regenwormenshared.MessageHandling.Handler.MessageHandlerBase;
-import regenwormenshared.Messaging.Messages.ReturnTileMessage;
+import regenwormenshared.Messaging.Messages.Client.ReturnTileMessage;
 import regenwormenshared.Messaging.Server.IGameServer;
 
 public class ReturnTileMessageHandler extends MessageHandlerBase<ReturnTileMessage> {
@@ -14,6 +14,6 @@ public class ReturnTileMessageHandler extends MessageHandlerBase<ReturnTileMessa
 
     @Override
     public void handleMessageInternal(ReturnTileMessage message, String sessionId) {
-        game.returnTile(sessionId, message.getReturnTileResult());
+        game.returnTile(sessionId);
     }
 }

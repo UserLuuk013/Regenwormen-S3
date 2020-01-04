@@ -1,6 +1,6 @@
 package regenwormenshared.Messaging.Server;
 
-import regenwormenshared.Messaging.Messages.*;
+import regenwormenshared.Messaging.Messages.Server.*;
 import regenwormenshared.Models.Dice;
 import regenwormenshared.Models.Player;
 import regenwormenshared.Models.Tile;
@@ -44,6 +44,12 @@ public class ServerMessageGenerator implements IServerMessageGenerator {
     }
 
     @Override
+    public void notifyEndRollDiceResult(String sessionId, boolean result) {
+        EndRollDiceResultMessage message = new EndRollDiceResultMessage(result);
+        this.serverEndpoint.broadcast(message);
+    }
+
+    @Override
     public void notifyTakeTileResult(String sessionId, TakeTileResult takeTileResult) {
         TakeTileResultMessage message = new TakeTileResultMessage(takeTileResult);
         this.serverEndpoint.broadcast(message);
@@ -52,6 +58,18 @@ public class ServerMessageGenerator implements IServerMessageGenerator {
     @Override
     public void notifyReturnTileResult(String sessionId, ReturnTileResult returnTileResult) {
         ReturnTileResultMessage message = new ReturnTileResultMessage(returnTileResult);
+        this.serverEndpoint.broadcast(message);
+    }
+
+    @Override
+    public void notifyGameEndedResult(String sessionId, int scorePlayer1, int scorePlayer2, boolean draw) {
+        GameEndedResultMessage message = new GameEndedResultMessage(scorePlayer1, scorePlayer2, draw);
+        this.serverEndpoint.broadcast(message);
+    }
+
+    @Override
+    public void notifyNewRoundStarted(String sessionId, Player player1, Player player2, List<Tile> row) {
+        NewRoundStartedMessage message = new NewRoundStartedMessage(player1, player2, row);
         this.serverEndpoint.broadcast(message);
     }
 
@@ -65,5 +83,11 @@ public class ServerMessageGenerator implements IServerMessageGenerator {
     public void notifyGetAllDicesResult(String sessionId, List<Dice> dices) {
         GetAllDicesResultMessage message = new GetAllDicesResultMessage(dices);
         this.serverEndpoint.sendTo(sessionId, message);
+    }
+
+    @Override
+    public void notifyPlayerJoined(String sessionId, Player player) {
+        PlayerJoinedMessage message = new PlayerJoinedMessage(player);
+        this.serverEndpoint.broadcast(message);
     }
 }

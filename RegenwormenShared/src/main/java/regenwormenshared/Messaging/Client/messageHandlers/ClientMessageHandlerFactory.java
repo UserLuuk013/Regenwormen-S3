@@ -18,14 +18,22 @@ public class ClientMessageHandlerFactory implements IMessageHandlerFactory {
                 return new RollDiceResultMessageHandler(client);
             case "SetAsideResultMessage":
                 return new SetAsideResultMessageHandler(client);
+            case "EndRollDiceResultMessage":
+                return new EndRollDiceResultMessageHandler(client);
             case "TakeTileResultMessage":
                 return new TakeTileResultMessageHandler(client);
             case "ReturnTileResultMessage":
                 return new ReturnTileResultMessageHandler(client);
+            case "NewRoundStartedMessage":
+                return new NewRoundStartedMessageHandler(client);
+            case "GameEndedResultMessage":
+                return new GameEndedResultMessageHandler(client);
             case "GetAllTilesResultMessage":
                 return new GetAllTilesResultMessageHandler(client);
             case "GetAllDicesResultMessage":
                 return new GetAllDicesResultMessageHandler(client);
+            case "PlayerJoinedMessage":
+                return new PlayerJoinedMessageHandler(client);
             default:
                 return null;
         }

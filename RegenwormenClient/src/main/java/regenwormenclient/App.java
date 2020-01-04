@@ -52,7 +52,7 @@ public class App
     }
 
     private static void rollDice(){
-        gameClient.rollDice(8);
+        gameClient.rollDice();
     }
 
     private static void setAside(){
@@ -71,7 +71,8 @@ public class App
         SetAsideResult setAsideResult = new SetAsideResult(takenDices, chosenDice);
 
         // Executing SetAside of GameClient
-        gameClient.setAside(rollDiceResult, setAsideResult);
+//        gameClient.setAside(rollDiceResult, setAsideResult);
+        gameClient.setAside(chosenDice);
     }
 
     private static void takeTile(){
@@ -101,7 +102,8 @@ public class App
         TakeTileResult takeTileResult = new TakeTileResult(chosenTile, chosenStackOrRow, stack);
 
         // Executing TakeTile of GameClient
-        gameClient.takeTile(setAsideResult, takeTileResult);
+//        gameClient.takeTile(setAsideResult, takeTileResult);
+        gameClient.takeTile(chosenTile);
     }
 
     private static void returnTile(){
@@ -117,7 +119,8 @@ public class App
         ReturnTileResult returnTileResult = new ReturnTileResult(row, stack);
 
         // Executing ReturnTile of GameClient
-        gameClient.returnTile(returnTileResult);
+//        gameClient.returnTile(returnTileResult);
+        gameClient.returnTile();
     }
 
     private static void getAllTiles(){
