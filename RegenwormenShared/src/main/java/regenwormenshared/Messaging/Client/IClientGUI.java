@@ -1,5 +1,6 @@
 package regenwormenshared.Messaging.Client;
 
+import regenwormenshared.Models.Enums.GameState;
 import regenwormenshared.Models.Player;
 import regenwormenshared.Models.Tile;
 import regenwormenshared.Results.ReturnTileResult;
@@ -20,4 +21,5 @@ public interface IClientGUI {
     void processNewRoundStarted(String sessionId, Player player1, Player player2, List<Tile> row);
     void processGameEndedResult(String sessionId, int scorePlayer1, int scorePlayer2, boolean draw);
     void processPlayerJoined(String sessionId, Player player);
+    void processErrorGameStateMessage(String sessionId, GameState gameState);
 }

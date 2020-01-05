@@ -71,22 +71,45 @@ public class GameServer implements IGameServer {
 
     @Override
     public void rollDice(String sessionId) {
-        currentRound = new Round();
-        gameState = GameState.ROLLDICE;
-        this.rollDiceResult = currentRound.RollDice(8 - currentRound.getTakenDices().size());
-        messageGenerator.notifyRollDiceResult(sessionId, rollDiceResult);
+        if (gameState == GameState.ROLLDICE){
+            this.rollDiceResult = currentRound.RollDice(8 - currentRound.getTakenDices().size());
+            int amountOfDices = 0;
+
+            for (Dice takenDice : currentRound.getTakenDices()){
+                for (Dice thrownDice : rollDiceResult.getThrownDices()){
+                    if (takenDice.getValue() == thrownDice.getValue() && takenDice.getRegenworm() == thrownDice.getRegenworm()){
+                        amountOfDices++;
+                        if (amountOfDices == (rollDiceResult.getThrownDices().size() + currentRound.getTakenDices().size())){
+                            this.gameState = GameState.RETURNTILE;
+                            returnTile(sessionId);
+                        }
+                    }
+                }
+            }
+
+            this.gameState = GameState.SETASIDE;
+            messageGenerator.notifyRollDiceResult(sessionId, rollDiceResult);
+        }
+        else{
+            messageGenerator.notifyErrorGameState(sessionId, gameState);
+        }
     }
 
     @Override
     public void setAside(String sessionId, Dice chosenDice) {
-        gameState = GameState.SETASIDE;
-        this.setAsideResult = currentRound.SetAside(rollDiceResult, new SetAsideResult(currentRound.getTakenDices(), chosenDice));
-        messageGenerator.notifySetAsideResult(sessionId, setAsideResult);
+        if (gameState == GameState.SETASIDE){
+            this.setAsideResult = currentRound.SetAside(rollDiceResult, new SetAsideResult(currentRound.getTakenDices(), chosenDice));
+            this.gameState = GameState.ROLLDICE;
+            messageGenerator.notifySetAsideResult(sessionId, setAsideResult);
+        }
+        else{
+            messageGenerator.notifyErrorGameState(sessionId, gameState);
+        }
     }
 
     @Override
     public void endRollDice(String sessionId) {
-        gameState = GameState.ENDROLLDICE;
+        this.gameState = GameState.ENDROLLDICE;
 
         int value = 0;
         boolean endRollDice = false;
@@ -106,59 +129,85 @@ public class GameServer implements IGameServer {
                 endRollDice = true;
             }
         }
+        if (endRollDice){
+            this.gameState = GameState.TAKETILE;
+        }
+        else{
+            this.gameState = GameState.ROLLDICE;
+        }
         messageGenerator.notifyEndRollDiceResult(sessionId, endRollDice);
     }
 
     @Override
     public void takeTile(String sessionId, Tile chosenTile) {
-        gameState = GameState.TAKETILE;
-        for (Tile tile : row){
-            if (tile.getValue() == chosenTile.getValue() && tile.getVisible()){
-                this.takeTileResult = currentRound.TakeTile(setAsideResult, new TakeTileResult(chosenTile, row, getPlayerByTurn(true).getStack()));
-                row = takeTileResult.getChosenStackOrRow();
-                getPlayerByTurn(true).setStack(takeTileResult.getStack());
+        if (gameState == GameState.TAKETILE){
+            for (Tile tile : row){
+                if (tile.getValue() == chosenTile.getValue() && tile.getVisible()){
+                    this.takeTileResult = currentRound.TakeTile(setAsideResult, new TakeTileResult(chosenTile, row, getPlayerByTurn(true).getStack()));
+                    row = takeTileResult.getChosenStackOrRow();
+                    getPlayerByTurn(true).setStack(takeTileResult.getStack());
+                }
             }
-        }
 
-        for (Tile tile : getPlayerByTurn(false).getStack()){
-            if (tile.getValue() == chosenTile.getValue() && tile.getVisible()){
-                this.takeTileResult = currentRound.TakeTile(setAsideResult, new TakeTileResult(chosenTile, getPlayerByTurn(false).getStack(), getPlayerByTurn(true).getStack()));
-                getPlayerByTurn(false).setStack(takeTileResult.getChosenStackOrRow());
-                getPlayerByTurn(true).setStack(takeTileResult.getStack());
+            for (Tile tile : getPlayerByTurn(false).getStack()){
+                if (tile.getValue() == chosenTile.getValue() && tile.getVisible()){
+                    this.takeTileResult = currentRound.TakeTile(setAsideResult, new TakeTileResult(chosenTile, getPlayerByTurn(false).getStack(), getPlayerByTurn(true).getStack()));
+                    getPlayerByTurn(false).setStack(takeTileResult.getChosenStackOrRow());
+                    getPlayerByTurn(true).setStack(takeTileResult.getStack());
+                }
             }
+            this.gameState = GameState.ENDROUND;
+            messageGenerator.notifyTakeTileResult(sessionId, takeTileResult);
+            roundEnded(sessionId);
         }
-        messageGenerator.notifyTakeTileResult(sessionId, takeTileResult);
-        roundEnded(sessionId);
+        else{
+            messageGenerator.notifyErrorGameState(sessionId, gameState);
+        }
     }
 
     @Override
     public void returnTile(String sessionId) {
-        gameState = GameState.RETURNTILE;
-        this.returnTileResult = currentRound.ReturnTile(new ReturnTileResult(row, getPlayerByTurn(true).getStack()));
+        if (gameState == GameState.RETURNTILE){
+            this.returnTileResult = currentRound.ReturnTile(new ReturnTileResult(row, getPlayerByTurn(true).getStack()));
 
-        row = returnTileResult.getRow();
-        getPlayerByTurn(true).setStack(returnTileResult.getStack());
+            row = returnTileResult.getRow();
+            getPlayerByTurn(true).setStack(returnTileResult.getStack());
 
-        messageGenerator.notifyReturnTileResult(sessionId, returnTileResult);
-        roundEnded(sessionId);
+            this.gameState = GameState.ENDROUND;
+            messageGenerator.notifyReturnTileResult(sessionId, returnTileResult);
+            roundEnded(sessionId);
+        }
+        else{
+            messageGenerator.notifyErrorGameState(sessionId, gameState);
+        }
+
     }
 
     @Override
     public void roundEnded(String sessionId) {
-        gameState = GameState.ENDROUND;
-        checkGame(sessionId);
+        if (gameState == GameState.ENDROUND){
+            checkGame(sessionId);
+            gameState = GameState.CHECKGAME;
+        }
+        else{
+            messageGenerator.notifyErrorGameState(sessionId, gameState);
+        }
     }
 
     @Override
     public void checkGame(String sessionId) {
-        gameState = GameState.CHECKGAME;
-        for (Tile tile : row){
-            if (row.size() == 0 || !tile.getVisible()){
-                gameEnded(sessionId);
+        if (gameState == GameState.CHECKGAME){
+            for (Tile tile : row){
+                if (row.size() == 0 || !tile.getVisible()){
+                    gameEnded(sessionId);
+                }
+                else{
+                    startNewRound(sessionId);
+                }
             }
-            else{
-                startNewRound(sessionId);
-            }
+        }
+        else{
+            messageGenerator.notifyErrorGameState(sessionId, gameState);
         }
     }
 
@@ -192,6 +241,7 @@ public class GameServer implements IGameServer {
         }
         roundCounter += 1;
         messageGenerator.notifyNewRoundStarted(sessionId, player1, player2, row);
+        gameState = GameState.ROLLDICE;
     }
 
     @Override
@@ -239,7 +289,7 @@ public class GameServer implements IGameServer {
 
     @Override
     public void joinGame(String sessionId, Player player) {
-        //messageGenerator.notifyPlayerJoined(sessionId, player);
+        messageGenerator.notifyPlayerJoined(sessionId, player);
     }
 
     @Override

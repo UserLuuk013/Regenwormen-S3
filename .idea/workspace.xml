@@ -194,7 +194,9 @@
       <workItem from="1577876859936" duration="9260000" />
       <workItem from="1577982219336" duration="4186000" />
       <workItem from="1578046530318" duration="9975000" />
-      <workItem from="1578136792224" duration="13240000" />
+      <workItem from="1578136792224" duration="13867000" />
+      <workItem from="1578225545246" duration="6118000" />
+      <workItem from="1578241309596" duration="6659000" />
     </task>
     <servers />
   </component>
@@ -303,14 +305,24 @@
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Messaging/Server/GameServer.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="61" />
+          <url>file://$PROJECT_DIR$/RegenwormenClient/src/main/java/regenwormenclient/TestClientGUI.java</url>
+          <line>46</line>
+          <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Messaging/Server/GameServer.java</url>
-          <line>193</line>
-          <option name="timeStamp" value="62" />
+          <line>99</line>
+          <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RegenwormenClient/src/main/java/regenwormenclient/TestClientGUI.java</url>
+          <line>160</line>
+          <option name="timeStamp" value="70" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Messaging/Server/GameServer.java</url>
+          <line>73</line>
+          <option name="timeStamp" value="71" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

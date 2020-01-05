@@ -2,6 +2,7 @@ package regenwormenshared.Messaging.Server;
 
 import regenwormenshared.Messaging.Messages.Server.*;
 import regenwormenshared.Models.Dice;
+import regenwormenshared.Models.Enums.GameState;
 import regenwormenshared.Models.Player;
 import regenwormenshared.Models.Tile;
 import regenwormenshared.Results.ReturnTileResult;
@@ -89,5 +90,11 @@ public class ServerMessageGenerator implements IServerMessageGenerator {
     public void notifyPlayerJoined(String sessionId, Player player) {
         PlayerJoinedMessage message = new PlayerJoinedMessage(player);
         this.serverEndpoint.broadcast(message);
+    }
+
+    @Override
+    public void notifyErrorGameState(String sessionId, GameState gameState) {
+        ErrorGameStateMessage message = new ErrorGameStateMessage(gameState);
+        this.serverEndpoint.sendTo(sessionId, message);
     }
 }

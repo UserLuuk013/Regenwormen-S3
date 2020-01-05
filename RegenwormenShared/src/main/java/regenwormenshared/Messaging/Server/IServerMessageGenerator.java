@@ -1,6 +1,7 @@
 package regenwormenshared.Messaging.Server;
 
 import regenwormenshared.Models.Dice;
+import regenwormenshared.Models.Enums.GameState;
 import regenwormenshared.Models.Player;
 import regenwormenshared.Models.Tile;
 import regenwormenshared.Results.ReturnTileResult;
@@ -23,4 +24,5 @@ public interface IServerMessageGenerator {
     void notifyGetAllTilesResult(String sessionId, List<Tile> tiles);
     void notifyGetAllDicesResult(String sessionId, List<Dice> dices);
     void notifyPlayerJoined(String sessionId, Player player);
+    void notifyErrorGameState(String sessionId, GameState gameState);
 }

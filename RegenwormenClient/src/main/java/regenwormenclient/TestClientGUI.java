@@ -3,6 +3,7 @@ package regenwormenclient;
 import regenwormenshared.Messaging.Client.IClientGUI;
 import regenwormenshared.Messaging.Client.IGameClient;
 import regenwormenshared.Models.Dice;
+import regenwormenshared.Models.Enums.GameState;
 import regenwormenshared.Models.Player;
 import regenwormenshared.Models.Tile;
 import regenwormenshared.Results.ReturnTileResult;
@@ -11,6 +12,7 @@ import regenwormenshared.Results.SetAsideResult;
 import regenwormenshared.Results.TakeTileResult;
 
 import java.util.List;
+import java.util.Scanner;
 
 public class TestClientGUI implements IClientGUI {
     private IGameClient gameClient;
@@ -37,6 +39,7 @@ public class TestClientGUI implements IClientGUI {
         for(Dice dice : rollDiceResult.getThrownDices()){
             System.out.println(dice.getValue() + " " + dice.getRegenworm());
         }
+        playTurn();
     }
 
     @Override
@@ -45,6 +48,7 @@ public class TestClientGUI implements IClientGUI {
         for(Dice dice : setAsideResult.getTakenDices()){
             System.out.println(dice.getValue() + " " + dice.getRegenworm());
         }
+        playTurn();
     }
 
     @Override
@@ -55,6 +59,7 @@ public class TestClientGUI implements IClientGUI {
         else{
             System.out.println("Player " + sessionId + " is not allowed to end rolling dices.");
         }
+        playTurn();
     }
 
     @Override
@@ -108,9 +113,11 @@ public class TestClientGUI implements IClientGUI {
 
         if (player1.isHasTurn()){
             System.out.println(player1.getUsername() + " has turn");
+            playTurn();
         }
         else{
             System.out.println(player2.getUsername() + " has turn");
+            playTurn();
         }
     }
 
@@ -136,5 +143,111 @@ public class TestClientGUI implements IClientGUI {
     public void processPlayerJoined(String sessionId, Player player) {
         System.out.println("Another player has joined the game.");
         System.out.println("Your opponent is: " + player.getUsername());
+    }
+
+    @Override
+    public void processErrorGameStateMessage(String sessionId, GameState gameState) {
+        System.out.println("[ERROR]: GameState is not right!");
+        System.out.println("The current GameState is: " + gameState + ".");
+        playTurn();
+    }
+
+    private void playTurn(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter an action...");
+        System.out.println("Choose from RollDice, SetAside, EndRollDice, TakeTile");
+        String choice = scanner.next();
+
+        if (choice.equals("RollDice")){
+            rollDice();
+        }
+        else if (choice.equals("SetAside")){
+            setAside();
+        }
+        else if (choice.equals("EndRollDice")){
+            endRollDice();
+        }
+        else if (choice.equals("TakeTile")){
+            takeTile();
+        }
+        else{
+            playTurn();
+        }
+    }
+
+    private void rollDice(){
+        this.gameClient.rollDice();
+    }
+
+    private void setAside(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter value of Dice to set aside...");
+        System.out.println("Choose from 1, 2, 3, 4, 5 and Regenworm");
+        String choice = scanner.next();
+
+//        switch(choice){
+//            case "1":
+//                this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
+//            case "2":
+//                this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
+//            case "3":
+//                this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
+//            case "4":
+//                this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
+//            case "5":
+//                this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
+//            case "Regenworm":
+//                this.gameClient.setAside(new Dice(5, "image.jpg", true));
+//        }
+
+        if (choice.equals("1")){
+            this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
+        }
+        else if (choice.equals("2")){
+            this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
+        }
+        else if (choice.equals("3")){
+            this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
+        }
+        else if (choice.equals("4")){
+            this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
+        }
+        else if (choice.equals("5")){
+            this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
+        }
+        else if (choice.equals("Regenworm")){
+            this.gameClient.setAside(new Dice(5, "image.jpg", true));
+        }
+        else{
+            setAside();
+        }
+    }
+
+    private void endRollDice(){
+        this.gameClient.endRollDice();
+    }
+
+    private void takeTile(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter value of Tile to set aside...");
+        System.out.println("Choose from 21 to 36");
+        String choice = scanner.next();
+
+        int intChoice = Integer.parseInt(choice);
+        if (intChoice >= 21 && intChoice <= 24){
+            this.gameClient.takeTile(new Tile(intChoice, "image.jpg", 1));
+        }
+        else if (intChoice >= 25 && intChoice <= 28){
+            this.gameClient.takeTile(new Tile(intChoice, "image.jpg", 2));
+        }
+        else if (intChoice >= 29 && intChoice <= 32){
+            this.gameClient.takeTile(new Tile(intChoice, "image.jpg", 3));
+        }
+        else if (intChoice >= 33 && intChoice <= 36){
+            this.gameClient.takeTile(new Tile(intChoice, "image.jpg", 4));
+        }
+        else{
+            takeTile();
+        }
     }
 }
