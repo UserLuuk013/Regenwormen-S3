@@ -4,6 +4,7 @@ import regenwormenshared.Messaging.Client.IClientGUI;
 import regenwormenshared.Messaging.Client.IGameClient;
 import regenwormenshared.Models.Dice;
 import regenwormenshared.Models.Enums.GameState;
+import regenwormenshared.Models.Enums.GameWarning;
 import regenwormenshared.Models.Player;
 import regenwormenshared.Models.Tile;
 import regenwormenshared.Results.ReturnTileResult;
@@ -152,6 +153,23 @@ public class TestClientGUI implements IClientGUI {
         playTurn();
     }
 
+    @Override
+    public void processGameWarningMessage(String sessionId, GameWarning gameWarning) {
+        System.out.println("[WARNING]: " + gameWarning);
+        if (gameWarning == GameWarning.ROLLDICE){
+            System.out.println("The rolled dices correspond to the taken dices.");
+            System.out.println("The system will return the top tile of your stack to the row (if you have one).");
+        }
+        else if (gameWarning == GameWarning.SETASIDE){
+            System.out.println("The chosen dice is not available.");
+            System.out.println("Please, choose another dice to set aside.");
+        }
+        else{
+            System.out.println("The chosen tile is not available.");
+            System.out.println("Please, choose another tile to take.");
+        }
+    }
+
     private void playTurn(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Enter an action...");
@@ -184,21 +202,6 @@ public class TestClientGUI implements IClientGUI {
         System.out.println("Enter value of Dice to set aside...");
         System.out.println("Choose from 1, 2, 3, 4, 5 and Regenworm");
         String choice = scanner.next();
-
-//        switch(choice){
-//            case "1":
-//                this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
-//            case "2":
-//                this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
-//            case "3":
-//                this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
-//            case "4":
-//                this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
-//            case "5":
-//                this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
-//            case "Regenworm":
-//                this.gameClient.setAside(new Dice(5, "image.jpg", true));
-//        }
 
         if (choice.equals("1")){
             this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));

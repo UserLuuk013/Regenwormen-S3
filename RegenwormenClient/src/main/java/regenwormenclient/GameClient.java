@@ -5,6 +5,7 @@ import regenwormenshared.Messaging.Client.IClientMessageGenerator;
 import regenwormenshared.Messaging.Client.IGameClient;
 import regenwormenshared.Models.Dice;
 import regenwormenshared.Models.Enums.GameState;
+import regenwormenshared.Models.Enums.GameWarning;
 import regenwormenshared.Models.Player;
 import regenwormenshared.Models.Tile;
 import regenwormenshared.Results.ReturnTileResult;
@@ -143,5 +144,10 @@ public class GameClient implements IGameClient {
     @Override
     public void processErrorGameStateMessage(String sessionId, GameState gameState) {
         this.clientGUI.processErrorGameStateMessage(sessionId, gameState);
+    }
+
+    @Override
+    public void processGameWarningMessage(String sessionId, GameWarning gameWarning) {
+        this.clientGUI.processGameWarningMessage(sessionId, gameWarning);
     }
 }

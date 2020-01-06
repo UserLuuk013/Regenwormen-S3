@@ -73,18 +73,11 @@ public class GameServer implements IGameServer {
     public void rollDice(String sessionId) {
         if (gameState == GameState.ROLLDICE){
             this.rollDiceResult = currentRound.RollDice(8 - currentRound.getTakenDices().size());
-            int amountOfDices = 0;
 
-            for (Dice takenDice : currentRound.getTakenDices()){
-                for (Dice thrownDice : rollDiceResult.getThrownDices()){
-                    if (takenDice.getValue() == thrownDice.getValue() && takenDice.getRegenworm() == thrownDice.getRegenworm()){
-                        amountOfDices++;
-                        if (amountOfDices == (rollDiceResult.getThrownDices().size() + currentRound.getTakenDices().size())){
-                            this.gameState = GameState.RETURNTILE;
-                            returnTile(sessionId);
-                        }
-                    }
-                }
+            if (isAllInList()) {
+                this.gameState = GameState.RETURNTILE;
+                //Notify all dices in list are equal to dices in taken dices list.
+                returnTile(sessionId);
             }
 
             this.gameState = GameState.SETASIDE;
@@ -95,12 +88,28 @@ public class GameServer implements IGameServer {
         }
     }
 
+    public boolean isAllInList() {
+        boolean allInList = true;
+        for (Dice thrownDice : rollDiceResult.getThrownDices()){
+            if (!currentRound.getTakenDices().contains(thrownDice)) {
+                allInList = false;
+                break;
+            }
+        }
+        return allInList;
+    }
+
     @Override
     public void setAside(String sessionId, Dice chosenDice) {
         if (gameState == GameState.SETASIDE){
-            this.setAsideResult = currentRound.SetAside(rollDiceResult, new SetAsideResult(currentRound.getTakenDices(), chosenDice));
-            this.gameState = GameState.ROLLDICE;
-            messageGenerator.notifySetAsideResult(sessionId, setAsideResult);
+            if (!currentRound.getTakenDices().contains(chosenDice)){
+                this.setAsideResult = currentRound.SetAside(rollDiceResult, new SetAsideResult(currentRound.getTakenDices(), chosenDice));
+                this.gameState = GameState.ROLLDICE;
+                messageGenerator.notifySetAsideResult(sessionId, setAsideResult);
+            }
+            else{
+                //Notify chosenDice is already in takenDices.
+            }
         }
         else{
             messageGenerator.notifyErrorGameState(sessionId, gameState);
@@ -111,24 +120,7 @@ public class GameServer implements IGameServer {
     public void endRollDice(String sessionId) {
         this.gameState = GameState.ENDROLLDICE;
 
-        int value = 0;
-        boolean endRollDice = false;
-
-        for (Dice dice : currentRound.getTakenDices()){
-            value += dice.getValue();
-        }
-
-        for (Tile tile : row){
-            if (tile.getVisible() && tile.getValue() >= value){
-                endRollDice = true;
-            }
-        }
-
-        for (Tile tile : getPlayerByTurn(false).getStack()){
-            if (tile.getVisible() && tile.getValue() >= value){
-                endRollDice = true;
-            }
-        }
+        boolean endRollDice = checkEndRollDice();
         if (endRollDice){
             this.gameState = GameState.TAKETILE;
         }
@@ -138,23 +130,43 @@ public class GameServer implements IGameServer {
         messageGenerator.notifyEndRollDiceResult(sessionId, endRollDice);
     }
 
+    private boolean checkEndRollDice() {
+        int value = 0;
+        boolean endRollDice = false;
+        List<Tile> stackOpponent = getPlayerByTurn(false).getStack();
+
+        for (Dice dice : currentRound.getTakenDices()){
+            value += dice.getValue();
+        }
+
+        for (Tile tile : row){
+            if (tile.getVisible() && tile.getValue() >= value) {
+                endRollDice = true;
+                break;
+            }
+        }
+
+        if (stackOpponent.get(stackOpponent.size() - 1).getVisible() && stackOpponent.get(stackOpponent.size() - 1).getValue() >= value){
+            endRollDice = true;
+        }
+        return endRollDice;
+    }
+
     @Override
     public void takeTile(String sessionId, Tile chosenTile) {
         if (gameState == GameState.TAKETILE){
-            for (Tile tile : row){
-                if (tile.getValue() == chosenTile.getValue() && tile.getVisible()){
-                    this.takeTileResult = currentRound.TakeTile(setAsideResult, new TakeTileResult(chosenTile, row, getPlayerByTurn(true).getStack()));
-                    row = takeTileResult.getChosenStackOrRow();
-                    getPlayerByTurn(true).setStack(takeTileResult.getStack());
-                }
+            if (row.contains(chosenTile)){
+                this.takeTileResult = currentRound.TakeTile(setAsideResult, new TakeTileResult(chosenTile, row, getPlayerByTurn(true).getStack()));
+                row = takeTileResult.getChosenStackOrRow();
+                getPlayerByTurn(true).setStack(takeTileResult.getStack());
             }
-
-            for (Tile tile : getPlayerByTurn(false).getStack()){
-                if (tile.getValue() == chosenTile.getValue() && tile.getVisible()){
-                    this.takeTileResult = currentRound.TakeTile(setAsideResult, new TakeTileResult(chosenTile, getPlayerByTurn(false).getStack(), getPlayerByTurn(true).getStack()));
-                    getPlayerByTurn(false).setStack(takeTileResult.getChosenStackOrRow());
-                    getPlayerByTurn(true).setStack(takeTileResult.getStack());
-                }
+            else if (getPlayerByTurn(false).getStack().contains(chosenTile)){
+                this.takeTileResult = currentRound.TakeTile(setAsideResult, new TakeTileResult(chosenTile, getPlayerByTurn(false).getStack(), getPlayerByTurn(true).getStack()));
+                getPlayerByTurn(false).setStack(takeTileResult.getChosenStackOrRow());
+                getPlayerByTurn(true).setStack(takeTileResult.getStack());
+            }
+            else{
+                // Notify error Tile not available in chosenStackOrRow.
             }
             this.gameState = GameState.ENDROUND;
             messageGenerator.notifyTakeTileResult(sessionId, takeTileResult);
@@ -284,7 +296,7 @@ public class GameServer implements IGameServer {
 
     @Override
     public void processClientDisconnect(String sessionId) {
-
+        //Left to fill in
     }
 
     @Override

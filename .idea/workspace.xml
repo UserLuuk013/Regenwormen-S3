@@ -16,6 +16,7 @@
       <list>
         <option value="package-info" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -35,6 +36,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="extract.method.default.visibility" value="public" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/RegenwormenShared/src/main/java" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../s3_killerapp" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -66,19 +68,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.TestApp2">
-    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="regenwormenclient.App" />
-      <module name="RegenwormenClient" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="regenwormenclient.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="RestServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="restserver.RestServer" />
       <module name="RestServer" />
@@ -131,20 +120,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RegenwormenShared" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="regenwormenBigIdea.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="regenwormenBigIdea" />
+      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.AppTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
       <item itemvalue="Application.WebSocketsServer" />
-      <item itemvalue="Application.App" />
       <item itemvalue="Application.RestServer" />
       <item itemvalue="Application.TestApp1" />
       <item itemvalue="Application.TestApp2" />
+      <item itemvalue="JUnit.AppTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.TestApp2" />
         <item itemvalue="Application.TestApp1" />
-        <item itemvalue="Application.WebSocketsServer" />
         <item itemvalue="Application.RestServer" />
-        <item itemvalue="Application.App" />
+        <item itemvalue="Application.WebSocketsServer" />
+        <item itemvalue="JUnit.AppTest" />
       </list>
     </recent_temporary>
   </component>
@@ -197,6 +201,9 @@
       <workItem from="1578136792224" duration="13867000" />
       <workItem from="1578225545246" duration="6118000" />
       <workItem from="1578241309596" duration="6659000" />
+      <workItem from="1578296642951" duration="16824000" />
+      <workItem from="1578316234979" duration="9087000" />
+      <workItem from="1578332754808" duration="6149000" />
     </task>
     <servers />
   </component>
@@ -306,23 +313,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RegenwormenClient/src/main/java/regenwormenclient/TestClientGUI.java</url>
-          <line>46</line>
+          <line>47</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Messaging/Server/GameServer.java</url>
-          <line>99</line>
+          <line>103</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RegenwormenClient/src/main/java/regenwormenclient/TestClientGUI.java</url>
-          <line>160</line>
+          <line>178</line>
           <option name="timeStamp" value="70" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Messaging/Server/GameServer.java</url>
           <line>73</line>
           <option name="timeStamp" value="71" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RegenwormenShared/src/test/java/regenwormenBigIdea/AppTest.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="73" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RegenwormenClient/src/main/java/regenwormenclient/TestClientGUI.java</url>
+          <line>21</line>
+          <option name="timeStamp" value="74" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

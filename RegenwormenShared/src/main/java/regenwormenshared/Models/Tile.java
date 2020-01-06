@@ -48,4 +48,17 @@ public class Tile {
     public void setAmountOfRegenwormen(int amountOfRegenwormen) {
         this.amountOfRegenwormen = amountOfRegenwormen;
     }
+
+    @Override
+    public boolean equals(Object object){
+
+        boolean sameSame = false;
+
+        if (object instanceof Tile){
+            if (this.value == ((Tile) object).getValue()){
+                sameSame = true;
+            }
+        }
+        return sameSame;
+    }
 }

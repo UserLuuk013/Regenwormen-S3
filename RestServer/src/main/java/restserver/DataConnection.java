@@ -32,8 +32,6 @@ public class DataConnection {
 
     public void ExecuteQueryNoResultSet(String query){
         try{
-//            Statement stmt = conn.createStatement();
-//            stmt.executeQuery(query);
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.executeUpdate();
         }

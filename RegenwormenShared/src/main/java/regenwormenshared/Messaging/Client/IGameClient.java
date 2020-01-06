@@ -2,6 +2,7 @@ package regenwormenshared.Messaging.Client;
 
 import regenwormenshared.Models.Dice;
 import regenwormenshared.Models.Enums.GameState;
+import regenwormenshared.Models.Enums.GameWarning;
 import regenwormenshared.Models.Player;
 import regenwormenshared.Models.Tile;
 import regenwormenshared.Results.ReturnTileResult;
@@ -35,4 +36,5 @@ public interface IGameClient {
     void processGetAllDicesResult(String sessionId, List<Dice> dices);
     void processPlayerJoined(String sessionId, Player player);
     void processErrorGameStateMessage(String sessionId, GameState gameState);
+    void processGameWarningMessage(String sessionId, GameWarning gameWarning);
 }

@@ -38,4 +38,17 @@ public class Dice {
     public void setRegenworm(boolean regenworm) {
         this.regenworm = regenworm;
     }
+
+    @Override
+    public boolean equals(Object object){
+
+        boolean sameSame = false;
+
+        if (object instanceof Dice){
+            if (this.value == ((Dice) object).getValue() && this.getRegenworm() == ((Dice) object).getRegenworm()){
+                sameSame = true;
+            }
+        }
+        return sameSame;
+    }
 }
