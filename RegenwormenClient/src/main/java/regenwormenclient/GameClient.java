@@ -132,7 +132,7 @@ public class GameClient implements IGameClient {
     public void processGetAllDicesResult(String sessionId, List<Dice> dices) {
         System.out.println("The list of Dices after calling query by Player " + sessionId + " looks like this:");
         for (Dice dice : dices){
-            System.out.println(dice.getValue() + " " + dice.getRegenworm());
+            System.out.println(dice.getValue() + " " + dice.isRegenworm());
         }
     }
 
@@ -150,4 +150,5 @@ public class GameClient implements IGameClient {
     public void processGameWarningMessage(String sessionId, GameWarning gameWarning) {
         this.clientGUI.processGameWarningMessage(sessionId, gameWarning);
     }
+
 }

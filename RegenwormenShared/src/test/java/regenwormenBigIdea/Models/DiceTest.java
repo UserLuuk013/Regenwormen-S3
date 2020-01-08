@@ -54,7 +54,7 @@ public class DiceTest {
         // Arrange
         Dice dice = new Dice(1, "image.jpg",false);
         // Act
-        boolean actual = dice.getRegenworm();
+        boolean actual = dice.isRegenworm();
         // Assert
         Assert.assertFalse(actual);
     }

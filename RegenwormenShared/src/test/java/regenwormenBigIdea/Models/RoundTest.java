@@ -154,7 +154,7 @@ public class RoundTest {
         // Act
         ReturnTileResult actualResult = round.ReturnTile(returnTileResult);
         // Assert
-        Assert.assertTrue(actualResult.getRow().get(1).getVisible());
+        Assert.assertTrue(actualResult.getRow().get(1).isVisible());
     }
 
     @Test
@@ -168,6 +168,6 @@ public class RoundTest {
         // Act
         ReturnTileResult actualResult = round.ReturnTile(returnTileResult);
         // Assert
-        Assert.assertFalse(actualResult.getRow().get(1).getVisible());
+        Assert.assertFalse(actualResult.getRow().get(1).isVisible());
     }
 }

@@ -18,7 +18,7 @@ public class DiceDTOModelConverter {
         DiceDTO dto = new DiceDTO(
                 d.getValue(),
                 d.getImage(),
-                d.getRegenworm()
+                d.isRegenworm()
         );
         return dto;
     }

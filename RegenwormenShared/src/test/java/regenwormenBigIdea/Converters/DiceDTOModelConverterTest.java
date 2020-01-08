@@ -29,7 +29,7 @@ public class DiceDTOModelConverterTest {
         // Assert
         Assert.assertEquals(expected.getValue(), actual.getValue());
         Assert.assertEquals(expected.getImage(), actual.getImage());
-        Assert.assertEquals(expected.getRegenworm(), actual.getRegenworm());
+        Assert.assertEquals(expected.isRegenworm(), actual.isRegenworm());
     }
 
     @Test

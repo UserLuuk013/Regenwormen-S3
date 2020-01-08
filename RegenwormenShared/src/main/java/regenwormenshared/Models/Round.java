@@ -28,7 +28,7 @@ public class Round {
 
         if (CheckIfDiceMayBePutAside(setAsideResult.getTakenDices(), setAsideResult.getChosenDice())) {
             for (Dice thrownDice : rollDiceResult.getThrownDices()){
-                if (thrownDice.getValue() == setAsideResult.getChosenDice().getValue() && thrownDice.getRegenworm() == setAsideResult.getChosenDice().getRegenworm()){
+                if (thrownDice.getValue() == setAsideResult.getChosenDice().getValue() && thrownDice.isRegenworm() == setAsideResult.getChosenDice().isRegenworm()){
                     chosenDices.add(thrownDice);
                 }
             }
@@ -48,19 +48,24 @@ public class Round {
 
     public TakeTileResult TakeTile(SetAsideResult setAsideResult, TakeTileResult takeTileResult){
         int value = 0;
+        boolean isTileTaken = false;
         for (Dice dice : setAsideResult.getTakenDices()){
             value += dice.getValue();
         }
         for (Dice dice : setAsideResult.getTakenDices()){
-            if (value >= takeTileResult.getChosenTile().getValue() && dice.getRegenworm()){
-                for (Tile tile : takeTileResult.getChosenStackOrRow()){
-                    if (tile.getValue() == takeTileResult.getChosenTile().getValue()){
-                        takeTileResult.getChosenStackOrRow().remove(tile);
-                        takeTileResult.getStack().add(tile);
-                        break;
+            if (!isTileTaken){
+                if (value >= takeTileResult.getChosenTile().getValue() && dice.isRegenworm()){
+                    for (Tile tile : takeTileResult.getChosenStackOrRow()){
+                        if (tile.getValue() == takeTileResult.getChosenTile().getValue()){
+                            takeTileResult.getChosenStackOrRow().remove(tile);
+                            takeTileResult.getStack().add(tile);
+                            isTileTaken = true;
+                            break;
+                        }
                     }
                 }
             }
+
         }
         return takeTileResult;
     }

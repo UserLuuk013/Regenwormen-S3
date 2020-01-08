@@ -25,7 +25,7 @@ public class Tile {
         this.value = value;
     }
 
-    public boolean getVisible() {
+    public boolean isVisible() {
         return visible;
     }
 

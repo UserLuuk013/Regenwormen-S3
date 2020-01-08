@@ -6,6 +6,7 @@ import org.junit.Assert;
 import org.junit.Test;
 import regenwormenshared.Messaging.Server.GameServer;
 import regenwormenshared.Models.Dice;
+import regenwormenshared.Models.Tile;
 
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -42,5 +43,26 @@ public class AppTest
         boolean bool = gameServer.isAllInList();
         // Assert
         Assert.assertTrue(bool);
+    }
+
+    @Test
+    public void checkIfGameEnded(){
+
+        List<Tile> row = new ArrayList<>();
+        for (int i = 21; i < 37; i++){
+            Tile tile = new Tile(i, "image.jpg", 1);
+//            tile.setVisible(false);
+            row.add(tile);
+        }
+
+        boolean gameEnded = false;
+        for (Tile tile : row){
+            if (row.size() == 0 || !tile.isVisible()){
+                gameEnded = true;
+                break;
+            }
+        }
+
+        Assert.assertFalse(gameEnded);
     }
 }

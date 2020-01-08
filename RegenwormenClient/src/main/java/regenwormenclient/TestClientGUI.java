@@ -17,6 +17,8 @@ import java.util.Scanner;
 
 public class TestClientGUI implements IClientGUI {
     private IGameClient gameClient;
+    private String playerUsername;
+    private boolean hasTurn;
 
     public TestClientGUI(IGameClient gameClient) {
         this.gameClient = gameClient;
@@ -30,6 +32,7 @@ public class TestClientGUI implements IClientGUI {
 
     @Override
     public void processLoginPlayerResult(String sessionId, Player player) {
+        this.playerUsername = player.getUsername();
         System.out.println("Logged in by " + player.getUsername());
         System.out.println("Waiting for opponent...");
     }
@@ -38,17 +41,20 @@ public class TestClientGUI implements IClientGUI {
     public void processRollDiceResult(String sessionId, RollDiceResult rollDiceResult) {
         System.out.println("The result of the thrown dices by Player " + sessionId + " is:");
         for(Dice dice : rollDiceResult.getThrownDices()){
-            System.out.println(dice.getValue() + " " + dice.getRegenworm());
+            System.out.println(dice.getValue() + " " + dice.isRegenworm());
         }
         playTurn();
     }
 
     @Override
     public void processSetAsideResult(String sessionId, SetAsideResult setAsideResult) {
+        int value = 0;
         System.out.println("All of the set aside dices by Player " + sessionId + " are:");
         for(Dice dice : setAsideResult.getTakenDices()){
-            System.out.println(dice.getValue() + " " + dice.getRegenworm());
+            System.out.println(dice.getValue() + " " + dice.isRegenworm());
+            value += dice.getValue();
         }
+        System.out.println("The total value of takenDices is: " + value);
         playTurn();
     }
 
@@ -92,7 +98,7 @@ public class TestClientGUI implements IClientGUI {
         System.out.println("New round has started");
         System.out.println("----- Row -----");
         for (Tile tile : row){
-            System.out.println(tile.getValue() + " " + tile.getAmountOfRegenwormen() + " " + tile.getVisible());
+            System.out.println(tile.getValue() + " " + tile.getAmountOfRegenwormen() + " " + tile.isVisible());
         }
         System.out.println("---------------");
 
@@ -110,6 +116,13 @@ public class TestClientGUI implements IClientGUI {
         }
         else{
             System.out.println("- Empty Stack -");
+        }
+
+        if (playerUsername.equals(player1.getUsername())){
+            this.hasTurn = player1.isHasTurn();
+        }
+        else if (playerUsername.equals(player2.getUsername())){
+            this.hasTurn = player2.isHasTurn();
         }
 
         if (player1.isHasTurn()){
@@ -171,25 +184,31 @@ public class TestClientGUI implements IClientGUI {
     }
 
     private void playTurn(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Enter an action...");
-        System.out.println("Choose from RollDice, SetAside, EndRollDice, TakeTile");
-        String choice = scanner.next();
+        if (hasTurn){
+            Scanner scanner = new Scanner(System.in);
+            System.out.println("Enter an action...");
+            System.out.println("Choose from RollDice, SetAside, EndRollDice, TakeTile");
+            String choice = scanner.next();
 
-        if (choice.equals("RollDice")){
-            rollDice();
-        }
-        else if (choice.equals("SetAside")){
-            setAside();
-        }
-        else if (choice.equals("EndRollDice")){
-            endRollDice();
-        }
-        else if (choice.equals("TakeTile")){
-            takeTile();
+            if (choice.equals("RollDice")){
+                rollDice();
+            }
+            else if (choice.equals("SetAside")){
+                setAside();
+            }
+            else if (choice.equals("EndRollDice")){
+                endRollDice();
+            }
+            else if (choice.equals("TakeTile")){
+                takeTile();
+            }
+            else{
+                playTurn();
+            }
         }
         else{
-            playTurn();
+            System.out.println("It's not your turn.");
+            System.out.println("Please, wait until it's your turn.");
         }
     }
 

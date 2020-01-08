@@ -31,7 +31,7 @@ public class Dice {
         this.image = image;
     }
 
-    public boolean getRegenworm() {
+    public boolean isRegenworm() {
         return regenworm;
     }
 
@@ -45,7 +45,7 @@ public class Dice {
         boolean sameSame = false;
 
         if (object instanceof Dice){
-            if (this.value == ((Dice) object).getValue() && this.getRegenworm() == ((Dice) object).getRegenworm()){
+            if (this.value == ((Dice) object).getValue() && this.isRegenworm() == ((Dice) object).isRegenworm()){
                 sameSame = true;
             }
         }

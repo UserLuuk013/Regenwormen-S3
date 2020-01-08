@@ -8,6 +8,7 @@ import regenwormenshared.DTO.PlayerDTO;
 import regenwormenshared.DTO.TileDTO;
 import regenwormenshared.Models.Dice;
 import regenwormenshared.Models.Enums.GameState;
+import regenwormenshared.Models.Enums.GameWarning;
 import regenwormenshared.Models.Player;
 import regenwormenshared.Models.Round;
 import regenwormenshared.Models.Tile;
@@ -76,7 +77,7 @@ public class GameServer implements IGameServer {
 
             if (isAllInList()) {
                 this.gameState = GameState.RETURNTILE;
-                //Notify all dices in list are equal to dices in taken dices list.
+                messageGenerator.notifyGameWarningMessage(sessionId, GameWarning.ROLLDICE);
                 returnTile(sessionId);
             }
 
@@ -108,7 +109,7 @@ public class GameServer implements IGameServer {
                 messageGenerator.notifySetAsideResult(sessionId, setAsideResult);
             }
             else{
-                //Notify chosenDice is already in takenDices.
+                messageGenerator.notifyGameWarningMessage(sessionId, GameWarning.SETASIDE);
             }
         }
         else{
@@ -140,14 +141,16 @@ public class GameServer implements IGameServer {
         }
 
         for (Tile tile : row){
-            if (tile.getVisible() && tile.getValue() >= value) {
+            if (tile.isVisible() && value >= tile.getValue()) {
                 endRollDice = true;
                 break;
             }
         }
 
-        if (stackOpponent.get(stackOpponent.size() - 1).getVisible() && stackOpponent.get(stackOpponent.size() - 1).getValue() >= value){
-            endRollDice = true;
+        if (!endRollDice){
+            if (stackOpponent.get(stackOpponent.size() - 1).isVisible() && value >= stackOpponent.get(stackOpponent.size() - 1).getValue()){
+                endRollDice = true;
+            }
         }
         return endRollDice;
     }
@@ -166,10 +169,10 @@ public class GameServer implements IGameServer {
                 getPlayerByTurn(true).setStack(takeTileResult.getStack());
             }
             else{
-                // Notify error Tile not available in chosenStackOrRow.
+                messageGenerator.notifyGameWarningMessage(sessionId, GameWarning.TAKETILE);
             }
-            this.gameState = GameState.ENDROUND;
             messageGenerator.notifyTakeTileResult(sessionId, takeTileResult);
+            this.gameState = GameState.ENDROUND;
             roundEnded(sessionId);
         }
         else{
@@ -198,8 +201,8 @@ public class GameServer implements IGameServer {
     @Override
     public void roundEnded(String sessionId) {
         if (gameState == GameState.ENDROUND){
-            checkGame(sessionId);
             gameState = GameState.CHECKGAME;
+            checkGame(sessionId);
         }
         else{
             messageGenerator.notifyErrorGameState(sessionId, gameState);
@@ -209,13 +212,19 @@ public class GameServer implements IGameServer {
     @Override
     public void checkGame(String sessionId) {
         if (gameState == GameState.CHECKGAME){
+            boolean gameEnded = false;
             for (Tile tile : row){
-                if (row.size() == 0 || !tile.getVisible()){
-                    gameEnded(sessionId);
+                if (row.size() == 0 || !tile.isVisible()){
+                    gameEnded = true;
+                    break;
                 }
-                else{
-                    startNewRound(sessionId);
-                }
+            }
+
+            if (gameEnded){
+                gameEnded(sessionId);
+            }
+            else{
+                startNewRound(sessionId);
             }
         }
         else{
@@ -250,10 +259,14 @@ public class GameServer implements IGameServer {
         this.currentRound = new Round();
         if (roundCounter != 0){
             swapTurns();
+            this.rollDiceResult = null;
+            this.setAsideResult = null;
+            this.takeTileResult = null;
+            this.returnTileResult = null;
         }
         roundCounter += 1;
-        messageGenerator.notifyNewRoundStarted(sessionId, player1, player2, row);
         gameState = GameState.ROLLDICE;
+        messageGenerator.notifyNewRoundStarted(sessionId, player1, player2, row);
     }
 
     @Override
