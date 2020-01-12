@@ -137,11 +137,11 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.AppTest.checkIfGameEnded" />
       <item itemvalue="Application.WebSocketsServer" />
       <item itemvalue="Application.RestServer" />
       <item itemvalue="Application.TestApp1" />
       <item itemvalue="Application.TestApp2" />
+      <item itemvalue="JUnit.AppTest.checkIfGameEnded" />
     </list>
     <recent_temporary>
       <list>
@@ -208,7 +208,9 @@
       <workItem from="1578384094058" duration="269000" />
       <workItem from="1578385435120" duration="9000" />
       <workItem from="1578386191754" duration="64000" />
-      <workItem from="1578469527112" duration="16988000" />
+      <workItem from="1578469527112" duration="19036000" />
+      <workItem from="1578560598374" duration="2067000" />
+      <workItem from="1578835643469" duration="7695000" />
     </task>
     <servers />
   </component>
@@ -323,13 +325,28 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RegenwormenClient/src/main/java/regenwormenclient/TestClientGUI.java</url>
-          <line>186</line>
+          <line>196</line>
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Messaging/Server/GameServer.java</url>
-          <line>213</line>
+          <line>227</line>
           <option name="timeStamp" value="83" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Messaging/Server/ServerMessageGenerator.java</url>
+          <line>103</line>
+          <option name="timeStamp" value="85" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WebSocketsServer/src/main/java/websocketsserver/WebSocketsEndpoint.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="87" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/WebSocketsClient/src/main/java/websocketsclient/WebSocketsClientEndpoint.java</url>
+          <line>91</line>
+          <option name="timeStamp" value="88" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

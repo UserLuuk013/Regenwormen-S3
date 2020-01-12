@@ -36,6 +36,8 @@ public class ClientMessageHandlerFactory implements IMessageHandlerFactory {
                 return new PlayerJoinedMessageHandler(client);
             case "ErrorGameStateMessage":
                 return new ErrorGameStateMessageHandler(client);
+            case "GameWarningMessage":
+                return new GameWarningMessageHandler(client);
             default:
                 return null;
         }

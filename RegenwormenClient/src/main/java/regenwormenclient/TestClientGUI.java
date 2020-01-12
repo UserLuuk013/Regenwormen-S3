@@ -173,13 +173,23 @@ public class TestClientGUI implements IClientGUI {
             System.out.println("The rolled dices correspond to the taken dices.");
             System.out.println("The system will return the top tile of your stack to the row (if you have one).");
         }
+        else if (gameWarning == GameWarning.ROLLDICENOTALLOWED){
+            System.out.println("RollDice is not allowed, because you already have thrown all your dices.");
+            System.out.println("The system will check if you are allowed to take a tile");
+        }
         else if (gameWarning == GameWarning.SETASIDE){
             System.out.println("The chosen dice is not available.");
             System.out.println("Please, choose another dice to set aside.");
+            playTurn();
+        }
+        else if (gameWarning == GameWarning.ENDROLLDICE){
+            System.out.println("The total value of the takenDices is not enough to take a tile and you are not allowed to roll dices anymore.");
+            System.out.println("The system will return the top tile of your stack to the row (if you have one).");
         }
         else{
             System.out.println("The chosen tile is not available.");
             System.out.println("Please, choose another tile to take.");
+            playTurn();
         }
     }
 

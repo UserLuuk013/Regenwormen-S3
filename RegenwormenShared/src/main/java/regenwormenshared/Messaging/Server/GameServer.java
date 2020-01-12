@@ -73,16 +73,22 @@ public class GameServer implements IGameServer {
     @Override
     public void rollDice(String sessionId) {
         if (gameState == GameState.ROLLDICE){
-            this.rollDiceResult = currentRound.RollDice(8 - currentRound.getTakenDices().size());
+            if (currentRound.getTakenDices().size() != 8){
+                this.rollDiceResult = currentRound.RollDice(8 - currentRound.getTakenDices().size());
 
-            if (isAllInList()) {
-                this.gameState = GameState.RETURNTILE;
-                messageGenerator.notifyGameWarningMessage(sessionId, GameWarning.ROLLDICE);
-                returnTile(sessionId);
+                if (isAllInList()) {
+                    this.gameState = GameState.RETURNTILE;
+                    messageGenerator.notifyGameWarningMessage(sessionId, GameWarning.ROLLDICE);
+                    returnTile(sessionId);
+                }
+
+                this.gameState = GameState.SETASIDE;
+                messageGenerator.notifyRollDiceResult(sessionId, rollDiceResult);
             }
-
-            this.gameState = GameState.SETASIDE;
-            messageGenerator.notifyRollDiceResult(sessionId, rollDiceResult);
+            else{
+                messageGenerator.notifyGameWarningMessage(sessionId, GameWarning.ROLLDICENOTALLOWED);
+                endRollDice(sessionId);
+            }
         }
         else{
             messageGenerator.notifyErrorGameState(sessionId, gameState);
@@ -126,7 +132,15 @@ public class GameServer implements IGameServer {
             this.gameState = GameState.TAKETILE;
         }
         else{
-            this.gameState = GameState.ROLLDICE;
+            if (currentRound.getTakenDices().size() != 8){
+                this.gameState = GameState.ROLLDICE;
+            }
+            else{
+                this.gameState = GameState.RETURNTILE;
+                messageGenerator.notifyGameWarningMessage(sessionId, GameWarning.ENDROLLDICE);
+                returnTile(sessionId);
+            }
+
         }
         messageGenerator.notifyEndRollDiceResult(sessionId, endRollDice);
     }
@@ -213,11 +227,21 @@ public class GameServer implements IGameServer {
     public void checkGame(String sessionId) {
         if (gameState == GameState.CHECKGAME){
             boolean gameEnded = false;
-            for (Tile tile : row){
-                if (row.size() == 0 || !tile.isVisible()){
-                    gameEnded = true;
-                    break;
+            int tileCounter = 0;
+
+            if (row.size() != 0){
+                for (Tile tile : row){
+                    if (!tile.isVisible()){
+                        tileCounter++;
+                    }
                 }
+
+                if (tileCounter == row.size()){
+                    gameEnded = true;
+                }
+            }
+            else{
+                gameEnded = true;
             }
 
             if (gameEnded){
