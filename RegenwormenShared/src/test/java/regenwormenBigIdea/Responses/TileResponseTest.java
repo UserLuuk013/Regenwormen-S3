@@ -3,7 +3,7 @@ package regenwormenBigIdea.Responses;
 import org.junit.Assert;
 import org.junit.Test;
 import regenwormenshared.DTO.TileDTO;
-import regenwormenshared.Responses.TileResponse;
+import restserver.Responses.TileResponse;
 
 public class TileResponseTest {
 

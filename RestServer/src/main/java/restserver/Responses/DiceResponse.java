@@ -1,8 +1,7 @@
-package regenwormenshared.Responses;
+package restserver.Responses;
 
 import regenwormenshared.DTO.DiceDTO;
 
-import java.util.Collections;
 import java.util.List;
 
 public class DiceResponse {

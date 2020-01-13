@@ -21,8 +21,7 @@ import org.slf4j.LoggerFactory;
 import regenwormenshared.DTO.DiceDTO;
 import regenwormenshared.DTO.PlayerDTO;
 import regenwormenshared.DTO.TileDTO;
-import regenwormenshared.Responses.PlayerResponse;
-import regenwormenshared.Responses.RestResponse;
+import restserver.Responses.RestResponse;
 import restserver.Endpoints.RestEndpoint;
 
 public class RestClient {

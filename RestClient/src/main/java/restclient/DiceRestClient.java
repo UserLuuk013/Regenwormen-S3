@@ -14,7 +14,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.LoggerFactory;
 import regenwormenshared.DTO.DiceDTO;
-import regenwormenshared.Responses.DiceResponse;
+import restserver.Responses.DiceResponse;
 import restserver.Endpoints.RestDiceEndpoint;
 
 public class DiceRestClient {

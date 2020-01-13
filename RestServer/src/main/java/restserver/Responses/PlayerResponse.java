@@ -1,4 +1,4 @@
-package regenwormenshared.Responses;
+package restserver.Responses;
 
 import regenwormenshared.DTO.PlayerDTO;
 

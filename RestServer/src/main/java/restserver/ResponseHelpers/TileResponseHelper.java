@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import regenwormenshared.DTO.TileDTO;
-import regenwormenshared.Responses.TileResponse;
+import restserver.Responses.TileResponse;
 import restserver.Endpoints.RestTileEndpoint;
 
 import java.util.List;

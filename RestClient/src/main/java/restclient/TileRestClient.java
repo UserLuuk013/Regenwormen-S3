@@ -9,10 +9,9 @@ import org.apache.http.client.methods.HttpUriRequest;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
-import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import regenwormenshared.DTO.TileDTO;
-import regenwormenshared.Responses.TileResponse;
+import restserver.Responses.TileResponse;
 import restserver.Endpoints.RestTileEndpoint;
 
 import java.io.IOException;
