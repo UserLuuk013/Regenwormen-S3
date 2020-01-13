@@ -27,25 +27,6 @@ public class AppTest
     }
 
     @Test
-    public void checkIfTakenDicesContainsThrownDice(){
-        GameServer gameServer = new GameServer(null);
-
-        // Arrange
-        List<Dice> takenDices = new ArrayList<>();
-        takenDices.add(new Dice(5, "image.jpg", false));
-        takenDices.add(new Dice(3, "image.jpg", false));
-
-        List<Dice> thrownDices = new ArrayList<>();
-        thrownDices.add(new Dice(5, "image.jpg", false));
-        thrownDices.add(new Dice(3, "image.jpg", false));
-
-        // Act
-        boolean bool = gameServer.isAllInList();
-        // Assert
-        Assert.assertTrue(bool);
-    }
-
-    @Test
     public void checkIfGameEnded(){
 
         List<Tile> row = new ArrayList<>();

@@ -67,7 +67,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestApp2">
+  <component name="RunManager" selected="JUnit.regenwormenBigIdea in RegenwormenShared">
     <configuration name="RestServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="restserver.RestServer" />
       <module name="RestServer" />
@@ -120,7 +120,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AppTest.checkIfGameEnded" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="regenwormenBigIdea in RegenwormenShared" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RegenwormenShared" />
       <extension name="coverage">
         <pattern>
@@ -129,9 +129,7 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="regenwormenBigIdea" />
-      <option name="MAIN_CLASS_NAME" value="regenwormenBigIdea.AppTest" />
-      <option name="METHOD_NAME" value="checkIfGameEnded" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -141,15 +139,15 @@
       <item itemvalue="Application.RestServer" />
       <item itemvalue="Application.TestApp1" />
       <item itemvalue="Application.TestApp2" />
-      <item itemvalue="JUnit.AppTest.checkIfGameEnded" />
+      <item itemvalue="JUnit.regenwormenBigIdea in RegenwormenShared" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.regenwormenBigIdea in RegenwormenShared" />
         <item itemvalue="Application.TestApp2" />
         <item itemvalue="Application.TestApp1" />
         <item itemvalue="Application.RestServer" />
         <item itemvalue="Application.WebSocketsServer" />
-        <item itemvalue="JUnit.AppTest.checkIfGameEnded" />
       </list>
     </recent_temporary>
   </component>
@@ -211,6 +209,7 @@
       <workItem from="1578469527112" duration="19036000" />
       <workItem from="1578560598374" duration="2067000" />
       <workItem from="1578835643469" duration="7695000" />
+      <workItem from="1578902069993" duration="2594000" />
     </task>
     <servers />
   </component>
@@ -312,11 +311,6 @@
           <url>file://$PROJECT_DIR$/WebSocketsClient/src/main/java/websocketsclient/WebSocketsClient.java</url>
           <line>9</line>
           <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/RegenwormenShared/src/test/java/regenwormenBigIdea/AppTest.java</url>
-          <line>45</line>
-          <option name="timeStamp" value="73" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RegenwormenClient/src/main/java/regenwormenclient/TestClientGUI.java</url>
