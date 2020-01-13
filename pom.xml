@@ -16,7 +16,6 @@
         <module>RestServer</module>
         <module>RegenwormenClient</module>
         <module>RegenwormenServer</module>
-        <module>RegenwormenServer</module>
     </modules>
 
 
