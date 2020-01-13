@@ -8,8 +8,11 @@
         <outputRelativeToContentRoot value="true" />
         <module name="WebSocketsServer" />
         <module name="RegenwormenClient" />
-        <module name="Regenwormen" />
+        <module name="RegenwormenShared" />
+        <module name="RestClient" />
         <module name="WebSocketsClient" />
+        <module name="RestServer" />
+        <module name="RegenwormenServer" />
       </profile>
     </annotationProcessing>
   </component>

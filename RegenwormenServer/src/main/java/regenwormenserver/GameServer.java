@@ -1,4 +1,4 @@
-package regenwormenshared.Messaging.Server;
+package regenwormenserver;
 
 import regenwormenshared.Converters.DiceDTOModelConverter;
 import regenwormenshared.Converters.PlayerDTOModelConverter;
@@ -6,6 +6,8 @@ import regenwormenshared.Converters.TileDTOModelConverter;
 import regenwormenshared.DTO.DiceDTO;
 import regenwormenshared.DTO.PlayerDTO;
 import regenwormenshared.DTO.TileDTO;
+import regenwormenshared.Messaging.Server.IGameServer;
+import regenwormenshared.Messaging.Server.IServerMessageGenerator;
 import regenwormenshared.Models.Dice;
 import regenwormenshared.Models.Enums.GameState;
 import regenwormenshared.Models.Enums.GameWarning;
@@ -54,19 +56,25 @@ public class GameServer implements IGameServer {
         PlayerDTOModelConverter playerConverter = new PlayerDTOModelConverter();
 
         PlayerDTO playerDTO = restClient.playerLogin(username, password);
-        Player player = playerConverter.ModelFromDTO(playerDTO);
-        messageGenerator.notifyLoginPlayerResult(sessionId, player);
 
-        if (player1 == null){
-            player1 = player;
-            player1.setHasTurn(true);
-            joinGame(sessionId, player1);
+        if (playerDTO != null){
+            Player player = playerConverter.ModelFromDTO(playerDTO);
+            messageGenerator.notifyLoginPlayerResult(sessionId, player);
+
+            if (player1 == null){
+                player1 = player;
+                player1.setHasTurn(true);
+                joinGame(sessionId, player1);
+            }
+            else if (player2 == null){
+                player2 = player;
+                player2.setHasTurn(false);
+                joinGame(sessionId, player2);
+                setupGame(sessionId);
+            }
         }
-        else if (player2 == null){
-            player2 = player;
-            player2.setHasTurn(false);
-            joinGame(sessionId, player2);
-            setupGame(sessionId);
+        else{
+            messageGenerator.notifyGameWarningMessage(sessionId, GameWarning.LOGINFAILED);
         }
     }
 
@@ -81,9 +89,10 @@ public class GameServer implements IGameServer {
                     messageGenerator.notifyGameWarningMessage(sessionId, GameWarning.ROLLDICE);
                     returnTile(sessionId);
                 }
-
-                this.gameState = GameState.SETASIDE;
-                messageGenerator.notifyRollDiceResult(sessionId, rollDiceResult);
+                else{
+                    this.gameState = GameState.SETASIDE;
+                    messageGenerator.notifyRollDiceResult(sessionId, rollDiceResult);
+                }
             }
             else{
                 messageGenerator.notifyGameWarningMessage(sessionId, GameWarning.ROLLDICENOTALLOWED);

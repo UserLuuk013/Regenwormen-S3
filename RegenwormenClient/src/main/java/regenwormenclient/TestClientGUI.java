@@ -169,7 +169,11 @@ public class TestClientGUI implements IClientGUI {
     @Override
     public void processGameWarningMessage(String sessionId, GameWarning gameWarning) {
         System.out.println("[WARNING]: " + gameWarning);
-        if (gameWarning == GameWarning.ROLLDICE){
+        if (gameWarning == GameWarning.LOGINFAILED){
+            System.out.println("Login Failed on filled in Username and Password.");
+            System.out.println("Username and/or Password combination is not right.");
+        }
+        else if (gameWarning == GameWarning.ROLLDICE){
             System.out.println("The rolled dices correspond to the taken dices.");
             System.out.println("The system will return the top tile of your stack to the row (if you have one).");
         }

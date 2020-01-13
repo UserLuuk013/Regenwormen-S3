@@ -4,11 +4,11 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>regenwormenBigIdea</groupId>
-  <artifactId>WebSocketsServer</artifactId>
+  <groupId>regenwormenserver</groupId>
+  <artifactId>RegenwormenServer</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>WebSocketsServer</name>
+  <name>RegenwormenServer</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -26,28 +26,11 @@
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.eclipse.jetty.websocket</groupId>
-      <artifactId>javax-websocket-server-impl</artifactId>
-      <version>9.4.15.v20190215</version>
-    </dependency>
-    <dependency>
-      <groupId>com.google.code.gson</groupId>
-      <artifactId>gson</artifactId>
-      <version>2.8.5</version>
-    </dependency>
-      <dependency>
-          <groupId>regenwormenBigIdea</groupId>
-          <artifactId>RegenwormenShared</artifactId>
-          <version>1.0-SNAPSHOT</version>
-          <scope>compile</scope>
-      </dependency>
-    <dependency>
-      <groupId>regenwormenserver</groupId>
-      <artifactId>RegenwormenServer</artifactId>
+      <groupId>regenwormenBigIdea</groupId>
+      <artifactId>RegenwormenShared</artifactId>
       <version>1.0-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
-
   </dependencies>
 
   <build>
