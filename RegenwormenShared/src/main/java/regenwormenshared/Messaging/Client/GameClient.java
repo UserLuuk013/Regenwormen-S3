@@ -1,4 +1,4 @@
-package regenwormenclient;
+package regenwormenshared.Messaging.Client;
 
 import regenwormenshared.Messaging.Client.IClientGUI;
 import regenwormenshared.Messaging.Client.IClientMessageGenerator;

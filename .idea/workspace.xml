@@ -86,7 +86,7 @@
       <module name="RegenwormenClient" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="regenwormenclient.*" />
+          <option name="PATTERN" value="regenwormenshared.Messaging.Client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -99,7 +99,7 @@
       <module name="RegenwormenClient" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="regenwormenclient.*" />
+          <option name="PATTERN" value="regenwormenshared.Messaging.Client.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -209,7 +209,7 @@
       <workItem from="1578469527112" duration="19036000" />
       <workItem from="1578560598374" duration="2067000" />
       <workItem from="1578835643469" duration="7695000" />
-      <workItem from="1578902069993" duration="2594000" />
+      <workItem from="1578902069993" duration="3540000" />
     </task>
     <servers />
   </component>
