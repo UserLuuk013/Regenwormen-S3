@@ -8,10 +8,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="WebSocketsServer" />
         <module name="RegenwormenClient" />
-        <module name="RestClient" />
         <module name="WebSocketsClient" />
-        <module name="RestServer" />
-        <module name="RegenwormenShared" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
