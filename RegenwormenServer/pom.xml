@@ -4,11 +4,11 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>regenwormenBigIdea</groupId>
-  <artifactId>RegenwormenShared</artifactId>
+  <groupId>regenwormenserver</groupId>
+  <artifactId>RegenwormenServer</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>RegenwormenShared</name>
+  <name>RegenwormenServer</name>
   <!-- FIXME change it to the project's website -->
   <url>http://www.example.com</url>
 
@@ -25,12 +25,18 @@
       <version>4.11</version>
       <scope>test</scope>
     </dependency>
-      <dependency>
-          <groupId>com.google.code.gson</groupId>
-          <artifactId>gson</artifactId>
-          <version>2.8.5</version>
-          <scope>compile</scope>
-      </dependency>
+    <dependency>
+      <groupId>regenwormenBigIdea</groupId>
+      <artifactId>RegenwormenShared</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>restclient</groupId>
+      <artifactId>RestClient</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
   </dependencies>
 
   <build>

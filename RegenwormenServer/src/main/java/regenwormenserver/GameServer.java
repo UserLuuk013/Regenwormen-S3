@@ -1,4 +1,4 @@
-package regenwormenshared.Messaging.Server;
+package regenwormenserver;
 
 import regenwormenshared.Converters.DiceDTOModelConverter;
 import regenwormenshared.Converters.PlayerDTOModelConverter;

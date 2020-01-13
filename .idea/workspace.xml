@@ -48,9 +48,9 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="restserver" />
-      <recent name="regenwormenserver" />
       <recent name="regenwormenclient" />
+      <recent name="regenwormenserver" />
+      <recent name="restserver" />
       <recent name="" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
@@ -89,7 +89,7 @@
       <module name="RegenwormenClient" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="regenwormenshared.Messaging.Client.*" />
+          <option name="PATTERN" value="regenwormenclient.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -102,7 +102,7 @@
       <module name="RegenwormenClient" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="regenwormenshared.Messaging.Client.*" />
+          <option name="PATTERN" value="regenwormenclient.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -212,7 +212,7 @@
       <workItem from="1578469527112" duration="19036000" />
       <workItem from="1578560598374" duration="2067000" />
       <workItem from="1578835643469" duration="7695000" />
-      <workItem from="1578902069993" duration="6615000" />
+      <workItem from="1578902069993" duration="8816000" />
     </task>
     <servers />
   </component>
@@ -291,12 +291,12 @@
           <option name="timeStamp" value="44" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/Responses/TileResponse.java</url>
+          <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Responses/TileResponse.java</url>
           <line>31</line>
           <option name="timeStamp" value="45" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/RestServer/src/main/java/restserver/Responses/TileResponse.java</url>
+          <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Responses/TileResponse.java</url>
           <line>36</line>
           <option name="timeStamp" value="46" />
         </line-breakpoint>
@@ -326,7 +326,7 @@
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/Messaging/Server/GameServer.java</url>
+          <url>file://$PROJECT_DIR$/RegenwormenServer/src/main/java/regenwormenserver/GameServer.java</url>
           <line>234</line>
           <option name="timeStamp" value="83" />
         </line-breakpoint>

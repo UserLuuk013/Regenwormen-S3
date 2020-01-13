@@ -15,7 +15,7 @@ import regenwormenshared.DTO.PlayerDTO;
 import regenwormenshared.DTO.TileDTO;
 import regenwormenshared.Models.Dice;
 import regenwormenshared.Models.Tile;
-import restserver.Responses.RestResponse;
+import regenwormenshared.Responses.RestResponse;
 import restserver.MSSQLContexts.DiceMSSQLContext;
 import restserver.MSSQLContexts.PlayerMSSQLContext;
 import restserver.MSSQLContexts.TileMSSQLContext;

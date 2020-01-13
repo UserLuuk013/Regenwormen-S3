@@ -3,7 +3,7 @@ package regenwormenBigIdea.Responses;
 import org.junit.Assert;
 import org.junit.Test;
 import regenwormenshared.DTO.PlayerDTO;
-import restserver.Responses.PlayerResponse;
+import regenwormenshared.Responses.PlayerResponse;
 
 public class PlayerResponseTest {
 

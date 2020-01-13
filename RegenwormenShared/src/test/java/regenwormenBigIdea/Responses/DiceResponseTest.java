@@ -3,7 +3,7 @@ package regenwormenBigIdea.Responses;
 import org.junit.Assert;
 import org.junit.Test;
 import regenwormenshared.DTO.DiceDTO;
-import restserver.Responses.DiceResponse;
+import regenwormenshared.Responses.DiceResponse;
 
 public class DiceResponseTest {
 

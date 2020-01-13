@@ -11,7 +11,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.LoggerFactory;
 import regenwormenshared.DTO.TileDTO;
-import restserver.Responses.TileResponse;
+import regenwormenshared.Responses.TileResponse;
 import restserver.Endpoints.RestTileEndpoint;
 
 import java.io.IOException;

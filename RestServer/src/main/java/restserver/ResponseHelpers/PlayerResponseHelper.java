@@ -4,7 +4,7 @@ import com.google.gson.Gson;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import regenwormenshared.DTO.PlayerDTO;
-import restserver.Responses.PlayerResponse;
+import regenwormenshared.Responses.PlayerResponse;
 import restserver.Endpoints.RestTileEndpoint;
 
 public class PlayerResponseHelper {

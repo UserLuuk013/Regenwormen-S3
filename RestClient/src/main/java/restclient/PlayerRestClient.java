@@ -16,7 +16,7 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
 import org.slf4j.LoggerFactory;
 import regenwormenshared.DTO.PlayerDTO;
-import restserver.Responses.PlayerResponse;
+import regenwormenshared.Responses.PlayerResponse;
 import restserver.Endpoints.RestPlayerEndpoint;
 
 
