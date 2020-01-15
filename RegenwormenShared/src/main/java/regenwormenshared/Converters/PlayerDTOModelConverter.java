@@ -5,7 +5,7 @@ import regenwormenshared.Models.Player;
 
 public class PlayerDTOModelConverter {
 
-    public Player ModelFromDTO(PlayerDTO dto){
+    public Player modelFromDTO(PlayerDTO dto){
         Player p = new Player(
                 dto.getId(),
                 dto.getUsername(),
@@ -14,7 +14,7 @@ public class PlayerDTOModelConverter {
         return p;
     }
 
-    public PlayerDTO ModelToDTO(Player p){
+    public PlayerDTO modelToDTO(Player p){
         PlayerDTO dto = new PlayerDTO(
                 p.getId(),
                 p.getUsername(),

@@ -35,7 +35,7 @@ public class RestPlayerEndpoint {
     public Response Login(String username, String password){
         log.info("POST called for Login Player");
 //        return Response.status(200).entity(gson.toJson(repo.Login(username, password))).build();
-        PlayerDTO playerDTO = cvt.ModelToDTO(repo.Login(username, password));
+        PlayerDTO playerDTO = cvt.modelToDTO(repo.Login(username, password));
         return Response.status(200).entity(gson.toJson(PlayerResponseHelper.getSinglePlayerResponse(playerDTO))).build();
     }
 

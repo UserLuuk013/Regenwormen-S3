@@ -38,7 +38,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/RegenwormenShared/src/main/java" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Proftaak/proftaak-s3-contourdetwern" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Proftaak/proftaak-s3-contourdetwern/Proftaak3Project" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
@@ -48,8 +48,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="regenwormenclient" />
       <recent name="regenwormenserver" />
+      <recent name="regenwormenclient" />
       <recent name="restserver" />
       <recent name="" />
     </key>
@@ -70,7 +70,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.TestApp2">
+  <component name="RunManager" selected="JUnit.regenwormenBigIdea in RegenwormenShared">
     <configuration name="RestServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="restserver.RestServer" />
       <module name="RestServer" />
@@ -146,11 +146,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.regenwormenBigIdea in RegenwormenShared" />
         <item itemvalue="Application.TestApp2" />
         <item itemvalue="Application.TestApp1" />
         <item itemvalue="Application.RestServer" />
         <item itemvalue="Application.WebSocketsServer" />
-        <item itemvalue="JUnit.regenwormenBigIdea in RegenwormenShared" />
       </list>
     </recent_temporary>
   </component>
@@ -212,7 +212,11 @@
       <workItem from="1578469527112" duration="19036000" />
       <workItem from="1578560598374" duration="2067000" />
       <workItem from="1578835643469" duration="7695000" />
-      <workItem from="1578902069993" duration="10263000" />
+      <workItem from="1578902069993" duration="19073000" />
+      <workItem from="1578988612980" duration="16000" />
+      <workItem from="1578999393671" duration="8000" />
+      <workItem from="1579005420352" duration="7000" />
+      <workItem from="1579074333536" duration="26050000" />
     </task>
     <servers />
   </component>

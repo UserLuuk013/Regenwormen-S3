@@ -28,7 +28,7 @@ public class RoundTest {
         // Arrange
         int expected = 8;
         // Act
-        RollDiceResult actualResult = round.RollDice(expected);
+        RollDiceResult actualResult = round.rollDice(expected);
         int actual = actualResult.getThrownDices().size();
         // Assert
         Assert.assertEquals(expected, actual);
@@ -42,8 +42,8 @@ public class RoundTest {
         takenDices.add(new Dice(1, "image.jpg",false));
         SetAsideResult setAsideResult = new SetAsideResult(takenDices, new Dice(5, "image.jpg",false));
         // Act
-        RollDiceResult rollDiceResult = round.RollDice(expected);
-        SetAsideResult actualResult = round.SetAside(rollDiceResult, setAsideResult);
+        RollDiceResult rollDiceResult = round.rollDice(expected);
+        SetAsideResult actualResult = round.setAside(rollDiceResult, setAsideResult);
         int actual = actualResult.getTakenDices().size();
         // Assert
         if (actual == expected){
@@ -58,7 +58,7 @@ public class RoundTest {
         List<Dice> takenDices = new ArrayList<>();
         takenDices.add(new Dice(1, "image.jpg",false));
         // Act
-        boolean actual = round.CheckIfDiceMayBePutAside(takenDices, new Dice(2, "image.jpg",false));
+        boolean actual = round.checkIfDiceMayBePutAside(takenDices, new Dice(2, "image.jpg",false));
         // Assert
         Assert.assertTrue(actual);
     }
@@ -70,7 +70,7 @@ public class RoundTest {
         Dice chosenDice = new Dice(1, "image.jpg",false);
         takenDices.add(chosenDice);
         // Act
-        boolean actual = round.CheckIfDiceMayBePutAside(takenDices, chosenDice);
+        boolean actual = round.checkIfDiceMayBePutAside(takenDices, chosenDice);
         // Assert
         Assert.assertFalse(actual);
     }
@@ -80,7 +80,7 @@ public class RoundTest {
         // Arrange
 
         // Act
-        boolean actual = round.EndRound();
+        boolean actual = round.endRound();
         // Assert
         Assert.assertTrue(actual);
     }
@@ -108,7 +108,7 @@ public class RoundTest {
         SetAsideResult setAsideResult = new SetAsideResult(takenDices, new Dice(4, "image.jpg", false));
         TakeTileResult takeTileResult = new TakeTileResult(chosenTile, chosenStackOrRow, stack);
         // Act
-        TakeTileResult actualResult = round.TakeTile(setAsideResult, takeTileResult);
+        TakeTileResult actualResult = round.takeTile(setAsideResult, takeTileResult);
         // Assert
         Assert.assertEquals(expectedStackSize, actualResult.getStack().size());
         Assert.assertEquals(expectedStackOrRowSize, actualResult.getChosenStackOrRow().size());
@@ -137,7 +137,7 @@ public class RoundTest {
         SetAsideResult setAsideResult = new SetAsideResult(takenDices, new Dice(4, "image.jpg", false));
         TakeTileResult takeTileResult = new TakeTileResult(chosenTile, chosenStackOrRow, stack);
         // Act
-        TakeTileResult actualResult = round.TakeTile(setAsideResult, takeTileResult);
+        TakeTileResult actualResult = round.takeTile(setAsideResult, takeTileResult);
         // Assert
         Assert.assertEquals(expectedStackSize, actualResult.getStack().size());
         Assert.assertEquals(expectedStackOrRowSize, actualResult.getChosenStackOrRow().size());
@@ -152,7 +152,7 @@ public class RoundTest {
         stack.add(new Tile(28, "image,jpg", 1));
         ReturnTileResult returnTileResult = new ReturnTileResult(row, stack);
         // Act
-        ReturnTileResult actualResult = round.ReturnTile(returnTileResult);
+        ReturnTileResult actualResult = round.returnTile(returnTileResult);
         // Assert
         Assert.assertTrue(actualResult.getRow().get(1).isVisible());
     }
@@ -166,7 +166,7 @@ public class RoundTest {
         stack.add(new Tile(26, "image.jpg", 2));
         ReturnTileResult returnTileResult = new ReturnTileResult(row, stack);
         // Act
-        ReturnTileResult actualResult = round.ReturnTile(returnTileResult);
+        ReturnTileResult actualResult = round.returnTile(returnTileResult);
         // Assert
         Assert.assertFalse(actualResult.getRow().get(1).isVisible());
     }

@@ -17,16 +17,16 @@ public class Round {
         thrownDices = new ArrayList<>();
     }
 
-    public RollDiceResult RollDice(int numberOfDices) {
+    public RollDiceResult rollDice(int numberOfDices) {
         DiceThrow diceThrow = new DiceThrow();
-        this.thrownDices = diceThrow.GenerateDiceThrow(numberOfDices);
+        this.thrownDices = diceThrow.generateDiceThrow(numberOfDices);
         return new RollDiceResult(thrownDices);
     }
 
-    public SetAsideResult SetAside(RollDiceResult rollDiceResult, SetAsideResult setAsideResult) {
+    public SetAsideResult setAside(RollDiceResult rollDiceResult, SetAsideResult setAsideResult) {
         List<Dice> chosenDices = new ArrayList<>();
 
-        if (CheckIfDiceMayBePutAside(setAsideResult.getTakenDices(), setAsideResult.getChosenDice())) {
+        if (checkIfDiceMayBePutAside(setAsideResult.getTakenDices(), setAsideResult.getChosenDice())) {
             for (Dice thrownDice : rollDiceResult.getThrownDices()){
                 if (thrownDice.getValue() == setAsideResult.getChosenDice().getValue() && thrownDice.isRegenworm() == setAsideResult.getChosenDice().isRegenworm()){
                     chosenDices.add(thrownDice);
@@ -38,15 +38,15 @@ public class Round {
         return setAsideResult;
     }
 
-    public boolean CheckIfDiceMayBePutAside(List<Dice> takenDices, Dice chosenDice) {
+    public boolean checkIfDiceMayBePutAside(List<Dice> takenDices, Dice chosenDice) {
         return !takenDices.contains(chosenDice);
     }
 
-    public boolean EndRound() {
+    public boolean endRound() {
         return true;
     }
 
-    public TakeTileResult TakeTile(SetAsideResult setAsideResult, TakeTileResult takeTileResult){
+    public TakeTileResult takeTile(SetAsideResult setAsideResult, TakeTileResult takeTileResult){
         int value = 0;
         boolean isTileTaken = false;
         for (Dice dice : setAsideResult.getTakenDices()){
@@ -70,7 +70,7 @@ public class Round {
         return takeTileResult;
     }
 
-    public ReturnTileResult ReturnTile(ReturnTileResult returnTileResult){
+    public ReturnTileResult returnTile(ReturnTileResult returnTileResult){
         Tile tile = returnTileResult.getStack().get(0);
         Tile tileRow = returnTileResult.getRow().get(returnTileResult.getRow().size() - 1);
 

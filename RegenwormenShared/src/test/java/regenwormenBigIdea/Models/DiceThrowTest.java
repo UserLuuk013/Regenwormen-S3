@@ -25,7 +25,7 @@ public class DiceThrowTest {
         DiceThrow diceThrow = new DiceThrow();
         int expected = 5;
         // Act
-        List<Dice> actual = diceThrow.GenerateDiceThrow(5);
+        List<Dice> actual = diceThrow.generateDiceThrow(5);
         // Assert
         Assert.assertEquals(expected, actual.size());
     }

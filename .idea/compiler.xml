@@ -6,13 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="RegenwormenServer" />
         <module name="WebSocketsServer" />
-        <module name="RegenwormenClient" />
-        <module name="RestClient" />
-        <module name="WebSocketsClient" />
-        <module name="RestServer" />
         <module name="RegenwormenShared" />
+        <module name="WebSocketsClient" />
+        <module name="RegenwormenServer" />
+        <module name="RegenwormenClient" />
+        <module name="RestServer" />
+        <module name="RestClient" />
       </profile>
     </annotationProcessing>
   </component>

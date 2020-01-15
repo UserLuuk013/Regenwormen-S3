@@ -88,7 +88,7 @@ public class RestEndpoint {
     @Consumes(MediaType.APPLICATION_JSON)
     public Response playerLogin(PlayerDTO playerRequest){
         log.info("POST called for login Player");
-        PlayerDTO playerDTO = playerConverter.ModelToDTO(playerRepo.Login(playerRequest.getUsername(), playerRequest.getPassword()));
+        PlayerDTO playerDTO = playerConverter.modelToDTO(playerRepo.Login(playerRequest.getUsername(), playerRequest.getPassword()));
         return Response.status(200).entity(RestResponseHelper.getSinglePlayerResponse(playerDTO)).build();
     }
 

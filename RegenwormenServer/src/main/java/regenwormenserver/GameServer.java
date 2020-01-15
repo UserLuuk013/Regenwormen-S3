@@ -58,7 +58,7 @@ public class GameServer implements IGameServer {
         PlayerDTO playerDTO = restClient.playerLogin(username, password);
 
         if (playerDTO != null){
-            Player player = playerConverter.ModelFromDTO(playerDTO);
+            Player player = playerConverter.modelFromDTO(playerDTO);
             messageGenerator.notifyLoginPlayerResult(sessionId, player);
 
             if (player1 == null){
@@ -82,7 +82,7 @@ public class GameServer implements IGameServer {
     public void rollDice(String sessionId) {
         if (gameState == GameState.ROLLDICE){
             if (currentRound.getTakenDices().size() != 8){
-                this.rollDiceResult = currentRound.RollDice(8 - currentRound.getTakenDices().size());
+                this.rollDiceResult = currentRound.rollDice(8 - currentRound.getTakenDices().size());
 
                 if (isAllInList()) {
                     this.gameState = GameState.RETURNTILE;
@@ -119,7 +119,7 @@ public class GameServer implements IGameServer {
     public void setAside(String sessionId, Dice chosenDice) {
         if (gameState == GameState.SETASIDE){
             if (!currentRound.getTakenDices().contains(chosenDice)){
-                this.setAsideResult = currentRound.SetAside(rollDiceResult, new SetAsideResult(currentRound.getTakenDices(), chosenDice));
+                this.setAsideResult = currentRound.setAside(rollDiceResult, new SetAsideResult(currentRound.getTakenDices(), chosenDice));
                 this.gameState = GameState.ROLLDICE;
                 messageGenerator.notifySetAsideResult(sessionId, setAsideResult);
             }
@@ -182,12 +182,12 @@ public class GameServer implements IGameServer {
     public void takeTile(String sessionId, Tile chosenTile) {
         if (gameState == GameState.TAKETILE){
             if (row.contains(chosenTile)){
-                this.takeTileResult = currentRound.TakeTile(setAsideResult, new TakeTileResult(chosenTile, row, getPlayerByTurn(true).getStack()));
+                this.takeTileResult = currentRound.takeTile(setAsideResult, new TakeTileResult(chosenTile, row, getPlayerByTurn(true).getStack()));
                 row = takeTileResult.getChosenStackOrRow();
                 getPlayerByTurn(true).setStack(takeTileResult.getStack());
             }
             else if (getPlayerByTurn(false).getStack().contains(chosenTile)){
-                this.takeTileResult = currentRound.TakeTile(setAsideResult, new TakeTileResult(chosenTile, getPlayerByTurn(false).getStack(), getPlayerByTurn(true).getStack()));
+                this.takeTileResult = currentRound.takeTile(setAsideResult, new TakeTileResult(chosenTile, getPlayerByTurn(false).getStack(), getPlayerByTurn(true).getStack()));
                 getPlayerByTurn(false).setStack(takeTileResult.getChosenStackOrRow());
                 getPlayerByTurn(true).setStack(takeTileResult.getStack());
             }
@@ -206,7 +206,7 @@ public class GameServer implements IGameServer {
     @Override
     public void returnTile(String sessionId) {
         if (gameState == GameState.RETURNTILE){
-            this.returnTileResult = currentRound.ReturnTile(new ReturnTileResult(row, getPlayerByTurn(true).getStack()));
+            this.returnTileResult = currentRound.returnTile(new ReturnTileResult(row, getPlayerByTurn(true).getStack()));
 
             row = returnTileResult.getRow();
             getPlayerByTurn(true).setStack(returnTileResult.getStack());

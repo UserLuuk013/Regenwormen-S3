@@ -4,5 +4,5 @@ public interface IWebSocketsClientEndpoint extends IWebSockets {
 
     void send(Object object);
 
-    void onWebSocketsMessageReceived(String message, String sessionId);
+    void onWebSocketMessageReceived(String message, String sessionId);
 }

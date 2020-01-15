@@ -6,15 +6,15 @@ import java.util.Random;
 
 public class DiceThrow {
 
-    public List<Dice> GenerateDiceThrow(int numberOfDices) {
+    public List<Dice> generateDiceThrow(int numberOfDices) {
         List<Dice> dices = new ArrayList<>();
         for (int i = 0; i < numberOfDices; i++){
-            dices.add(GenerateDice());
+            dices.add(generateDice());
         }
         return dices;
     }
 
-    public Dice GenerateDice(){
+    public Dice generateDice(){
         Random rnd = new Random();
         int value = rnd.nextInt(6) + 1;
         if (value == 6){

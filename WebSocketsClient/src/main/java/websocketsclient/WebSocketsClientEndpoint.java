@@ -85,10 +85,10 @@ public class WebSocketsClientEndpoint extends WebSocketsBase implements IWebSock
     @OnMessage
     public void onWebSocketText(String message, Session session){
         System.out.println("[WebSocket Client message received] " + message);
-        onWebSocketsMessageReceived(message, session.getId());
+        onWebSocketMessageReceived(message, session.getId());
     }
 
-    public void onWebSocketsMessageReceived(String message, String sessionId){
+    public void onWebSocketMessageReceived(String message, String sessionId){
         ISerializer<String> ser = SerializationProvider.getSerializer();
         EncapsulatingMessage msg = ser.deserialize(message, EncapsulatingMessage.class);
         messageProcessor.processMessage(sessionId, msg.getMessageType(), msg.getMessageData());

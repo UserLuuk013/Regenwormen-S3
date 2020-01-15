@@ -25,7 +25,7 @@ public class PlayerDTOModelConverterTest {
         PlayerDTO dto = new PlayerDTO(1, "Luuk", "Regenwormen123!");
         Player expected = new Player(1, "Luuk", "Regenwormen123!");
         // Act
-        Player actual = cvt.ModelFromDTO(dto);
+        Player actual = cvt.modelFromDTO(dto);
         // Assert
         Assert.assertEquals(expected.getId(), actual.getId());
         Assert.assertEquals(expected.getUsername(), actual.getUsername());
@@ -39,7 +39,7 @@ public class PlayerDTOModelConverterTest {
         Player p = new Player(1, "Luuk", "Regenwormen123!");
         PlayerDTO expected = new PlayerDTO(1, "Luuk", "Regenwormen123!");
         // Act
-        PlayerDTO actual = cvt.ModelToDTO(p);
+        PlayerDTO actual = cvt.modelToDTO(p);
         // Assert
         Assert.assertEquals(expected.getId(), actual.getId());
         Assert.assertEquals(expected.getUsername(), actual.getUsername());
