@@ -1,8 +1,8 @@
-package regenwormenshared.Messaging.Server;
+package regenwormenshared.messaging.server;
 
-import regenwormenshared.Models.Dice;
-import regenwormenshared.Models.Player;
-import regenwormenshared.Models.Tile;
+import regenwormenshared.models.Dice;
+import regenwormenshared.models.Player;
+import regenwormenshared.models.Tile;
 
 public interface IGameServer {
     void registerPlayer(String sessionId, String username, String password);
@@ -18,8 +18,6 @@ public interface IGameServer {
     void swapTurns();
     void gameEnded(String sessionId);
     void setupGame(String sessionId);
-    void getAllTiles(String sessionId);
-    void getAllDices(String sessionId);
     void processClientDisconnect(String sessionId);
     void joinGame(String sessionId, Player player);
     Player getPlayerByTurn(boolean hasTurn);

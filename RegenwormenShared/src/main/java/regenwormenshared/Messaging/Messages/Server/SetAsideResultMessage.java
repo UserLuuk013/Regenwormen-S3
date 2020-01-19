@@ -1,6 +1,6 @@
-package regenwormenshared.Messaging.Messages.Server;
+package regenwormenshared.messaging.messages.Server;
 
-import regenwormenshared.Results.SetAsideResult;
+import regenwormenshared.results.SetAsideResult;
 
 public class SetAsideResultMessage {
 

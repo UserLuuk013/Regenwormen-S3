@@ -1,6 +1,6 @@
-package regenwormenshared.Results;
+package regenwormenshared.results;
 
-import regenwormenshared.Models.Tile;
+import regenwormenshared.models.Tile;
 
 import java.util.List;
 

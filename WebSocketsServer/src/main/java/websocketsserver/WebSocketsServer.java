@@ -9,19 +9,18 @@ import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.websocket.jsr356.server.deploy.WebSocketServerContainerInitializer;
 import regenwormenserver.GameServer;
-import regenwormenshared.MessageHandling.Handler.IMessageHandlerFactory;
-import regenwormenshared.Messaging.Server.*;
-import regenwormenshared.Messaging.Server.messageHandlers.ServerMessageHandlerFactory;
+import regenwormenshared.messageHandling.handler.IMessageHandlerFactory;
+import regenwormenshared.messaging.server.*;
+import regenwormenshared.messaging.server.messageHandlers.ServerMessageHandlerFactory;
 
 /**
  * Hello world!
  *
  */
-public class WebSocketsServer
-{
+public class WebSocketsServer {
     private static final int PORT = 8095;
-    public static void main( String[] args )
-    {
+
+    public static void main(String[] args) {
         IMessageHandlerFactory factory = new ServerMessageHandlerFactory();
         IServerMessageProcessor messageProcessor = new ServerMessageProcessor(factory);
         final WebSocketsEndpoint socket = new WebSocketsEndpoint();
@@ -63,36 +62,5 @@ public class WebSocketsServer
         } catch (Throwable t) {
             t.printStackTrace(System.err);
         }
-
-//        startWebSocketServer();
     }
-
-//    private static void startWebSocketServer() {
-//
-//        Server webSocketServer = new Server();
-//        ServerConnector connector = new ServerConnector(webSocketServer);
-//        connector.setPort(PORT);
-//        webSocketServer.addConnector(connector);
-//
-//        // Setup the basic application "context" for this application at "/"
-//        // This is also known as the handler tree (in jetty speak)
-//        ServletContextHandler webSocketContext = new ServletContextHandler(ServletContextHandler.SESSIONS);
-//        webSocketContext.setContextPath("/");
-//        webSocketServer.setHandler(webSocketContext);
-//
-//        try {
-//            // Initialize javax.websocket layer
-//            ServerContainer wscontainer = WebSocketServerContainerInitializer.configureContext(webSocketContext);
-//
-//            // Add WebSocket endpoint to javax.websocket layer
-//            wscontainer.addEndpoint(WebSocketsEndpoint.class);
-//
-//            webSocketServer.start();
-//            //server.dump(System.err);
-//
-//            webSocketServer.join();
-//        } catch (Throwable t) {
-//            t.printStackTrace(System.err);
-//        }
-//    }
 }

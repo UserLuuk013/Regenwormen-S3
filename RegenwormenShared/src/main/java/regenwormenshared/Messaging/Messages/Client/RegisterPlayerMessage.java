@@ -1,4 +1,4 @@
-package regenwormenshared.Messaging.Messages.Client;
+package regenwormenshared.messaging.messages.Client;
 
 public class RegisterPlayerMessage {
 

@@ -1,4 +1,4 @@
-package regenwormenshared.MessageHandling.Encapsulating;
+package regenwormenshared.messageHandling.encapsulating;
 
 public class EncapsulatingMessage {
     private String type;

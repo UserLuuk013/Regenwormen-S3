@@ -2,8 +2,8 @@ package regenwormenBigIdea.Models;
 
 import org.junit.Assert;
 import org.junit.Test;
-import regenwormenshared.Models.Dice;
-import regenwormenshared.Models.DiceThrow;
+import regenwormenshared.models.Dice;
+import regenwormenshared.models.DiceThrow;
 
 import java.util.List;
 

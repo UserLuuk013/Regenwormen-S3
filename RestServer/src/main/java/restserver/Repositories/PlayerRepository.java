@@ -1,7 +1,7 @@
-package restserver.Repositories;
+package restserver.repositories;
 
-import regenwormenshared.Models.Player;
-import restserver.Interfaces.IPlayerContext;
+import regenwormenshared.models.Player;
+import restserver.interfaces.IPlayerContext;
 
 public class PlayerRepository {
 
@@ -11,11 +11,11 @@ public class PlayerRepository {
         this.context = context;
     }
 
-    public Player Login(String username, String password){
-        return context.Login(username, password);
+    public Player login(String username, String password){
+        return context.login(username, password);
     }
 
-    public boolean Register(String username, String password){
-        return context.Register(username, password);
+    public boolean register(String username, String password){
+        return context.register(username, password);
     }
 }

@@ -1,17 +1,15 @@
 package websocketsserver;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonSyntaxException;
-import regenwormenshared.MessageHandling.Encapsulating.EncapsulatingMessage;
-import regenwormenshared.MessageHandling.Processor.IMessageProcessor;
-import regenwormenshared.WebSockets.IWebSocketsEndpoint;
-import regenwormenshared.WebSockets.WebSocketsBase;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import regenwormenshared.messageHandling.encapsulating.EncapsulatingMessage;
+import regenwormenshared.messageHandling.processor.IMessageProcessor;
+import regenwormenshared.websockets.IWebSocketsEndpoint;
+import regenwormenshared.websockets.WebSocketsBase;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import javax.websocket.CloseReason;
 import javax.websocket.OnClose;
 import javax.websocket.OnError;
@@ -24,6 +22,8 @@ import javax.websocket.server.ServerEndpoint;
 public class WebSocketsEndpoint extends WebSocketsBase implements IWebSocketsEndpoint {
 
     private IMessageProcessor messageProcessor;
+    private Logger log = LoggerFactory.getLogger(WebSocketsEndpoint.class);
+    private String sessionIdMessage = "[WebSocket Session ID] : ";
 
     @Override
     public void setMessageProcessor(IMessageProcessor processor) {
@@ -38,15 +38,14 @@ public class WebSocketsEndpoint extends WebSocketsBase implements IWebSocketsEnd
 
     @OnOpen
     public void onConnect(Session session) {
-        System.out.println("[WebSocket Connected] SessionID: " + session.getId());
-        String message = String.format("[New client with client side session ID]: %s", session.getId());
+        log.info("[WebSocket Connected] SessionID: " + session.getId());
         sessions.add(session);
-        System.out.println("[#sessions]: " + sessions.size());
+        log.info("[#sessions]: " + sessions.size());
     }
 
     @OnMessage
     public void onText(String message, Session session) {
-        System.out.println("[WebSocket Session ID] : " + session.getId() + " [Received] : " + message);
+        log.info(sessionIdMessage + session.getId() + " [Received] : " + message);
         String sessionId = session.getId();
         EncapsulatingMessage msg = getSerializer().deserialize(message, EncapsulatingMessage.class);
         getMessageProcessor().processMessage(sessionId, msg.getMessageType(), msg.getMessageData());
@@ -54,14 +53,14 @@ public class WebSocketsEndpoint extends WebSocketsBase implements IWebSocketsEnd
 
     @OnClose
     public void onClose(CloseReason reason, Session session) {
-        System.out.println("[WebSocket Session ID] : " + session.getId() + " [Socket Closed]: " + reason);
+        log.info(sessionIdMessage + session.getId() + " [Socket Closed]: " + reason);
         getMessageProcessor().handleDisconnect(session.getId());
         sessions.remove(session);
     }
 
     @OnError
     public void onError(Throwable cause, Session session) {
-        System.out.println("[WebSocket Session ID] : " + session.getId() + "[ERROR]: ");
+        log.info(sessionIdMessage + session.getId() + "[ERROR]: ");
         cause.printStackTrace(System.err);
     }
 

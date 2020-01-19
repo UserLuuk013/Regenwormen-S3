@@ -1,9 +1,9 @@
-package regenwormenshared.WebSockets;
+package regenwormenshared.websockets;
 
-import regenwormenshared.MessageHandling.Encapsulating.EncapsulatingMessageGenerator;
-import regenwormenshared.MessageHandling.Encapsulating.IEncapsulatingMessageGenerator;
-import regenwormenshared.Serialization.ISerializer;
-import regenwormenshared.Serialization.SerializationProvider;
+import regenwormenshared.messageHandling.encapsulating.EncapsulatingMessageGenerator;
+import regenwormenshared.messageHandling.encapsulating.IEncapsulatingMessageGenerator;
+import regenwormenshared.serialization.ISerializer;
+import regenwormenshared.serialization.SerializationProvider;
 
 public abstract class WebSocketsBase {
 

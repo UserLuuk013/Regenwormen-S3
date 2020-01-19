@@ -1,4 +1,4 @@
-package regenwormenshared.Results;
+package regenwormenshared.results;
 
 public interface GameResult {
 }

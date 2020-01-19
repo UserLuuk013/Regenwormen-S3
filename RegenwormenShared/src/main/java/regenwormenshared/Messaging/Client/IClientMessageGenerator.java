@@ -1,7 +1,7 @@
-package regenwormenshared.Messaging.Client;
+package regenwormenshared.messaging.client;
 
-import regenwormenshared.Models.Dice;
-import regenwormenshared.Models.Tile;
+import regenwormenshared.models.Dice;
+import regenwormenshared.models.Tile;
 
 public interface IClientMessageGenerator {
     void registerPlayer(String username, String password);
@@ -10,7 +10,4 @@ public interface IClientMessageGenerator {
     void setAside(Dice chosenDice);
     void endRollDice();
     void takeTile(Tile chosenTile);
-    void returnTile();
-    void getAllTiles();
-    void getAllDices();
 }

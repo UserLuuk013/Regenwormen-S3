@@ -1,15 +1,9 @@
-package regenwormenshared.Responses;
+package regenwormenshared.responses;
 
-import regenwormenshared.DTO.DiceDTO;
-import regenwormenshared.DTO.PlayerDTO;
-import regenwormenshared.DTO.TileDTO;
-
-import java.util.List;
+import regenwormenshared.dto.PlayerDTO;
 
 public class RestResponse {
     private boolean success;
-    private List<DiceDTO> dices;
-    private List<TileDTO> tiles;
     private PlayerDTO player;
 
     public boolean isSuccess() {
@@ -18,22 +12,6 @@ public class RestResponse {
 
     public void setSuccess(boolean success) {
         this.success = success;
-    }
-
-    public List<DiceDTO> getDices() {
-        return dices;
-    }
-
-    public void setDices(List<DiceDTO> dices) {
-        this.dices = dices;
-    }
-
-    public List<TileDTO> getTiles() {
-        return tiles;
-    }
-
-    public void setTiles(List<TileDTO> tiles) {
-        this.tiles = tiles;
     }
 
     public PlayerDTO getPlayer() {

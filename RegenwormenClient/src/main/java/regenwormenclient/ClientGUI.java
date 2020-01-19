@@ -1,26 +1,26 @@
 package regenwormenclient;
 
-import regenwormenshared.Messaging.Client.IClientGUI;
-import regenwormenshared.Messaging.Client.IGameClient;
-import regenwormenshared.Models.Dice;
-import regenwormenshared.Models.Enums.GameState;
-import regenwormenshared.Models.Enums.GameWarning;
-import regenwormenshared.Models.Player;
-import regenwormenshared.Models.Tile;
-import regenwormenshared.Results.ReturnTileResult;
-import regenwormenshared.Results.RollDiceResult;
-import regenwormenshared.Results.SetAsideResult;
-import regenwormenshared.Results.TakeTileResult;
+import regenwormenshared.messaging.client.IClientGUI;
+import regenwormenshared.messaging.client.IGameClient;
+import regenwormenshared.models.Dice;
+import regenwormenshared.models.enums.GameState;
+import regenwormenshared.models.enums.GameWarning;
+import regenwormenshared.models.Player;
+import regenwormenshared.models.Tile;
+import regenwormenshared.results.ReturnTileResult;
+import regenwormenshared.results.RollDiceResult;
+import regenwormenshared.results.SetAsideResult;
+import regenwormenshared.results.TakeTileResult;
 
 import java.util.List;
 import java.util.Scanner;
 
-public class TestClientGUI implements IClientGUI {
+public class ClientGUI implements IClientGUI {
     private IGameClient gameClient;
     private String playerUsername;
     private boolean hasTurn;
 
-    public TestClientGUI(IGameClient gameClient) {
+    public ClientGUI(IGameClient gameClient) {
         this.gameClient = gameClient;
     }
 
@@ -33,8 +33,8 @@ public class TestClientGUI implements IClientGUI {
     @Override
     public void processLoginPlayerResult(String sessionId, Player player) {
         this.playerUsername = player.getUsername();
-        System.out.println("Logged in by " + player.getUsername());
-        System.out.println("Waiting for opponent...");
+        System.out.println("Logged in by Player: " + player.getUsername());
+        System.out.print("Waiting for opponent...");
     }
 
     @Override
@@ -103,7 +103,7 @@ public class TestClientGUI implements IClientGUI {
         System.out.println("---------------");
 
         System.out.println("--- " + player1.getUsername() + " ---");
-        if (player1.getStack().size() != 0){
+        if (!player1.getStack().isEmpty()){
             System.out.println(player1.getStack().get(player1.getStack().size() - 1).getValue());
         }
         else{
@@ -111,7 +111,7 @@ public class TestClientGUI implements IClientGUI {
         }
 
         System.out.println("--- " + player2.getUsername() + " ---");
-        if (player2.getStack().size() != 0){
+        if (!player2.getStack().isEmpty()){
             System.out.println(player2.getStack().get(player2.getStack().size() - 1).getValue());
         }
         else{
@@ -155,8 +155,8 @@ public class TestClientGUI implements IClientGUI {
 
     @Override
     public void processPlayerJoined(String sessionId, Player player) {
-        System.out.println("Another player has joined the game.");
-        System.out.println("Your opponent is: " + player.getUsername());
+        System.out.println("A player has joined the game.");
+        System.out.println("The player is: " + player.getUsername());
     }
 
     @Override
@@ -237,22 +237,22 @@ public class TestClientGUI implements IClientGUI {
         String choice = scanner.next();
 
         if (choice.equals("1")){
-            this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
+            this.gameClient.setAside(new Dice(Integer.parseInt(choice), false));
         }
         else if (choice.equals("2")){
-            this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
+            this.gameClient.setAside(new Dice(Integer.parseInt(choice), false));
         }
         else if (choice.equals("3")){
-            this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
+            this.gameClient.setAside(new Dice(Integer.parseInt(choice), false));
         }
         else if (choice.equals("4")){
-            this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
+            this.gameClient.setAside(new Dice(Integer.parseInt(choice), false));
         }
         else if (choice.equals("5")){
-            this.gameClient.setAside(new Dice(Integer.parseInt(choice), "image.jpg", false));
+            this.gameClient.setAside(new Dice(Integer.parseInt(choice), false));
         }
         else if (choice.equals("Regenworm")){
-            this.gameClient.setAside(new Dice(5, "image.jpg", true));
+            this.gameClient.setAside(new Dice(5, true));
         }
         else{
             setAside();
@@ -271,16 +271,16 @@ public class TestClientGUI implements IClientGUI {
 
         int intChoice = Integer.parseInt(choice);
         if (intChoice >= 21 && intChoice <= 24){
-            this.gameClient.takeTile(new Tile(intChoice, "image.jpg", 1));
+            this.gameClient.takeTile(new Tile(intChoice, 1));
         }
         else if (intChoice >= 25 && intChoice <= 28){
-            this.gameClient.takeTile(new Tile(intChoice, "image.jpg", 2));
+            this.gameClient.takeTile(new Tile(intChoice, 2));
         }
         else if (intChoice >= 29 && intChoice <= 32){
-            this.gameClient.takeTile(new Tile(intChoice, "image.jpg", 3));
+            this.gameClient.takeTile(new Tile(intChoice, 3));
         }
         else if (intChoice >= 33 && intChoice <= 36){
-            this.gameClient.takeTile(new Tile(intChoice, "image.jpg", 4));
+            this.gameClient.takeTile(new Tile(intChoice, 4));
         }
         else{
             takeTile();

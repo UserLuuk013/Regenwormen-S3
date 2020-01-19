@@ -1,16 +1,15 @@
-package regenwormenshared.Messaging.Server;
+package regenwormenshared.messaging.server;
 
-import regenwormenshared.Messaging.Messages.Server.*;
-import regenwormenshared.Models.Dice;
-import regenwormenshared.Models.Enums.GameState;
-import regenwormenshared.Models.Enums.GameWarning;
-import regenwormenshared.Models.Player;
-import regenwormenshared.Models.Tile;
-import regenwormenshared.Results.ReturnTileResult;
-import regenwormenshared.Results.RollDiceResult;
-import regenwormenshared.Results.SetAsideResult;
-import regenwormenshared.Results.TakeTileResult;
-import regenwormenshared.WebSockets.IWebSocketsEndpoint;
+import regenwormenshared.messaging.messages.Server.*;
+import regenwormenshared.models.enums.GameState;
+import regenwormenshared.models.enums.GameWarning;
+import regenwormenshared.models.Player;
+import regenwormenshared.models.Tile;
+import regenwormenshared.results.ReturnTileResult;
+import regenwormenshared.results.RollDiceResult;
+import regenwormenshared.results.SetAsideResult;
+import regenwormenshared.results.TakeTileResult;
+import regenwormenshared.websockets.IWebSocketsEndpoint;
 
 import java.util.List;
 
@@ -73,18 +72,6 @@ public class ServerMessageGenerator implements IServerMessageGenerator {
     public void notifyNewRoundStarted(String sessionId, Player player1, Player player2, List<Tile> row) {
         NewRoundStartedMessage message = new NewRoundStartedMessage(player1, player2, row);
         this.serverEndpoint.broadcast(message);
-    }
-
-    @Override
-    public void notifyGetAllTilesResult(String sessionId, List<Tile> tiles) {
-        GetAllTilesResultMessage message = new GetAllTilesResultMessage(tiles);
-        this.serverEndpoint.sendTo(sessionId, message);
-    }
-
-    @Override
-    public void notifyGetAllDicesResult(String sessionId, List<Dice> dices) {
-        GetAllDicesResultMessage message = new GetAllDicesResultMessage(dices);
-        this.serverEndpoint.sendTo(sessionId, message);
     }
 
     @Override

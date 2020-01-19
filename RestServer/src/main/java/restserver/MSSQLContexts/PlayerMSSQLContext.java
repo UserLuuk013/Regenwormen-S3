@@ -1,41 +1,41 @@
-package restserver.MSSQLContexts;
+package restserver.mssqlcontexts;
 
-import regenwormenshared.Models.Player;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import regenwormenshared.models.Player;
 import restserver.DataConnection;
-import restserver.Interfaces.IPlayerContext;
+import restserver.interfaces.IPlayerContext;
 
 import java.sql.ResultSet;
 
 public class PlayerMSSQLContext extends DataConnection implements IPlayerContext {
-    public PlayerMSSQLContext() {
-
-    }
+    private static final Logger log = LoggerFactory.getLogger(PlayerMSSQLContext.class);
 
     @Override
-    public Player Login(String username, String password) {
+    public Player login(String username, String password) {
         Player player = null;
         try{
             String query = "SELECT * FROM Player WHERE Username = '" + username + "' AND Password = '" + password + "'";
-            ResultSet rs = ExecuteQuery(query);
+            ResultSet rs = executeQuery(query);
             while(rs.next()){
                 player = new Player(rs.getString("Username"), rs.getString("Password"));
             }
         }
         catch (Exception e){
-            e.printStackTrace();
+            log.info("[ERROR]", e);
         }
         return player;
     }
 
     @Override
-    public boolean Register(String username, String password) {
+    public boolean register(String username, String password) {
         try{
             String query = "INSERT INTO Player (Username, Password) VALUES ('" + username + "', '" + password + "')";
-            ExecuteQueryNoResultSet(query);
+            executeQueryNoResultSet(query);
             return true;
         }
         catch (Exception e){
-            e.printStackTrace();
+            log.info("[ERROR]", e);
             return false;
         }
     }

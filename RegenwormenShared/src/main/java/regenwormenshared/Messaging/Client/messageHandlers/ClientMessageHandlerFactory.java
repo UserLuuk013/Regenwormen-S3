@@ -1,8 +1,8 @@
-package regenwormenshared.Messaging.Client.messageHandlers;
+package regenwormenshared.messaging.client.messageHandlers;
 
-import regenwormenshared.MessageHandling.Handler.IMessageHandler;
-import regenwormenshared.MessageHandling.Handler.IMessageHandlerFactory;
-import regenwormenshared.Messaging.Client.IGameClient;
+import regenwormenshared.messageHandling.handler.IMessageHandler;
+import regenwormenshared.messageHandling.handler.IMessageHandlerFactory;
+import regenwormenshared.messaging.client.IGameClient;
 
 public class ClientMessageHandlerFactory implements IMessageHandlerFactory {
     @Override
@@ -28,10 +28,6 @@ public class ClientMessageHandlerFactory implements IMessageHandlerFactory {
                 return new NewRoundStartedMessageHandler(client);
             case "GameEndedResultMessage":
                 return new GameEndedResultMessageHandler(client);
-            case "GetAllTilesResultMessage":
-                return new GetAllTilesResultMessageHandler(client);
-            case "GetAllDicesResultMessage":
-                return new GetAllDicesResultMessageHandler(client);
             case "PlayerJoinedMessage":
                 return new PlayerJoinedMessageHandler(client);
             case "ErrorGameStateMessage":

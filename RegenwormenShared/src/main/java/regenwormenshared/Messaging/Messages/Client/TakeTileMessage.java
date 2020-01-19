@@ -1,6 +1,6 @@
-package regenwormenshared.Messaging.Messages.Client;
+package regenwormenshared.messaging.messages.Client;
 
-import regenwormenshared.Models.Tile;
+import regenwormenshared.models.Tile;
 
 public class TakeTileMessage {
 

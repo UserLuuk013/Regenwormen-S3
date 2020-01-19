@@ -1,7 +1,7 @@
-package regenwormenshared.MessageHandling.Handler;
+package regenwormenshared.messageHandling.handler;
 
-import regenwormenshared.Serialization.ISerializer;
-import regenwormenshared.Serialization.SerializationProvider;
+import regenwormenshared.serialization.ISerializer;
+import regenwormenshared.serialization.SerializationProvider;
 
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;

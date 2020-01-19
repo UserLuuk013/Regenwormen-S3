@@ -1,4 +1,4 @@
-package regenwormenshared.Messaging.Messages.Server;
+package regenwormenshared.messaging.messages.Server;
 
 public class EndRollDiceResultMessage {
 

@@ -1,7 +1,7 @@
-package regenwormenshared.MessageHandling.Encapsulating;
+package regenwormenshared.messageHandling.encapsulating;
 
-import regenwormenshared.Serialization.ISerializer;
-import regenwormenshared.Serialization.SerializationProvider;
+import regenwormenshared.serialization.ISerializer;
+import regenwormenshared.serialization.SerializationProvider;
 
 public class EncapsulatingMessageGenerator implements IEncapsulatingMessageGenerator {
 

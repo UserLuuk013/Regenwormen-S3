@@ -2,8 +2,8 @@ package regenwormenBigIdea.Results;
 
 import org.junit.Assert;
 import org.junit.Test;
-import regenwormenshared.Models.Dice;
-import regenwormenshared.Results.SetAsideResult;
+import regenwormenshared.models.Dice;
+import regenwormenshared.results.SetAsideResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +14,7 @@ public class SetAsideResultTest {
     public void testSetAsideResultNotNull(){
         // Arrange
         List<Dice> takenDices = new ArrayList<>();
-        SetAsideResult setAsideResult = new SetAsideResult(takenDices, new Dice(2, "image.jpg", false));
+        SetAsideResult setAsideResult = new SetAsideResult(takenDices, new Dice(2, false));
         // Act
 
         // Assert
@@ -25,7 +25,7 @@ public class SetAsideResultTest {
     public void testSetAsideResultGetTakenDices(){
         // Arrange
         List<Dice> takenDices = new ArrayList<>();
-        SetAsideResult setAsideResult = new SetAsideResult(takenDices, new Dice(2, "image.jpg", false));
+        SetAsideResult setAsideResult = new SetAsideResult(takenDices, new Dice(2, false));
         // Act
         List<Dice> actual = setAsideResult.getTakenDices();
         // Assert
@@ -36,7 +36,7 @@ public class SetAsideResultTest {
     public void testSetAsideResultGetChosenDice(){
         // Arrange
         List<Dice> takenDices = new ArrayList<>();
-        Dice chosenDice = new Dice(2, "image.jpg", false);
+        Dice chosenDice = new Dice(2, false);
         SetAsideResult setAsideResult = new SetAsideResult(takenDices, chosenDice);
         // Act
         Dice actual = setAsideResult.getChosenDice();

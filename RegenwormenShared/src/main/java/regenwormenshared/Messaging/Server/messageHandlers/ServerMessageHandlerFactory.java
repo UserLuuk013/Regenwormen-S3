@@ -1,8 +1,8 @@
-package regenwormenshared.Messaging.Server.messageHandlers;
+package regenwormenshared.messaging.server.messageHandlers;
 
-import regenwormenshared.MessageHandling.Handler.IMessageHandler;
-import regenwormenshared.MessageHandling.Handler.IMessageHandlerFactory;
-import regenwormenshared.Messaging.Server.IGameServer;
+import regenwormenshared.messageHandling.handler.IMessageHandler;
+import regenwormenshared.messageHandling.handler.IMessageHandlerFactory;
+import regenwormenshared.messaging.server.IGameServer;
 
 public class ServerMessageHandlerFactory implements IMessageHandlerFactory {
 
@@ -23,12 +23,6 @@ public class ServerMessageHandlerFactory implements IMessageHandlerFactory {
                 return new EndRollDiceMessageHandler(igame);
             case "TakeTileMessage":
                 return new TakeTileMessageHandler(igame);
-            case "ReturnTileMessage":
-                return new ReturnTileMessageHandler(igame);
-            case "GetAllTilesMessage":
-                return new GetAllTilesMessageHandler(igame);
-            case "GetAllDicesMessage":
-                return new GetAllDicesMessageHandler(igame);
             default:
                 return null;
         }

@@ -1,8 +1,8 @@
-package regenwormenshared.Messaging.Server;
+package regenwormenshared.messaging.server;
 
-import regenwormenshared.MessageHandling.Handler.IMessageHandler;
-import regenwormenshared.MessageHandling.Handler.IMessageHandlerFactory;
-import regenwormenshared.MessageHandling.Processor.MessageProcessorBase;
+import regenwormenshared.messageHandling.handler.IMessageHandler;
+import regenwormenshared.messageHandling.handler.IMessageHandlerFactory;
+import regenwormenshared.messageHandling.processor.MessageProcessorBase;
 
 public class ServerMessageProcessor extends MessageProcessorBase implements IServerMessageProcessor {
     private IGameServer game;

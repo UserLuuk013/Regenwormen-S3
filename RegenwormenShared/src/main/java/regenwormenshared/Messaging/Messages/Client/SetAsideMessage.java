@@ -1,6 +1,6 @@
-package regenwormenshared.Messaging.Messages.Client;
+package regenwormenshared.messaging.messages.Client;
 
-import regenwormenshared.Models.Dice;
+import regenwormenshared.models.Dice;
 
 public class SetAsideMessage {
 

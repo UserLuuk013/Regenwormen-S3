@@ -1,8 +1,8 @@
-package regenwormenshared.Messaging.Server.messageHandlers;
+package regenwormenshared.messaging.server.messageHandlers;
 
-import regenwormenshared.MessageHandling.Handler.MessageHandlerBase;
-import regenwormenshared.Messaging.Messages.Client.EndRollDiceMessage;
-import regenwormenshared.Messaging.Server.IGameServer;
+import regenwormenshared.messageHandling.handler.MessageHandlerBase;
+import regenwormenshared.messaging.messages.Client.EndRollDiceMessage;
+import regenwormenshared.messaging.server.IGameServer;
 
 public class EndRollDiceMessageHandler extends MessageHandlerBase<EndRollDiceMessage> {
 

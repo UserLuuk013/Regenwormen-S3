@@ -1,6 +1,6 @@
-package regenwormenshared.Messaging.Messages.Server;
+package regenwormenshared.messaging.messages.Server;
 
-import regenwormenshared.Results.ReturnTileResult;
+import regenwormenshared.results.ReturnTileResult;
 
 public class ReturnTileResultMessage {
 

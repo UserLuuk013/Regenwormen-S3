@@ -1,4 +1,4 @@
-package regenwormenshared.DTO;
+package regenwormenshared.dto;
 
 public class PlayerDTO {
     private int id;

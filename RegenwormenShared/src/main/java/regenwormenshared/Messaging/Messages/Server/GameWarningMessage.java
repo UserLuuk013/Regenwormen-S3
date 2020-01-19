@@ -1,6 +1,6 @@
-package regenwormenshared.Messaging.Messages.Server;
+package regenwormenshared.messaging.messages.Server;
 
-import regenwormenshared.Models.Enums.GameWarning;
+import regenwormenshared.models.enums.GameWarning;
 
 public class GameWarningMessage {
     private GameWarning gameWarning;

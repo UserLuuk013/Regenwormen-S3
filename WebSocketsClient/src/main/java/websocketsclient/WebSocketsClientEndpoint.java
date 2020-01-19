@@ -1,12 +1,13 @@
 package websocketsclient;
 
-import com.google.gson.Gson;
-import regenwormenshared.MessageHandling.Encapsulating.EncapsulatingMessage;
-import regenwormenshared.MessageHandling.Processor.IMessageProcessor;
-import regenwormenshared.Serialization.ISerializer;
-import regenwormenshared.Serialization.SerializationProvider;
-import regenwormenshared.WebSockets.IWebSocketsClientEndpoint;
-import regenwormenshared.WebSockets.WebSocketsBase;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import regenwormenshared.messageHandling.encapsulating.EncapsulatingMessage;
+import regenwormenshared.messageHandling.processor.IMessageProcessor;
+import regenwormenshared.serialization.ISerializer;
+import regenwormenshared.serialization.SerializationProvider;
+import regenwormenshared.websockets.IWebSocketsClientEndpoint;
+import regenwormenshared.websockets.WebSocketsBase;
 
 import java.net.URI;
 import javax.websocket.ClientEndpoint;
@@ -30,9 +31,11 @@ public class WebSocketsClientEndpoint extends WebSocketsBase implements IWebSock
     /**
      * The local websocket uri to connect to.
      */
-    private final String uri = "ws://localhost:8095/regenwormen/";
+    private static final String uri = "ws://localhost:8095/regenwormen/";
 
     private Session session;
+
+    private static final Logger log = LoggerFactory.getLogger(WebSocketsClientEndpoint.class);
 
     /**
      * Get singleton instance of this class.
@@ -41,7 +44,7 @@ public class WebSocketsClientEndpoint extends WebSocketsBase implements IWebSock
      */
     public static WebSocketsClientEndpoint getInstance() {
         if (instance == null) {
-            System.out.println("[WebSocket Client create singleton instance]");
+            log.info("[WebSocket Client create singleton instance]");
             instance = new WebSocketsClientEndpoint();
         }
         return instance;
@@ -49,26 +52,26 @@ public class WebSocketsClientEndpoint extends WebSocketsBase implements IWebSock
 
     @Override
     public void start() {
-        System.out.println("[WebSocket Client start]");
+        log.info("[WebSocket Client start]");
         try {
             WebSocketContainer container = ContainerProvider.getWebSocketContainer();
             container.connectToServer(this, new URI(uri));
 
         } catch (IOException | URISyntaxException | DeploymentException ex) {
             // do something useful eventually
-            ex.printStackTrace();
+            log.info("[ERROR]", ex);
         }
     }
 
     @Override
     public void stop() {
-        System.out.println("[WebSocket Client stop]");
+        log.info("[WebSocket Client stop]");
         try {
             session.close();
 
         } catch (IOException ex){
             // do something useful eventually
-            ex.printStackTrace();
+            log.info("[ERROR]", ex);
         }
     }
 
@@ -78,13 +81,13 @@ public class WebSocketsClientEndpoint extends WebSocketsBase implements IWebSock
 
     @OnOpen
     public void onWebSocketConnect(Session session){
-        System.out.println("[WebSocket Client open session] " + session.getRequestURI());
+        log.info("[WebSocket Client open session] " + session.getRequestURI());
         this.session = session;
     }
 
     @OnMessage
     public void onWebSocketText(String message, Session session){
-        System.out.println("[WebSocket Client message received] " + message);
+        log.info("[WebSocket Client message received] " + message);
         onWebSocketMessageReceived(message, session.getId());
     }
 
@@ -103,13 +106,13 @@ public class WebSocketsClientEndpoint extends WebSocketsBase implements IWebSock
 
     @OnError
     public void onWebSocketError(Session session, Throwable cause) {
-        System.out.println("[WebSocket Client connection error] " + cause.toString());
+        log.info("[WebSocket Client connection error] " + cause.toString());
     }
 
     @OnClose
     public void onWebSocketClose(CloseReason reason){
-        System.out.print("[WebSocket Client close session] " + session.getRequestURI());
-        System.out.println(" for reason " + reason);
+        log.info("[WebSocket Client close session] " + session.getRequestURI());
+        log.info(" for reason " + reason);
         session = null;
     }
 

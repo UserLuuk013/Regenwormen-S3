@@ -1,4 +1,4 @@
-package regenwormenshared.MessageHandling.Encapsulating;
+package regenwormenshared.messageHandling.encapsulating;
 
 public interface IEncapsulatingMessageGenerator {
     EncapsulatingMessage generateMessage(Object content);

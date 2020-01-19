@@ -1,9 +1,6 @@
-package regenwormenshared.Messaging.Messages.Server;
+package regenwormenshared.messaging.messages.Server;
 
-import regenwormenshared.Models.Dice;
-import regenwormenshared.Results.RollDiceResult;
-
-import java.util.List;
+import regenwormenshared.results.RollDiceResult;
 
 public class RollDiceResultMessage {
 

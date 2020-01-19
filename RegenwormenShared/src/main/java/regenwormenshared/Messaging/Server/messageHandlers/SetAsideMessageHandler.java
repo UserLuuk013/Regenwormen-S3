@@ -1,8 +1,8 @@
-package regenwormenshared.Messaging.Server.messageHandlers;
+package regenwormenshared.messaging.server.messageHandlers;
 
-import regenwormenshared.MessageHandling.Handler.MessageHandlerBase;
-import regenwormenshared.Messaging.Messages.Client.SetAsideMessage;
-import regenwormenshared.Messaging.Server.IGameServer;
+import regenwormenshared.messageHandling.handler.MessageHandlerBase;
+import regenwormenshared.messaging.messages.Client.SetAsideMessage;
+import regenwormenshared.messaging.server.IGameServer;
 
 public class SetAsideMessageHandler extends MessageHandlerBase<SetAsideMessage> {
 

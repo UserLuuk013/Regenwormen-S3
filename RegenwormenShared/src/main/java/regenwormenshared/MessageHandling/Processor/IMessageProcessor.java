@@ -1,4 +1,4 @@
-package regenwormenshared.MessageHandling.Processor;
+package regenwormenshared.messageHandling.processor;
 
 public  interface IMessageProcessor {
     void processMessage(String sessionId, String type, String data);

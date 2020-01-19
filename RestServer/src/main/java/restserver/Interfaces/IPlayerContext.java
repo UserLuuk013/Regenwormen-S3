@@ -1,8 +1,8 @@
-package restserver.Interfaces;
+package restserver.interfaces;
 
-import regenwormenshared.Models.Player;
+import regenwormenshared.models.Player;
 
 public interface IPlayerContext {
-    Player Login(String username, String password);
-    boolean Register(String username, String password);
+    Player login(String username, String password);
+    boolean register(String username, String password);
 }

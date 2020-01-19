@@ -1,8 +1,8 @@
-package regenwormenshared.Messaging.Client;
+package regenwormenshared.messaging.client;
 
-import regenwormenshared.MessageHandling.Handler.IMessageHandler;
-import regenwormenshared.MessageHandling.Handler.IMessageHandlerFactory;
-import regenwormenshared.MessageHandling.Processor.MessageProcessorBase;
+import regenwormenshared.messageHandling.handler.IMessageHandler;
+import regenwormenshared.messageHandling.handler.IMessageHandlerFactory;
+import regenwormenshared.messageHandling.processor.MessageProcessorBase;
 
 public class ClientMessageProcessor extends MessageProcessorBase implements IClientMessageProcessor {
 

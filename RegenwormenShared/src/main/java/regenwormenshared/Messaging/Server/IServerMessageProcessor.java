@@ -1,6 +1,6 @@
-package regenwormenshared.Messaging.Server;
+package regenwormenshared.messaging.server;
 
-import regenwormenshared.MessageHandling.Processor.IMessageProcessor;
+import regenwormenshared.messageHandling.processor.IMessageProcessor;
 
 public interface IServerMessageProcessor extends IMessageProcessor {
     void registerGame(IGameServer game);

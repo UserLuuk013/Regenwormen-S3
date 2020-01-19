@@ -1,7 +1,7 @@
-package regenwormenshared.Messaging.Messages.Server;
+package regenwormenshared.messaging.messages.Server;
 
-import regenwormenshared.Models.Player;
-import regenwormenshared.Models.Tile;
+import regenwormenshared.models.Player;
+import regenwormenshared.models.Tile;
 
 import java.util.List;
 

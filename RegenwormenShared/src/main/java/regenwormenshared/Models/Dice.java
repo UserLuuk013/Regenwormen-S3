@@ -1,19 +1,13 @@
-package regenwormenshared.Models;
-
-import regenwormenshared.DTO.DiceDTO;
+package regenwormenshared.models;
 
 public class Dice {
     private int value;
-    private String image;
     private boolean regenworm;
 
-    public Dice(int value, String image, boolean regenworm){
+    public Dice(int value, boolean regenworm){
         this.value = value;
-        this.image = image;
         this.regenworm = regenworm;
     }
-
-    public DiceDTO CreateDTO() { return new DiceDTO(value, image, regenworm); };
 
     public int getValue() {
         return value;
@@ -23,32 +17,12 @@ public class Dice {
         this.value = value;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
     public boolean isRegenworm() {
         return regenworm;
     }
 
-    public void setRegenworm(boolean regenworm) {
-        this.regenworm = regenworm;
-    }
-
     @Override
     public boolean equals(Object object){
-
-        boolean sameSame = false;
-
-        if (object instanceof Dice){
-            if (this.value == ((Dice) object).getValue() && this.isRegenworm() == ((Dice) object).isRegenworm()){
-                sameSame = true;
-            }
-        }
-        return sameSame;
+        return object instanceof Dice && this.value == ((Dice) object).getValue() && this.isRegenworm() == ((Dice) object).isRegenworm();
     }
 }

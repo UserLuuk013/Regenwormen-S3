@@ -2,9 +2,9 @@ package regenwormenBigIdea.Converters;
 
 import org.junit.Assert;
 import org.junit.Test;
-import regenwormenshared.Converters.PlayerDTOModelConverter;
-import regenwormenshared.DTO.PlayerDTO;
-import regenwormenshared.Models.Player;
+import regenwormenshared.converters.PlayerDTOModelConverter;
+import regenwormenshared.dto.PlayerDTO;
+import regenwormenshared.models.Player;
 
 public class PlayerDTOModelConverterTest {
 

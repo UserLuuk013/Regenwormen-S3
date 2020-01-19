@@ -1,17 +1,17 @@
 package regenwormenclient;
 
-import regenwormenshared.Messaging.Client.IClientGUI;
-import regenwormenshared.Messaging.Client.IClientMessageGenerator;
-import regenwormenshared.Messaging.Client.IGameClient;
-import regenwormenshared.Models.Dice;
-import regenwormenshared.Models.Enums.GameState;
-import regenwormenshared.Models.Enums.GameWarning;
-import regenwormenshared.Models.Player;
-import regenwormenshared.Models.Tile;
-import regenwormenshared.Results.ReturnTileResult;
-import regenwormenshared.Results.RollDiceResult;
-import regenwormenshared.Results.SetAsideResult;
-import regenwormenshared.Results.TakeTileResult;
+import regenwormenshared.messaging.client.IClientGUI;
+import regenwormenshared.messaging.client.IClientMessageGenerator;
+import regenwormenshared.messaging.client.IGameClient;
+import regenwormenshared.models.Dice;
+import regenwormenshared.models.enums.GameState;
+import regenwormenshared.models.enums.GameWarning;
+import regenwormenshared.models.Player;
+import regenwormenshared.models.Tile;
+import regenwormenshared.results.ReturnTileResult;
+import regenwormenshared.results.RollDiceResult;
+import regenwormenshared.results.SetAsideResult;
+import regenwormenshared.results.TakeTileResult;
 
 import java.util.List;
 
@@ -61,21 +61,6 @@ public class GameClient implements IGameClient {
     }
 
     @Override
-    public void returnTile() {
-        this.messageGenerator.returnTile();
-    }
-
-    @Override
-    public void getAllTiles() {
-        this.messageGenerator.getAllTiles();
-    }
-
-    @Override
-    public void getAllDices() {
-        this.messageGenerator.getAllDices();
-    }
-
-    @Override
     public void processRegisterPlayerResult(String sessionId, boolean result) {
         this.clientGUI.processRegisterPlayerResult(sessionId, result);
     }
@@ -118,22 +103,6 @@ public class GameClient implements IGameClient {
     @Override
     public void processGameEndedResult(String sessionId, int scorePlayer1, int scorePlayer2, boolean draw) {
         this.clientGUI.processGameEndedResult(sessionId, scorePlayer1, scorePlayer2, draw);
-    }
-
-    @Override
-    public void processGetAllTilesResult(String sessionId, List<Tile> tiles) {
-        System.out.println("The list of Tiles after calling query by Player " + sessionId + " looks like this:");
-        for (Tile tile : tiles){
-            System.out.println(tile.getValue());
-        }
-    }
-
-    @Override
-    public void processGetAllDicesResult(String sessionId, List<Dice> dices) {
-        System.out.println("The list of Dices after calling query by Player " + sessionId + " looks like this:");
-        for (Dice dice : dices){
-            System.out.println(dice.getValue() + " " + dice.isRegenworm());
-        }
     }
 
     @Override

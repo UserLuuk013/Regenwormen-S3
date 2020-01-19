@@ -2,8 +2,8 @@ package regenwormenBigIdea.Results;
 
 import org.junit.Assert;
 import org.junit.Test;
-import regenwormenshared.Models.Tile;
-import regenwormenshared.Results.ReturnTileResult;
+import regenwormenshared.models.Tile;
+import regenwormenshared.results.ReturnTileResult;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package regenwormenshared.Serialization;
+package regenwormenshared.serialization;
 
 import java.lang.reflect.Type;
 

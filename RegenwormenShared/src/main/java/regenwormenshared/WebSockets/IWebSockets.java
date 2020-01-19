@@ -1,6 +1,6 @@
-package regenwormenshared.WebSockets;
+package regenwormenshared.websockets;
 
-import regenwormenshared.MessageHandling.Processor.IMessageProcessor;
+import regenwormenshared.messageHandling.processor.IMessageProcessor;
 
 public interface IWebSockets {
 

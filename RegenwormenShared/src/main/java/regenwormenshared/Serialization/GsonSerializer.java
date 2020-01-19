@@ -1,4 +1,4 @@
-package regenwormenshared.Serialization;
+package regenwormenshared.serialization;
 
 import com.google.gson.Gson;
 

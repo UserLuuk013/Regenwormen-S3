@@ -1,8 +1,8 @@
-package regenwormenshared.Messaging.Client.messageHandlers;
+package regenwormenshared.messaging.client.messageHandlers;
 
-import regenwormenshared.MessageHandling.Handler.MessageHandlerBase;
-import regenwormenshared.Messaging.Client.IGameClient;
-import regenwormenshared.Messaging.Messages.Server.RollDiceResultMessage;
+import regenwormenshared.messageHandling.handler.MessageHandlerBase;
+import regenwormenshared.messaging.client.IGameClient;
+import regenwormenshared.messaging.messages.Server.RollDiceResultMessage;
 
 public class RollDiceResultMessageHandler extends MessageHandlerBase<RollDiceResultMessage> {
     private IGameClient client;

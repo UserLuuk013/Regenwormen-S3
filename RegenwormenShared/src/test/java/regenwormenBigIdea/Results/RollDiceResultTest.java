@@ -2,8 +2,8 @@ package regenwormenBigIdea.Results;
 
 import org.junit.Assert;
 import org.junit.Test;
-import regenwormenshared.Models.Dice;
-import regenwormenshared.Results.RollDiceResult;
+import regenwormenshared.models.Dice;
+import regenwormenshared.results.RollDiceResult;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package regenwormenshared.WebSockets;
+package regenwormenshared.websockets;
 
 public interface IWebSocketsEndpoint extends IWebSockets {
 

@@ -1,9 +1,9 @@
 package regenwormenclient;
 
-import regenwormenshared.MessageHandling.Handler.IMessageHandlerFactory;
-import regenwormenshared.Messaging.Client.*;
-import regenwormenshared.Messaging.Client.messageHandlers.ClientMessageHandlerFactory;
-import regenwormenshared.WebSockets.IWebSocketsClientEndpoint;
+import regenwormenshared.messageHandling.handler.IMessageHandlerFactory;
+import regenwormenshared.messaging.client.*;
+import regenwormenshared.messaging.client.messageHandlers.ClientMessageHandlerFactory;
+import regenwormenshared.websockets.IWebSocketsClientEndpoint;
 import websocketsclient.WebSocketsClientEndpoint;
 
 public class TestApp1 {
@@ -23,7 +23,7 @@ public class TestApp1 {
         IClientMessageGenerator generator = new ClientMessageGenerator(socket);
 
         IGameClient gameClient = new GameClient(generator);
-        gameClient.registerClientGUI(new TestClientGUI(gameClient));
+        gameClient.registerClientGUI(new ClientGUI(gameClient));
         IMessageHandlerFactory factory = new ClientMessageHandlerFactory();
 
         IClientMessageProcessor processor = new ClientMessageProcessor(factory);

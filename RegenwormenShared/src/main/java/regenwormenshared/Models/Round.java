@@ -1,9 +1,9 @@
-package regenwormenshared.Models;
+package regenwormenshared.models;
 
-import regenwormenshared.Results.ReturnTileResult;
-import regenwormenshared.Results.RollDiceResult;
-import regenwormenshared.Results.SetAsideResult;
-import regenwormenshared.Results.TakeTileResult;
+import regenwormenshared.results.ReturnTileResult;
+import regenwormenshared.results.RollDiceResult;
+import regenwormenshared.results.SetAsideResult;
+import regenwormenshared.results.TakeTileResult;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,19 +53,16 @@ public class Round {
             value += dice.getValue();
         }
         for (Dice dice : setAsideResult.getTakenDices()){
-            if (!isTileTaken){
-                if (value >= takeTileResult.getChosenTile().getValue() && dice.isRegenworm()){
-                    for (Tile tile : takeTileResult.getChosenStackOrRow()){
-                        if (tile.getValue() == takeTileResult.getChosenTile().getValue()){
-                            takeTileResult.getChosenStackOrRow().remove(tile);
-                            takeTileResult.getStack().add(tile);
-                            isTileTaken = true;
-                            break;
-                        }
+            if (!isTileTaken && value >= takeTileResult.getChosenTile().getValue() && dice.isRegenworm()){
+                for (Tile tile : takeTileResult.getChosenStackOrRow()){
+                    if (tile.getValue() == takeTileResult.getChosenTile().getValue()){
+                        takeTileResult.getChosenStackOrRow().remove(tile);
+                        takeTileResult.getStack().add(tile);
+                        isTileTaken = true;
+                        break;
                     }
                 }
             }
-
         }
         return takeTileResult;
     }

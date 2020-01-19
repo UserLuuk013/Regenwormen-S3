@@ -4,7 +4,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Assert;
 import org.junit.Test;
-import regenwormenshared.Models.Tile;
+import regenwormenshared.models.Tile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +28,7 @@ public class AppTest
 
         List<Tile> row = new ArrayList<>();
         for (int i = 21; i < 37; i++){
-            Tile tile = new Tile(i, "image.jpg", 1);
+            Tile tile = new Tile(i, 1);
 //            tile.setVisible(false);
             row.add(tile);
         }

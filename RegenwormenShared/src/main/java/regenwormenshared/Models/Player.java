@@ -1,6 +1,4 @@
-package regenwormenshared.Models;
-
-import regenwormenshared.DTO.PlayerDTO;
+package regenwormenshared.models;
 
 import java.util.ArrayList;
 import java.util.List;

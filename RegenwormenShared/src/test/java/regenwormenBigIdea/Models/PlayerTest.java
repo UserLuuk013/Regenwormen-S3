@@ -3,9 +3,8 @@ package regenwormenBigIdea.Models;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import regenwormenshared.DTO.PlayerDTO;
-import regenwormenshared.Models.Player;
-import regenwormenshared.Models.Tile;
+import regenwormenshared.models.Player;
+import regenwormenshared.models.Tile;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,6 +1,6 @@
-package regenwormenshared.MessageHandling.Processor;
+package regenwormenshared.messageHandling.processor;
 
-import regenwormenshared.MessageHandling.Handler.IMessageHandlerFactory;
+import regenwormenshared.messageHandling.handler.IMessageHandlerFactory;
 
 public abstract class MessageProcessorBase {
 

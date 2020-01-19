@@ -2,7 +2,7 @@ package regenwormenBigIdea.DTO;
 
 import org.junit.Assert;
 import org.junit.Test;
-import regenwormenshared.DTO.PlayerDTO;
+import regenwormenshared.dto.PlayerDTO;
 
 public class PlayerDTOTest {
 

@@ -1,6 +1,6 @@
-package regenwormenshared.Messaging.Messages.Server;
+package regenwormenshared.messaging.messages.Server;
 
-import regenwormenshared.Models.Player;
+import regenwormenshared.models.Player;
 
 public class PlayerJoinedMessage {
 

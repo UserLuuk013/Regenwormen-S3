@@ -1,13 +1,13 @@
-package regenwormenshared.Messaging.Client;
+package regenwormenshared.messaging.client;
 
-import regenwormenshared.Models.Enums.GameState;
-import regenwormenshared.Models.Enums.GameWarning;
-import regenwormenshared.Models.Player;
-import regenwormenshared.Models.Tile;
-import regenwormenshared.Results.ReturnTileResult;
-import regenwormenshared.Results.RollDiceResult;
-import regenwormenshared.Results.SetAsideResult;
-import regenwormenshared.Results.TakeTileResult;
+import regenwormenshared.models.enums.GameState;
+import regenwormenshared.models.enums.GameWarning;
+import regenwormenshared.models.Player;
+import regenwormenshared.models.Tile;
+import regenwormenshared.results.ReturnTileResult;
+import regenwormenshared.results.RollDiceResult;
+import regenwormenshared.results.SetAsideResult;
+import regenwormenshared.results.TakeTileResult;
 
 import java.util.List;
 

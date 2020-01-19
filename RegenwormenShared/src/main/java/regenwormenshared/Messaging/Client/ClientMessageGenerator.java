@@ -1,9 +1,9 @@
-package regenwormenshared.Messaging.Client;
+package regenwormenshared.messaging.client;
 
-import regenwormenshared.Messaging.Messages.Client.*;
-import regenwormenshared.Models.Dice;
-import regenwormenshared.Models.Tile;
-import regenwormenshared.WebSockets.IWebSocketsClientEndpoint;
+import regenwormenshared.messaging.messages.Client.*;
+import regenwormenshared.models.Dice;
+import regenwormenshared.models.Tile;
+import regenwormenshared.websockets.IWebSocketsClientEndpoint;
 
 public class ClientMessageGenerator implements IClientMessageGenerator {
 
@@ -41,20 +41,5 @@ public class ClientMessageGenerator implements IClientMessageGenerator {
     @Override
     public void takeTile(Tile chosenTile) {
         clientEndpoint.send(new TakeTileMessage(chosenTile));
-    }
-
-    @Override
-    public void returnTile() {
-        clientEndpoint.send(new ReturnTileMessage());
-    }
-
-    @Override
-    public void getAllTiles() {
-        clientEndpoint.send(new GetAllTilesMessage());
-    }
-
-    @Override
-    public void getAllDices() {
-        clientEndpoint.send(new GetAllDicesMessage());
     }
 }

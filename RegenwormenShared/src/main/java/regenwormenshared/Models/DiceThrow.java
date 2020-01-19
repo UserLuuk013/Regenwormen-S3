@@ -1,4 +1,4 @@
-package regenwormenshared.Models;
+package regenwormenshared.models;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -18,10 +18,10 @@ public class DiceThrow {
         Random rnd = new Random();
         int value = rnd.nextInt(6) + 1;
         if (value == 6){
-            return new Dice(5, "image.jpg",true);
+            return new Dice(5,true);
         }
         else{
-            return new Dice(value, "image.jpg",false);
+            return new Dice(value,false);
         }
     }
 }

@@ -1,23 +1,19 @@
 package regenwormenserver;
 
-import regenwormenshared.Converters.DiceDTOModelConverter;
-import regenwormenshared.Converters.PlayerDTOModelConverter;
-import regenwormenshared.Converters.TileDTOModelConverter;
-import regenwormenshared.DTO.DiceDTO;
-import regenwormenshared.DTO.PlayerDTO;
-import regenwormenshared.DTO.TileDTO;
-import regenwormenshared.Messaging.Server.IGameServer;
-import regenwormenshared.Messaging.Server.IServerMessageGenerator;
-import regenwormenshared.Models.Dice;
-import regenwormenshared.Models.Enums.GameState;
-import regenwormenshared.Models.Enums.GameWarning;
-import regenwormenshared.Models.Player;
-import regenwormenshared.Models.Round;
-import regenwormenshared.Models.Tile;
-import regenwormenshared.Results.ReturnTileResult;
-import regenwormenshared.Results.RollDiceResult;
-import regenwormenshared.Results.SetAsideResult;
-import regenwormenshared.Results.TakeTileResult;
+import regenwormenshared.converters.PlayerDTOModelConverter;
+import regenwormenshared.dto.PlayerDTO;
+import regenwormenshared.messaging.server.IGameServer;
+import regenwormenshared.messaging.server.IServerMessageGenerator;
+import regenwormenshared.models.Dice;
+import regenwormenshared.models.enums.GameState;
+import regenwormenshared.models.enums.GameWarning;
+import regenwormenshared.models.Player;
+import regenwormenshared.models.Round;
+import regenwormenshared.models.Tile;
+import regenwormenshared.results.ReturnTileResult;
+import regenwormenshared.results.RollDiceResult;
+import regenwormenshared.results.SetAsideResult;
+import regenwormenshared.results.TakeTileResult;
 import restclient.RestClient;
 
 import java.util.ArrayList;
@@ -170,10 +166,8 @@ public class GameServer implements IGameServer {
             }
         }
 
-        if (!endRollDice){
-            if (stackOpponent.get(stackOpponent.size() - 1).isVisible() && value >= stackOpponent.get(stackOpponent.size() - 1).getValue()){
-                endRollDice = true;
-            }
+        if (!endRollDice && stackOpponent.get(stackOpponent.size() - 1).isVisible() && value >= stackOpponent.get(stackOpponent.size() - 1).getValue()){
+            endRollDice = true;
         }
         return endRollDice;
     }
@@ -235,10 +229,9 @@ public class GameServer implements IGameServer {
     @Override
     public void checkGame(String sessionId) {
         if (gameState == GameState.CHECKGAME){
-            boolean gameEnded = false;
             int tileCounter = 0;
 
-            if (row.size() != 0){
+            if (!row.isEmpty()){
                 for (Tile tile : row){
                     if (!tile.isVisible()){
                         tileCounter++;
@@ -246,18 +239,14 @@ public class GameServer implements IGameServer {
                 }
 
                 if (tileCounter == row.size()){
-                    gameEnded = true;
+                    gameEnded(sessionId);
+                }
+                else{
+                    startNewRound(sessionId);
                 }
             }
             else{
-                gameEnded = true;
-            }
-
-            if (gameEnded){
                 gameEnded(sessionId);
-            }
-            else{
-                startNewRound(sessionId);
             }
         }
         else{
@@ -280,11 +269,15 @@ public class GameServer implements IGameServer {
         }
 
         if (scorePlayer1 != scorePlayer2){
-            messageGenerator.notifyGameEndedResult(sessionId, scorePlayer1, scorePlayer2, false);
+            messageGenerator.notifyGameEndedResult(sessionId, scorePlayer1, scorePlayer2, checkIfGameDrawn(scorePlayer1, scorePlayer2));
         }
         else{
-            messageGenerator.notifyGameEndedResult(sessionId, scorePlayer1, scorePlayer2, true);
+            messageGenerator.notifyGameEndedResult(sessionId, scorePlayer1, scorePlayer2, checkIfGameDrawn(scorePlayer1, scorePlayer2));
         }
+    }
+
+    private boolean checkIfGameDrawn(int scorePlayer1, int scorePlayer2){
+        return scorePlayer1 == scorePlayer2;
     }
 
     @Override
@@ -315,32 +308,6 @@ public class GameServer implements IGameServer {
     }
 
     @Override
-    public void getAllTiles(String sessionId) {
-        TileDTOModelConverter tileConverter = new TileDTOModelConverter();
-
-        List<Tile> tiles = new ArrayList<>();
-
-        List<TileDTO> tileDTOs = restClient.getAllTiles();
-        for (TileDTO dto : tileDTOs){
-            tiles.add(tileConverter.ModelFromDTO(dto));
-        }
-        messageGenerator.notifyGetAllTilesResult(sessionId, tiles);
-    }
-
-    @Override
-    public void getAllDices(String sessionId) {
-        DiceDTOModelConverter diceConverter = new DiceDTOModelConverter();
-
-        List<Dice> dices = new ArrayList<>();
-
-        List<DiceDTO> diceDTOs = restClient.getAllDices();
-        for (DiceDTO dto : diceDTOs){
-            dices.add(diceConverter.ModelFromDTO(dto));
-        }
-        messageGenerator.notifyGetAllDicesResult(sessionId, dices);
-    }
-
-    @Override
     public void processClientDisconnect(String sessionId) {
         //Left to fill in
     }
@@ -355,16 +322,16 @@ public class GameServer implements IGameServer {
         row = new ArrayList<>();
         for (int i = 21; i < 37; i++){
             if (i < 25) {
-                row.add(new Tile(i, "image.jpg", 1));
+                row.add(new Tile(i, 1));
             }
             else if (i < 29) {
-                row.add(new Tile(i, "image.jpg", 2));
+                row.add(new Tile(i, 2));
             }
             else if (i < 33){
-                row.add(new Tile(i, "image.jpg", 3));
+                row.add(new Tile(i, 3));
             }
             else {
-                row.add(new Tile(i, "image.jpg", 4));
+                row.add(new Tile(i, 4));
             }
         }
         this.roundCounter = 0;

@@ -1,4 +1,4 @@
-package regenwormenshared.Models.Enums;
+package regenwormenshared.models.enums;
 
 public enum GameWarning {
     LOGINFAILED,
