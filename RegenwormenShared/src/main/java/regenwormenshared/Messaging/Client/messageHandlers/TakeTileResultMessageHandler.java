@@ -2,7 +2,7 @@ package regenwormenshared.messaging.client.messagehandlers;
 
 import regenwormenshared.messagehandling.handler.MessageHandlerBase;
 import regenwormenshared.messaging.client.IGameClient;
-import regenwormenshared.messaging.messages.Server.TakeTileResultMessage;
+import regenwormenshared.messaging.messages.server.TakeTileResultMessage;
 
 public class TakeTileResultMessageHandler extends MessageHandlerBase<TakeTileResultMessage> {
     private IGameClient client;

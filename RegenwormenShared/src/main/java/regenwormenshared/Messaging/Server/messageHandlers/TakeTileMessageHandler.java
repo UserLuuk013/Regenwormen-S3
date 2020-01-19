@@ -1,7 +1,7 @@
 package regenwormenshared.messaging.server.messagehandlers;
 
 import regenwormenshared.messagehandling.handler.MessageHandlerBase;
-import regenwormenshared.messaging.messages.Client.TakeTileMessage;
+import regenwormenshared.messaging.messages.client.TakeTileMessage;
 import regenwormenshared.messaging.server.IGameServer;
 
 public class TakeTileMessageHandler extends MessageHandlerBase<TakeTileMessage> {

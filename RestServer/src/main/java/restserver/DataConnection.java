@@ -12,16 +12,19 @@ public class DataConnection {
     private String errorMessage = "[ERROR]: ";
 
     protected DataConnection() {
-        String connectionUrl = "jdbc:sqlserver://mssql.fhict.local;databaseName=dbi409381_regenworm;";
+
         try{
-            conn = DriverManager.getConnection(connectionUrl, "dbi409381_regenworm", "UserLuuk013!");
+            String connectionUrl = "jdbc:sqlserver://mssql.fhict.local;databaseName=dbi409381_regenworm;";
+            String databaseUser = "dbi409381_regenworm";
+            String databasePassword = "UserLuuk013!";
+            conn = DriverManager.getConnection(connectionUrl, databaseUser, databasePassword);
         }
         catch (SQLException e) {
             log.info(errorMessage, e);
         }
     }
 
-    protected ResultSet executeQuery(String query){
+    protected ResultSet executeQuery(String query) throws SQLException {
         ResultSet rs = null;
         try{
             Statement stmt = conn.createStatement();
@@ -30,16 +33,22 @@ public class DataConnection {
         catch(SQLException e){
             log.info(errorMessage, e);
         }
+        finally {
+            conn.close();
+        }
         return rs;
     }
 
-    protected void executeQueryNoResultSet(String query){
+    protected void executeQueryNoResultSet(String query) throws SQLException {
         try{
             PreparedStatement stmt = conn.prepareStatement(query);
             stmt.executeUpdate();
         }
         catch(SQLException e){
             log.info(errorMessage, e);
+        }
+        finally {
+            conn.close();
         }
     }
 }

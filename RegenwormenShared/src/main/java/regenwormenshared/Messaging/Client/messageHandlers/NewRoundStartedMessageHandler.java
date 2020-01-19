@@ -2,7 +2,7 @@ package regenwormenshared.messaging.client.messagehandlers;
 
 import regenwormenshared.messagehandling.handler.MessageHandlerBase;
 import regenwormenshared.messaging.client.IGameClient;
-import regenwormenshared.messaging.messages.Server.NewRoundStartedMessage;
+import regenwormenshared.messaging.messages.server.NewRoundStartedMessage;
 
 public class NewRoundStartedMessageHandler extends MessageHandlerBase<NewRoundStartedMessage> {
     private IGameClient client;

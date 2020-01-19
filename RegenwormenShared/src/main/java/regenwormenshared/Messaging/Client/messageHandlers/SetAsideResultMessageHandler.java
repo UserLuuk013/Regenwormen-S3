@@ -2,7 +2,7 @@ package regenwormenshared.messaging.client.messagehandlers;
 
 import regenwormenshared.messagehandling.handler.MessageHandlerBase;
 import regenwormenshared.messaging.client.IGameClient;
-import regenwormenshared.messaging.messages.Server.SetAsideResultMessage;
+import regenwormenshared.messaging.messages.server.SetAsideResultMessage;
 
 public class SetAsideResultMessageHandler extends MessageHandlerBase<SetAsideResultMessage> {
     private IGameClient client;

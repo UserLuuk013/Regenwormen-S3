@@ -214,7 +214,7 @@
       <workItem from="1579247279555" duration="4146000" />
       <workItem from="1579270203629" duration="953000" />
       <workItem from="1579337850016" duration="11078000" />
-      <workItem from="1579429167195" duration="10380000" />
+      <workItem from="1579429167195" duration="12206000" />
     </task>
     <servers />
   </component>
@@ -274,7 +274,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/WebSocketsServer/src/main/java/websocketsserver/WebSocketsEndpoint.java</url>
-          <line>69</line>
+          <line>68</line>
           <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

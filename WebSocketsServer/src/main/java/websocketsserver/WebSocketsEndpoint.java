@@ -60,8 +60,7 @@ public class WebSocketsEndpoint extends WebSocketsBase implements IWebSocketsEnd
 
     @OnError
     public void onError(Throwable cause, Session session) {
-        log.info(sessionIdMessage + session.getId() + "[ERROR]: {}");
-        cause.printStackTrace(System.err);
+        log.info("[ERROR]: {}", sessionIdMessage + session.getId());
         log.info("[ERROR]: {0}", cause);
     }
 

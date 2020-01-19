@@ -2,7 +2,7 @@ package regenwormenshared.messaging.client.messagehandlers;
 
 import regenwormenshared.messagehandling.handler.MessageHandlerBase;
 import regenwormenshared.messaging.client.IGameClient;
-import regenwormenshared.messaging.messages.Server.GameWarningMessage;
+import regenwormenshared.messaging.messages.server.GameWarningMessage;
 
 public class GameWarningMessageHandler extends MessageHandlerBase<GameWarningMessage> {
     private IGameClient client;

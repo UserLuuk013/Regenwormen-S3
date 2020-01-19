@@ -1,6 +1,6 @@
 package regenwormenshared.messaging.client;
 
-import regenwormenshared.messaging.messages.Client.*;
+import regenwormenshared.messaging.messages.client.*;
 import regenwormenshared.models.Dice;
 import regenwormenshared.models.Tile;
 import regenwormenshared.websockets.IWebSocketsClientEndpoint;

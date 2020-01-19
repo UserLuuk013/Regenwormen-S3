@@ -268,16 +268,12 @@ public class GameServer implements IGameServer {
             scorePlayer2 += tile.getAmountOfRegenwormen();
         }
 
-        if (scorePlayer1 != scorePlayer2){
-            messageGenerator.notifyGameEndedResult(sessionId, scorePlayer1, scorePlayer2, checkIfGameDrawn(scorePlayer1, scorePlayer2));
+        if (scorePlayer1 > scorePlayer2 || scorePlayer1 < scorePlayer2){
+            messageGenerator.notifyGameEndedResult(sessionId, scorePlayer1, scorePlayer2, false);
         }
         else{
-            messageGenerator.notifyGameEndedResult(sessionId, scorePlayer1, scorePlayer2, checkIfGameDrawn(scorePlayer1, scorePlayer2));
+            messageGenerator.notifyGameEndedResult(sessionId, scorePlayer1, scorePlayer2, true);
         }
-    }
-
-    private boolean checkIfGameDrawn(int scorePlayer1, int scorePlayer2){
-        return scorePlayer1 == scorePlayer2;
     }
 
     @Override

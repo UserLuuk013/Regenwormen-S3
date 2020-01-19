@@ -1,6 +1,6 @@
 package regenwormenshared.messaging.server;
 
-import regenwormenshared.messaging.messages.Server.*;
+import regenwormenshared.messaging.messages.server.*;
 import regenwormenshared.models.enums.GameState;
 import regenwormenshared.models.enums.GameWarning;
 import regenwormenshared.models.Player;

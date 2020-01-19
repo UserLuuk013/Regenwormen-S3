@@ -2,7 +2,7 @@ package regenwormenshared.messaging.client.messagehandlers;
 
 import regenwormenshared.messagehandling.handler.MessageHandlerBase;
 import regenwormenshared.messaging.client.IGameClient;
-import regenwormenshared.messaging.messages.Server.PlayerJoinedMessage;
+import regenwormenshared.messaging.messages.server.PlayerJoinedMessage;
 
 public class PlayerJoinedMessageHandler extends MessageHandlerBase<PlayerJoinedMessage> {
     private IGameClient client;

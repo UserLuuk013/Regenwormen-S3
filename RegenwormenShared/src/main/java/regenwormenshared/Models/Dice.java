@@ -25,4 +25,9 @@ public class Dice {
     public boolean equals(Object object){
         return object instanceof Dice && this.value == ((Dice) object).getValue() && this.isRegenworm() == ((Dice) object).isRegenworm();
     }
+
+    @Override
+    public int hashCode() {
+        return this.value;
+    }
 }

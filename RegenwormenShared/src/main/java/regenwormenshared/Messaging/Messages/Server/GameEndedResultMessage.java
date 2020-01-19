@@ -1,4 +1,4 @@
-package regenwormenshared.messaging.messages.Server;
+package regenwormenshared.messaging.messages.server;
 
 public class GameEndedResultMessage {
 

@@ -2,7 +2,7 @@ package regenwormenshared.messaging.client.messagehandlers;
 
 import regenwormenshared.messagehandling.handler.MessageHandlerBase;
 import regenwormenshared.messaging.client.IGameClient;
-import regenwormenshared.messaging.messages.Server.EndRollDiceResultMessage;
+import regenwormenshared.messaging.messages.server.EndRollDiceResultMessage;
 
 public class EndRollDiceResultMessageHandler extends MessageHandlerBase<EndRollDiceResultMessage> {
     private IGameClient client;

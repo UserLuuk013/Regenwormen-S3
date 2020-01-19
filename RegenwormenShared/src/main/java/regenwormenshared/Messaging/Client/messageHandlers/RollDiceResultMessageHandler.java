@@ -2,7 +2,7 @@ package regenwormenshared.messaging.client.messagehandlers;
 
 import regenwormenshared.messagehandling.handler.MessageHandlerBase;
 import regenwormenshared.messaging.client.IGameClient;
-import regenwormenshared.messaging.messages.Server.RollDiceResultMessage;
+import regenwormenshared.messaging.messages.server.RollDiceResultMessage;
 
 public class RollDiceResultMessageHandler extends MessageHandlerBase<RollDiceResultMessage> {
     private IGameClient client;

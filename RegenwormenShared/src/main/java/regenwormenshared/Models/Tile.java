@@ -39,4 +39,9 @@ public class Tile {
     public boolean equals(Object object){
         return object instanceof Tile && this.value == ((Tile) object).getValue();
     }
+
+    @Override
+    public int hashCode(){
+        return this.value;
+    }
 }

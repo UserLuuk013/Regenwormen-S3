@@ -6,6 +6,7 @@ import java.util.Random;
 
 public class DiceThrow {
 
+    private Random rnd = new Random();
     public List<Dice> generateDiceThrow(int numberOfDices) {
         List<Dice> dices = new ArrayList<>();
         for (int i = 0; i < numberOfDices; i++){
@@ -14,8 +15,7 @@ public class DiceThrow {
         return dices;
     }
 
-    public Dice generateDice(){
-        Random rnd = new Random();
+    private Dice generateDice(){
         int value = rnd.nextInt(6) + 1;
         if (value == 6){
             return new Dice(5,true);

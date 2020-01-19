@@ -2,7 +2,7 @@ package regenwormenshared.messaging.client.messagehandlers;
 
 import regenwormenshared.messagehandling.handler.MessageHandlerBase;
 import regenwormenshared.messaging.client.IGameClient;
-import regenwormenshared.messaging.messages.Server.RegisterPlayerResultMessage;
+import regenwormenshared.messaging.messages.server.RegisterPlayerResultMessage;
 
 public class RegisterPlayerResultMessageHandler extends MessageHandlerBase<RegisterPlayerResultMessage> {
     private IGameClient client;
