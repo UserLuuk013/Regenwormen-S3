@@ -2,8 +2,8 @@ package regenwormenBigIdea.MessageHandling.Encapsulating;
 
 import org.junit.Assert;
 import org.junit.Test;
-import regenwormenshared.messageHandling.encapsulating.EncapsulatingMessage;
-import regenwormenshared.messageHandling.encapsulating.EncapsulatingMessageGenerator;
+import regenwormenshared.messagehandling.encapsulating.EncapsulatingMessage;
+import regenwormenshared.messagehandling.encapsulating.EncapsulatingMessageGenerator;
 
 public class EncapsulatingMessageGeneratorTest {
 

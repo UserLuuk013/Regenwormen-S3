@@ -1,8 +1,8 @@
 package regenwormenclient;
 
-import regenwormenshared.messageHandling.handler.IMessageHandlerFactory;
+import regenwormenshared.messagehandling.handler.IMessageHandlerFactory;
 import regenwormenshared.messaging.client.*;
-import regenwormenshared.messaging.client.messageHandlers.ClientMessageHandlerFactory;
+import regenwormenshared.messaging.client.messagehandlers.ClientMessageHandlerFactory;
 import regenwormenshared.websockets.IWebSocketsClientEndpoint;
 import websocketsclient.WebSocketsClientEndpoint;
 

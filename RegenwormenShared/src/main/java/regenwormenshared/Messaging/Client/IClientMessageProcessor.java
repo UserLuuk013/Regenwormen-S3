@@ -1,6 +1,6 @@
 package regenwormenshared.messaging.client;
 
-import regenwormenshared.messageHandling.processor.IMessageProcessor;
+import regenwormenshared.messagehandling.processor.IMessageProcessor;
 
 public interface IClientMessageProcessor extends IMessageProcessor {
     void registerGameClient(IGameClient gameClient);

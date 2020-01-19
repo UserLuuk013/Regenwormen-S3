@@ -1,6 +1,6 @@
-package regenwormenshared.messaging.server.messageHandlers;
+package regenwormenshared.messaging.server.messagehandlers;
 
-import regenwormenshared.messageHandling.handler.MessageHandlerBase;
+import regenwormenshared.messagehandling.handler.MessageHandlerBase;
 import regenwormenshared.messaging.messages.Client.EndRollDiceMessage;
 import regenwormenshared.messaging.server.IGameServer;
 

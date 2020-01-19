@@ -2,8 +2,8 @@ package websocketsclient;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import regenwormenshared.messageHandling.encapsulating.EncapsulatingMessage;
-import regenwormenshared.messageHandling.processor.IMessageProcessor;
+import regenwormenshared.messagehandling.encapsulating.EncapsulatingMessage;
+import regenwormenshared.messagehandling.processor.IMessageProcessor;
 import regenwormenshared.serialization.ISerializer;
 import regenwormenshared.serialization.SerializationProvider;
 import regenwormenshared.websockets.IWebSocketsClientEndpoint;
@@ -31,11 +31,13 @@ public class WebSocketsClientEndpoint extends WebSocketsBase implements IWebSock
     /**
      * The local websocket uri to connect to.
      */
-    private static final String uri = "ws://localhost:8095/regenwormen/";
+    private static final String URI = "ws://localhost:8095/regenwormen/";
 
     private Session session;
 
     private static final Logger log = LoggerFactory.getLogger(WebSocketsClientEndpoint.class);
+
+    private IMessageProcessor messageProcessor;
 
     /**
      * Get singleton instance of this class.
@@ -55,7 +57,7 @@ public class WebSocketsClientEndpoint extends WebSocketsBase implements IWebSock
         log.info("[WebSocket Client start]");
         try {
             WebSocketContainer container = ContainerProvider.getWebSocketContainer();
-            container.connectToServer(this, new URI(uri));
+            container.connectToServer(this, new URI(URI));
 
         } catch (IOException | URISyntaxException | DeploymentException ex) {
             // do something useful eventually
@@ -81,13 +83,13 @@ public class WebSocketsClientEndpoint extends WebSocketsBase implements IWebSock
 
     @OnOpen
     public void onWebSocketConnect(Session session){
-        log.info("[WebSocket Client open session] " + session.getRequestURI());
+        log.info("[WebSocket Client open session] {} ", session.getRequestURI());
         this.session = session;
     }
 
     @OnMessage
     public void onWebSocketText(String message, Session session){
-        log.info("[WebSocket Client message received] " + message);
+        log.info("[WebSocket Client message received] {} ", message);
         onWebSocketMessageReceived(message, session.getId());
     }
 
@@ -97,8 +99,6 @@ public class WebSocketsClientEndpoint extends WebSocketsBase implements IWebSock
         messageProcessor.processMessage(sessionId, msg.getMessageType(), msg.getMessageData());
     }
 
-    IMessageProcessor messageProcessor;
-
     @Override
     public void setMessageProcessor(IMessageProcessor handler) {
         this.messageProcessor = handler;
@@ -106,13 +106,13 @@ public class WebSocketsClientEndpoint extends WebSocketsBase implements IWebSock
 
     @OnError
     public void onWebSocketError(Session session, Throwable cause) {
-        log.info("[WebSocket Client connection error] " + cause.toString());
+        log.info("[WebSocket Client connection error] {0} ", cause);
     }
 
     @OnClose
     public void onWebSocketClose(CloseReason reason){
-        log.info("[WebSocket Client close session] " + session.getRequestURI());
-        log.info(" for reason " + reason);
+        log.info("[WebSocket Client close session] {} ", session.getRequestURI());
+        log.info(" for reason {} ", reason);
         session = null;
     }
 
@@ -120,7 +120,7 @@ public class WebSocketsClientEndpoint extends WebSocketsBase implements IWebSock
         try{
             session.getBasicRemote().sendText(message);
         } catch (IOException e){
-            System.out.println(e);
+            log.info("[IOException] {0}", e);
         }
     }
 

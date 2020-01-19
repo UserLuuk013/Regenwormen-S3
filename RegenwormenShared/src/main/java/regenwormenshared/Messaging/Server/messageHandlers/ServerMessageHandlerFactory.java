@@ -1,7 +1,7 @@
-package regenwormenshared.messaging.server.messageHandlers;
+package regenwormenshared.messaging.server.messagehandlers;
 
-import regenwormenshared.messageHandling.handler.IMessageHandler;
-import regenwormenshared.messageHandling.handler.IMessageHandlerFactory;
+import regenwormenshared.messagehandling.handler.IMessageHandler;
+import regenwormenshared.messagehandling.handler.IMessageHandlerFactory;
 import regenwormenshared.messaging.server.IGameServer;
 
 public class ServerMessageHandlerFactory implements IMessageHandlerFactory {

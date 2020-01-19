@@ -12,7 +12,7 @@ import regenwormenshared.dto.PlayerDTO;
 import regenwormenshared.responses.RestResponse;
 import restserver.mssqlcontexts.PlayerMSSQLContext;
 import restserver.repositories.PlayerRepository;
-import restserver.responseHelpers.RestResponseHelper;
+import restserver.responsehelpers.RestResponseHelper;
 
 @Path("/regenwormen")
 public class RestEndpoint {

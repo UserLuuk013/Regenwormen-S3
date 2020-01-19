@@ -8,10 +8,12 @@ import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.servlet.ServletContextHandler;
 import org.eclipse.jetty.websocket.jsr356.server.deploy.WebSocketServerContainerInitializer;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import regenwormenserver.GameServer;
-import regenwormenshared.messageHandling.handler.IMessageHandlerFactory;
+import regenwormenshared.messagehandling.handler.IMessageHandlerFactory;
 import regenwormenshared.messaging.server.*;
-import regenwormenshared.messaging.server.messageHandlers.ServerMessageHandlerFactory;
+import regenwormenshared.messaging.server.messagehandlers.ServerMessageHandlerFactory;
 
 /**
  * Hello world!
@@ -19,6 +21,8 @@ import regenwormenshared.messaging.server.messageHandlers.ServerMessageHandlerFa
  */
 public class WebSocketsServer {
     private static final int PORT = 8095;
+
+    private static Logger log = LoggerFactory.getLogger(WebSocketsServer.class);
 
     public static void main(String[] args) {
         IMessageHandlerFactory factory = new ServerMessageHandlerFactory();
@@ -59,8 +63,8 @@ public class WebSocketsServer {
             webSocketServer.start();
             webSocketServer.join();
 
-        } catch (Throwable t) {
-            t.printStackTrace(System.err);
+        } catch (Exception e) {
+            log.info("[Exception] {0}", e);
         }
     }
 }

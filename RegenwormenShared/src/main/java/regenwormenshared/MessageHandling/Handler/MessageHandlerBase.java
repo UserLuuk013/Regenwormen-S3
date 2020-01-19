@@ -1,4 +1,4 @@
-package regenwormenshared.messageHandling.handler;
+package regenwormenshared.messagehandling.handler;
 
 import regenwormenshared.serialization.ISerializer;
 import regenwormenshared.serialization.SerializationProvider;

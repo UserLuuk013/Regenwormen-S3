@@ -1,4 +1,4 @@
-package regenwormenshared.messageHandling.encapsulating;
+package regenwormenshared.messagehandling.encapsulating;
 
 import regenwormenshared.serialization.ISerializer;
 import regenwormenshared.serialization.SerializationProvider;

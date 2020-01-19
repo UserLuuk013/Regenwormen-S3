@@ -1,7 +1,7 @@
 package regenwormenshared.websockets;
 
-import regenwormenshared.messageHandling.encapsulating.EncapsulatingMessageGenerator;
-import regenwormenshared.messageHandling.encapsulating.IEncapsulatingMessageGenerator;
+import regenwormenshared.messagehandling.encapsulating.EncapsulatingMessageGenerator;
+import regenwormenshared.messagehandling.encapsulating.IEncapsulatingMessageGenerator;
 import regenwormenshared.serialization.ISerializer;
 import regenwormenshared.serialization.SerializationProvider;
 

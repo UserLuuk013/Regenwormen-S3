@@ -1,6 +1,6 @@
-package regenwormenshared.messaging.client.messageHandlers;
+package regenwormenshared.messaging.client.messagehandlers;
 
-import regenwormenshared.messageHandling.handler.MessageHandlerBase;
+import regenwormenshared.messagehandling.handler.MessageHandlerBase;
 import regenwormenshared.messaging.client.IGameClient;
 import regenwormenshared.messaging.messages.Server.NewRoundStartedMessage;
 

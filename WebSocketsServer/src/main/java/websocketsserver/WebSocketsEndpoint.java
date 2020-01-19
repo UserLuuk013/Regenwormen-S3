@@ -2,8 +2,8 @@ package websocketsserver;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import regenwormenshared.messageHandling.encapsulating.EncapsulatingMessage;
-import regenwormenshared.messageHandling.processor.IMessageProcessor;
+import regenwormenshared.messagehandling.encapsulating.EncapsulatingMessage;
+import regenwormenshared.messagehandling.processor.IMessageProcessor;
 import regenwormenshared.websockets.IWebSocketsEndpoint;
 import regenwormenshared.websockets.WebSocketsBase;
 
@@ -38,14 +38,14 @@ public class WebSocketsEndpoint extends WebSocketsBase implements IWebSocketsEnd
 
     @OnOpen
     public void onConnect(Session session) {
-        log.info("[WebSocket Connected] SessionID: " + session.getId());
+        log.info("[WebSocket Connected] SessionID: {}", session.getId());
         sessions.add(session);
-        log.info("[#sessions]: " + sessions.size());
+        log.info("[#sessions]: {}", sessions.size());
     }
 
     @OnMessage
     public void onText(String message, Session session) {
-        log.info(sessionIdMessage + session.getId() + " [Received] : " + message);
+        log.info(sessionIdMessage + session.getId() + " [Received] : {}", message);
         String sessionId = session.getId();
         EncapsulatingMessage msg = getSerializer().deserialize(message, EncapsulatingMessage.class);
         getMessageProcessor().processMessage(sessionId, msg.getMessageType(), msg.getMessageData());
@@ -53,15 +53,16 @@ public class WebSocketsEndpoint extends WebSocketsBase implements IWebSocketsEnd
 
     @OnClose
     public void onClose(CloseReason reason, Session session) {
-        log.info(sessionIdMessage + session.getId() + " [Socket Closed]: " + reason);
+        log.info(sessionIdMessage + session.getId() + " [Socket Closed]: {}", reason);
         getMessageProcessor().handleDisconnect(session.getId());
         sessions.remove(session);
     }
 
     @OnError
     public void onError(Throwable cause, Session session) {
-        log.info(sessionIdMessage + session.getId() + "[ERROR]: ");
+        log.info(sessionIdMessage + session.getId() + "[ERROR]: {}");
         cause.printStackTrace(System.err);
+        log.info("[ERROR]: {0}", cause);
     }
 
     @Override
@@ -110,7 +111,7 @@ public class WebSocketsEndpoint extends WebSocketsBase implements IWebSocketsEnd
         try{
             session.getBasicRemote().sendText(message);
         } catch (IOException e){
-            System.out.println(e);
+            log.info("[IOException]: {0}", e);
         }
     }
 }

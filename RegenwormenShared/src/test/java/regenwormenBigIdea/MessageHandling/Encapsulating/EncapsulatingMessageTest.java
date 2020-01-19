@@ -2,7 +2,7 @@ package regenwormenBigIdea.MessageHandling.Encapsulating;
 
 import org.junit.Assert;
 import org.junit.Test;
-import regenwormenshared.messageHandling.encapsulating.EncapsulatingMessage;
+import regenwormenshared.messagehandling.encapsulating.EncapsulatingMessage;
 
 public class EncapsulatingMessageTest {
 

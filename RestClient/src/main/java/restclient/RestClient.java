@@ -23,7 +23,7 @@ public class RestClient {
 
     private static final Logger log = LoggerFactory.getLogger(RestClient.class);
 
-    private static final String url = "http://localhost:8090/regenwormen";
+    private static final String URL = "http://localhost:8090/regenwormen";
 
     private final Gson gson = new Gson();
 
@@ -48,7 +48,7 @@ public class RestClient {
     private RestResponse executeQueryPost(PlayerDTO playerRequest, String queryPost) {
 
         // Build the query for the REST service
-        final String query = url + queryPost;
+        final String query = URL + queryPost;
         log.info("[Query Post]: {}", query);
 
         // Execute the HTTP POST request
@@ -75,12 +75,12 @@ public class RestClient {
             log.info("[Entity]: {}", entityString);
             return gson.fromJson(entityString, RestResponse.class);
         } catch (IOException e) {
-            log.info("IOException: {}", e.toString());
+            log.info("IOException: {0}", e);
             RestResponse restResponse = new RestResponse();
             restResponse.setSuccess(false);
             return restResponse;
         } catch (JsonSyntaxException e) {
-            log.info("JsonSyntaxException: {}", e.toString());
+            log.info("JsonSyntaxException: {0}", e);
             RestResponse restResponse = new RestResponse();
             restResponse.setSuccess(false);
             return restResponse;

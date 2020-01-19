@@ -9,6 +9,7 @@ public class DataConnection {
 
     private Connection conn;
     private static final Logger log = LoggerFactory.getLogger(DataConnection.class);
+    private String errorMessage = "[ERROR]: ";
 
     protected DataConnection() {
         String connectionUrl = "jdbc:sqlserver://mssql.fhict.local;databaseName=dbi409381_regenworm;";
@@ -16,7 +17,7 @@ public class DataConnection {
             conn = DriverManager.getConnection(connectionUrl, "dbi409381_regenworm", "UserLuuk013!");
         }
         catch (SQLException e) {
-            log.info("[ERROR]", e);
+            log.info(errorMessage, e);
         }
     }
 
@@ -27,7 +28,7 @@ public class DataConnection {
             rs = stmt.executeQuery(query);
         }
         catch(SQLException e){
-            log.info("[ERROR]", e);
+            log.info(errorMessage, e);
         }
         return rs;
     }
@@ -38,7 +39,7 @@ public class DataConnection {
             stmt.executeUpdate();
         }
         catch(SQLException e){
-            log.info("[ERROR]", e);
+            log.info(errorMessage, e);
         }
     }
 }
