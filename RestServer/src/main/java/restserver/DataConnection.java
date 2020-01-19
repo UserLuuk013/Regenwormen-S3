@@ -4,6 +4,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.sql.*;
+import java.util.Objects;
 
 public class DataConnection {
 
@@ -15,9 +16,7 @@ public class DataConnection {
 
         try{
             String connectionUrl = "jdbc:sqlserver://mssql.fhict.local;databaseName=dbi409381_regenworm;";
-            String databaseUser = "dbi409381_regenworm";
-            String databasePassword = "UserLuuk013!";
-            conn = DriverManager.getConnection(connectionUrl, databaseUser, databasePassword);
+            conn = DriverManager.getConnection(connectionUrl, "dbi409381_regenworm", "UserLuuk013!");
         }
         catch (SQLException e) {
             log.info(errorMessage, e);
@@ -26,28 +25,23 @@ public class DataConnection {
 
     protected ResultSet executeQuery(String query) throws SQLException {
         ResultSet rs = null;
-        try{
-            Statement stmt = conn.createStatement();
+        try (Statement stmt = conn.createStatement()) {
             rs = stmt.executeQuery(query);
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             log.info(errorMessage, e);
-        }
-        finally {
+        } finally {
             conn.close();
+            Objects.requireNonNull(rs).close();
         }
         return rs;
     }
 
     protected void executeQueryNoResultSet(String query) throws SQLException {
-        try{
-            PreparedStatement stmt = conn.prepareStatement(query);
+        try (PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.executeUpdate();
-        }
-        catch(SQLException e){
+        } catch (SQLException e) {
             log.info(errorMessage, e);
-        }
-        finally {
+        } finally {
             conn.close();
         }
     }
