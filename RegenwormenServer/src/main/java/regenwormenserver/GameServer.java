@@ -100,7 +100,7 @@ public class GameServer implements IGameServer {
         }
     }
 
-    public boolean isAllInList() {
+    private boolean isAllInList() {
         boolean allInList = true;
         for (Dice thrownDice : rollDiceResult.getThrownDices()){
             if (!currentRound.getTakenDices().contains(thrownDice)) {
