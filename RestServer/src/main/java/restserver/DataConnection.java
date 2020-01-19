@@ -31,7 +31,8 @@ public class DataConnection {
             log.info(errorMessage, e);
         } finally {
             conn.close();
-            Objects.requireNonNull(rs).close();
+            assert rs != null;
+            rs.close();
         }
         return rs;
     }
