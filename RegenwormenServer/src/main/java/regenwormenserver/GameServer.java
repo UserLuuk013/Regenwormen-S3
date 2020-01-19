@@ -200,13 +200,15 @@ public class GameServer implements IGameServer {
     @Override
     public void returnTile(String sessionId) {
         if (gameState == GameState.RETURNTILE){
-            this.returnTileResult = currentRound.returnTile(new ReturnTileResult(row, getPlayerByTurn(true).getStack()));
+            if (!getPlayerByTurn(true).getStack().isEmpty()){
+                this.returnTileResult = currentRound.returnTile(new ReturnTileResult(row, getPlayerByTurn(true).getStack()));
 
-            row = returnTileResult.getRow();
-            getPlayerByTurn(true).setStack(returnTileResult.getStack());
+                row = returnTileResult.getRow();
+                getPlayerByTurn(true).setStack(returnTileResult.getStack());
 
+                messageGenerator.notifyReturnTileResult(sessionId, returnTileResult);
+            }
             this.gameState = GameState.ENDROUND;
-            messageGenerator.notifyReturnTileResult(sessionId, returnTileResult);
             roundEnded(sessionId);
         }
         else{

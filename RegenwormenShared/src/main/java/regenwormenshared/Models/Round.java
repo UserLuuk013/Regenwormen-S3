@@ -42,10 +42,6 @@ public class Round {
         return !takenDices.contains(chosenDice);
     }
 
-    public boolean endRound() {
-        return true;
-    }
-
     public TakeTileResult takeTile(SetAsideResult setAsideResult, TakeTileResult takeTileResult){
         int value = 0;
         boolean isTileTaken = false;

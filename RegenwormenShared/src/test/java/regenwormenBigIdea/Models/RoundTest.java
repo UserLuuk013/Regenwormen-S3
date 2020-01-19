@@ -76,16 +76,6 @@ public class RoundTest {
     }
 
     @Test
-    public void testRoundEndRound(){
-        // Arrange
-
-        // Act
-        boolean actual = round.endRound();
-        // Assert
-        Assert.assertTrue(actual);
-    }
-
-    @Test
     public void testRoundTakeTileEnoughValue(){
         // Arrange
         int expectedStackSize = 1;

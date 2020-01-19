@@ -28,6 +28,7 @@ public class ClientGUI implements IClientGUI {
     public void processRegisterPlayerResult(String sessionId, boolean result) {
         System.out.println("The result of registering by Player " + sessionId + " is:");
         System.out.println(result);
+        menu();
     }
 
     @Override
@@ -172,6 +173,7 @@ public class ClientGUI implements IClientGUI {
         if (gameWarning == GameWarning.LOGINFAILED){
             System.out.println("Login Failed on filled in Username and Password.");
             System.out.println("Username and/or Password combination is not right.");
+            menu();
         }
         else if (gameWarning == GameWarning.ROLLDICE){
             System.out.println("The rolled dices correspond to the taken dices.");
@@ -195,6 +197,42 @@ public class ClientGUI implements IClientGUI {
             System.out.println("Please, choose another tile to take.");
             playTurn();
         }
+    }
+
+    public void menu(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter an action...");
+        System.out.println("Choose from Register or Login");
+        String choice = scanner.next();
+
+        if (choice.equals("Register")){
+            playerRegister();
+        }
+        else if (choice.equals("Login")){
+            playerLogin();
+        }
+        else{
+            menu();
+        }
+    }
+
+
+    private void playerRegister(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter an username");
+        String username = scanner.next();
+        System.out.println("Enter a password");
+        String password = scanner.next();
+        this.gameClient.registerPlayer(username, password);
+    }
+
+    private void playerLogin(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Enter an username");
+        String username = scanner.next();
+        System.out.println("Enter a password");
+        String password = scanner.next();
+        this.gameClient.loginPlayer(username, password);
     }
 
     private void playTurn(){

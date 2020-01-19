@@ -6,16 +6,16 @@ import regenwormenshared.messaging.client.messagehandlers.ClientMessageHandlerFa
 import regenwormenshared.websockets.IWebSocketsClientEndpoint;
 import websocketsclient.WebSocketsClientEndpoint;
 
-public class TestApp1 {
+public class RegenwormenApp {
 
-    private IGameClient gameClient;
+    private ClientGUI clientGUI;
 
-    public TestApp1(IGameClient gameClient){
-        this.gameClient = gameClient;
+    public RegenwormenApp(ClientGUI clientGUI){
+        this.clientGUI = clientGUI;
     }
 
-    public void loginPlayer(){
-        gameClient.loginPlayer("UserLuuk2020", "Regenwormen2020!");
+    public void menu(){
+        clientGUI.menu();
     }
 
     public static void main(String[] args){
@@ -32,7 +32,7 @@ public class TestApp1 {
         socket.start();
         processor.registerGameClient(gameClient);
 
-        TestApp1 test = new TestApp1(gameClient);
-        test.loginPlayer();
+        RegenwormenApp test = new RegenwormenApp(new ClientGUI(gameClient));
+        test.menu();
     }
 }
