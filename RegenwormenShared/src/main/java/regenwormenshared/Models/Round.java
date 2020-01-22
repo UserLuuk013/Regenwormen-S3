@@ -73,9 +73,9 @@ public class Round {
 
         returnTileResult.getStack().remove(tile);
 
-        for (int i = 1; i < returnTileResult.getRow().size() + 1; i++){
-            if (returnTileResult.getRow().get(i).getValue() - 1 == tile.getValue()){
-                returnTileResult.getRow().add(i, tile);
+        for (Tile tileInRow : returnTileResult.getRow()){
+            if (tileInRow.getValue() == tile.getValue() - 1){
+                returnTileResult.getRow().add(returnTileResult.getRow().indexOf(tileInRow) + 1, tile);
                 break;
             }
         }

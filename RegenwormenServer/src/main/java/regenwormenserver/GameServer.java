@@ -166,7 +166,7 @@ public class GameServer implements IGameServer {
             }
         }
 
-        if (!endRollDice && stackOpponent.get(stackOpponent.size() - 1).isVisible() && value >= stackOpponent.get(stackOpponent.size() - 1).getValue()){
+        if (!endRollDice && stackOpponent.get(stackOpponent.size() - 1).isVisible() && value >= stackOpponent.get(stackOpponent.size() - 1).getValue() && currentRound.getTakenDices().contains(new Dice(5, true))){
             endRollDice = true;
         }
         return endRollDice;
@@ -179,18 +179,23 @@ public class GameServer implements IGameServer {
                 this.takeTileResult = currentRound.takeTile(setAsideResult, new TakeTileResult(chosenTile, row, getPlayerByTurn(true).getStack()));
                 row = takeTileResult.getChosenStackOrRow();
                 getPlayerByTurn(true).setStack(takeTileResult.getStack());
+
+                messageGenerator.notifyTakeTileResult(sessionId, takeTileResult);
+                this.gameState = GameState.ENDROUND;
+                roundEnded(sessionId);
             }
             else if (getPlayerByTurn(false).getStack().contains(chosenTile)){
                 this.takeTileResult = currentRound.takeTile(setAsideResult, new TakeTileResult(chosenTile, getPlayerByTurn(false).getStack(), getPlayerByTurn(true).getStack()));
                 getPlayerByTurn(false).setStack(takeTileResult.getChosenStackOrRow());
                 getPlayerByTurn(true).setStack(takeTileResult.getStack());
+
+                messageGenerator.notifyTakeTileResult(sessionId, takeTileResult);
+                this.gameState = GameState.ENDROUND;
+                roundEnded(sessionId);
             }
             else{
                 messageGenerator.notifyGameWarningMessage(sessionId, GameWarning.TAKETILE);
             }
-            messageGenerator.notifyTakeTileResult(sessionId, takeTileResult);
-            this.gameState = GameState.ENDROUND;
-            roundEnded(sessionId);
         }
         else{
             messageGenerator.notifyErrorGameState(sessionId, gameState);

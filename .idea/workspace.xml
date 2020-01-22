@@ -224,7 +224,7 @@
       <workItem from="1579337850016" duration="11078000" />
       <workItem from="1579429167195" duration="21686000" />
       <workItem from="1579515162192" duration="42000" />
-      <workItem from="1579683603210" duration="2978000" />
+      <workItem from="1579683603210" duration="7754000" />
     </task>
     <servers />
   </component>
@@ -274,7 +274,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RegenwormenServer/src/main/java/regenwormenserver/GameServer.java</url>
-          <line>230</line>
+          <line>235</line>
           <option name="timeStamp" value="83" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -284,13 +284,13 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RegenwormenServer/src/main/java/regenwormenserver/GameServer.java</url>
-          <line>201</line>
+          <line>206</line>
           <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/RegenwormenShared/src/main/java/regenwormenshared/models/Round.java</url>
           <line>75</line>
-          <option name="timeStamp" value="90" />
+          <option name="timeStamp" value="91" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
