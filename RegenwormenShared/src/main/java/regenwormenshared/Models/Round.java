@@ -68,11 +68,17 @@ public class Round {
         Tile tileRow = returnTileResult.getRow().get(returnTileResult.getRow().size() - 1);
 
         if (tile.getValue() < tileRow.getValue()){
-            tile.setVisible(false);
+            tileRow.setVisible(false);
         }
 
         returnTileResult.getStack().remove(tile);
-        returnTileResult.getRow().add(tile);
+
+        for (int i = 1; i < returnTileResult.getRow().size() + 1; i++){
+            if (returnTileResult.getRow().get(i).getValue() - 1 == tile.getValue()){
+                returnTileResult.getRow().add(i, tile);
+                break;
+            }
+        }
 
         return returnTileResult;
     }

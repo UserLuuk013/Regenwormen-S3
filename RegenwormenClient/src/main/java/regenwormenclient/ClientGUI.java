@@ -28,6 +28,12 @@ public class ClientGUI implements IClientGUI {
     public void processRegisterPlayerResult(String sessionId, boolean result) {
         System.out.println("The result of registering by Player " + sessionId + " is:");
         System.out.println(result);
+        if (result){
+            System.out.println("Registered successfully by Player " + sessionId);
+        }
+        else{
+            System.out.println("Registered failed by Player " + sessionId);
+        }
         menu();
     }
 
